@@ -37,5 +37,21 @@
 
     <!-- Color Skin css -->
     <link id="theme" rel="stylesheet" type="text/css" media="all" href="{{asset('FrontTheme/assets/color-skins-rtl/color.css')}}" />
-   @yield('css')
+   <style>
+       .header-style1 .horizontalMenu>.horizontalMenu-list>li{
+           padding: 1rem 0.5rem !important;
+       }
+       horizontalMenu ul li a.btn {
+           font-size: 14px !important;
+           margin: -5px 0 !important;;
+       }
+
+       .horizontalMenu{
+           float: right !important;
+           margin-right: 40px !important;
+           font-size: 17px;
+           font-weight: 600;
+       }
+   </style>
+    @yield('css')
 </head>

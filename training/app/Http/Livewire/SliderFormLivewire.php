@@ -46,14 +46,14 @@ class SliderFormLivewire extends Component
             'url'=>  route('slider.index'),
         ]);
 
-        if (!$this->slider->id){
-            $this->resetForm();
-        }
+//        if (!$this->slider->id){
+//            $this->resetForm();
+//        }
     }
-    public function resetForm(){
-        $this->slider = new SliderModel() ;
-        $this->image = null ;
-    }
+//    public function resetForm(){
+//        $this->slider = new SliderModel() ;
+//        $this->image = null ;
+//    }
 
 
 }

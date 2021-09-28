@@ -102,57 +102,57 @@
         </div>
     </div>
 
-    <div class="py-4 footer-main border-bottom bg-dark p-0 border-top-0 border-white-1">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg">
-                    <ul class="payments mb-0 mt-2">
-                        <li>
-                            <a href="javascript:void(0)" class="payments-icon text-white-50"><i class="fa fa-cc-amex" aria-hidden="true"></i></a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)" class="payments-icon text-white-50"><i class="fa fa-cc-visa" aria-hidden="true"></i></a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)" class="payments-icon text-white-50"><i class="fa fa-credit-card-alt" aria-hidden="true"></i></a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)" class="payments-icon text-white-50"><i class="fa fa-cc-mastercard" aria-hidden="true"></i></a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)" class="payments-icon text-white-50"><i class="fa fa-cc-paypal" aria-hidden="true"></i></a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)" class="payments-icon text-white-50"><i class="fa fa-cc-discover" aria-hidden="true"></i></a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)" class="payments-icon text-white-50"><i class="fa fa-google-wallet" aria-hidden="true"></i></a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-lg col-lg-auto">
-                    <div class="form-group d-flex mb-0">
-                        <div class="me-4 w-200">
-                            <select class="form-control select2" data-placeholder="Select Country">
-                                <option value="en">English</option>
-                                <option value="en">Arabic</option>
-                                <option value="en">German</option>
-                                <option value="en">Greek</option>
-                            </select>
-                        </div>
-                        <div class="me-4 w-200">
-                            <select class="form-control select2" data-placeholder="Select Country">
-                                <option value="en">USD</option>
-                                <option value="en">EUR</option>
-                                <option value="en">INR</option>
-                                <option value="en">GBP</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+{{--    <div class="py-4 footer-main border-bottom bg-dark p-0 border-top-0 border-white-1">--}}
+{{--        <div class="container">--}}
+{{--            <div class="row">--}}
+{{--                <div class="col-lg">--}}
+{{--                    <ul class="payments mb-0 mt-2">--}}
+{{--                        <li>--}}
+{{--                            <a href="javascript:void(0)" class="payments-icon text-white-50"><i class="fa fa-cc-amex" aria-hidden="true"></i></a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="javascript:void(0)" class="payments-icon text-white-50"><i class="fa fa-cc-visa" aria-hidden="true"></i></a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="javascript:void(0)" class="payments-icon text-white-50"><i class="fa fa-credit-card-alt" aria-hidden="true"></i></a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="javascript:void(0)" class="payments-icon text-white-50"><i class="fa fa-cc-mastercard" aria-hidden="true"></i></a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="javascript:void(0)" class="payments-icon text-white-50"><i class="fa fa-cc-paypal" aria-hidden="true"></i></a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="javascript:void(0)" class="payments-icon text-white-50"><i class="fa fa-cc-discover" aria-hidden="true"></i></a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="javascript:void(0)" class="payments-icon text-white-50"><i class="fa fa-google-wallet" aria-hidden="true"></i></a>--}}
+{{--                        </li>--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
+{{--                <div class="col-lg col-lg-auto">--}}
+{{--                    <div class="form-group d-flex mb-0">--}}
+{{--                        <div class="me-4 w-200">--}}
+{{--                            <select class="form-control select2" data-placeholder="Select Country">--}}
+{{--                                <option value="en">English</option>--}}
+{{--                                <option value="en">Arabic</option>--}}
+{{--                                <option value="en">German</option>--}}
+{{--                                <option value="en">Greek</option>--}}
+{{--                            </select>--}}
+{{--                        </div>--}}
+{{--                        <div class="me-4 w-200">--}}
+{{--                            <select class="form-control select2" data-placeholder="Select Country">--}}
+{{--                                <option value="en">USD</option>--}}
+{{--                                <option value="en">EUR</option>--}}
+{{--                                <option value="en">INR</option>--}}
+{{--                                <option value="en">GBP</option>--}}
+{{--                            </select>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
     <div class="py-3 bg-dark">
         <div class="container">
             <div class="row d-flex">

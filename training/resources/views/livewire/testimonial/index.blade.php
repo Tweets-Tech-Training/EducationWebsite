@@ -105,7 +105,7 @@
                                 <th rowspan="1" colspan="1">
                                     المسمى الوظيفي
                                 </th>
-                                <th rowspan="1" colspan="1">
+                                <th rowspan="1" colspan="1" style="width: 40%">
                                     الرسالة
                                 </th>
 
