@@ -146,6 +146,9 @@ return [
         'partner.title'=>[
             'required'=>' الاسم  مطلوب'
         ],
+        'course_id'=>[
+            'required'=>'الدورة مطلوبة'
+        ]
     ],
 
     /*
@@ -204,6 +207,7 @@ return [
         'job_title'             =>'المسمى الوظيفي',
         'link'                  =>'رابط الموقع',
         'whatsapp'              =>'حساب الواتس آب',
-        'site_name'             =>'اسم الموقع'
+        'site_name'             =>'اسم الموقع',
+        'course_id'             =>'الدورة'
     ],
 ];

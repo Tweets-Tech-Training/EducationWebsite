@@ -9,80 +9,6 @@
    @include('front_layout.sliderImage')
 @endsection
 @section('content')
-{{--    *** Start  Section Register in Course  *** --}}
-<section >
-    <div class="container pt-20 pb-5 ">
-        <div class="form row">
-            <div class="form-group col-xl-2">
-                <span> اختر الدورة </span>
-                <input type="text" class="form-control" wire:model="course.name"  name="name"   placeholder="الاسم">
-                @error('course.name') <span class="text-danger">{{ $message }}</span> @enderror
-            </div>
-            <div class="form-group col-xl-2">
-                <span> اختر الدورة </span>
-                <input type="text" class="form-control" wire:model="course.name"  name="name"   placeholder="الاسم">
-                @error('course.name') <span class="text-danger">{{ $message }}</span> @enderror
-            </div>
-
-            <div class="form-group col-xl-2">
-                <span> اختر الدورة </span>
-                <input type="text" class="form-control" wire:model="course.name"  name="name"   placeholder="الاسم">
-                @error('course.name') <span class="text-danger">{{ $message }}</span> @enderror
-            </div>
-            <div class="form-group col-xl-2">
-                <span> اختر الدورة </span>
-                <input type="text" class="form-control" wire:model="course.name"  name="name"   placeholder="الاسم">
-                @error('course.name') <span class="text-danger">{{ $message }}</span> @enderror
-            </div>
-            <div class="form-group col-xl-2">
-                <span> اختر الدورة </span>
-                <input type="text" class="form-control" wire:model="course.name"  name="name"   placeholder="الاسم">
-                @error('course.name') <span class="text-danger">{{ $message }}</span> @enderror
-            </div>
-            <div class="form-group col-xl-2 mt-5">
-                <a class="form-control btn btn-secondary"> سجل الآن </a>
-            </div>
-        </div>
-{{--        <div class="form-group col-md-12">--}}
-{{--                        <div class="col-md-2">--}}
-{{--                            <span> اختر الدورة </span>--}}
-{{--                            <input type="text" class="form-control" wire:model="course.name"  name="name"   placeholder="الاسم">--}}
-{{--                            @error('course.name') <span class="text-danger">{{ $message }}</span> @enderror--}}
-{{--                        </div>--}}
-{{--                        <div class="col-md-2">--}}
-{{--                            <span> الاسم </span>--}}
-{{--                            <input type="text" class="form-control" wire:model="course.place"  name="place"   placeholder="المكان">--}}
-{{--                            @error('course.place') <span class="text-danger">{{ $message }}</span> @enderror--}}
-{{--                        </div>--}}
-{{--                        <div class="col-md-2">--}}
-{{--                            <span> الإيميل </span>--}}
-{{--                            <input type="text" class="form-control" wire:model="course.place"  name="place"   placeholder="المكان">--}}
-{{--                            @error('course.place') <span class="text-danger">{{ $message }}</span> @enderror--}}
-{{--                        </div>--}}
-{{--                        <div class="col-md-2">--}}
-{{--                            <span> الموبايل </span>--}}
-{{--                            <input type="text" class="form-control" wire:model="course.place"  name="place"   placeholder="المكان">--}}
-{{--                            @error('course.place') <span class="text-danger">{{ $message }}</span> @enderror--}}
-{{--                        </div>--}}
-{{--                        <div class="col-md-2">--}}
-{{--                            <span> العنوان </span>--}}
-{{--                            <input type="text" class="form-control" wire:model="course.place"  name="place"   placeholder="المكان">--}}
-{{--                            @error('course.place') <span class="text-danger">{{ $message }}</span> @enderror--}}
-{{--                        </div>--}}
-{{--                        <div class="col-md-2">--}}
-{{--                            <a class="form-control btn btn-secondary"> سجل الآن </a>--}}
-{{--                        </div>--}}
-
-{{--        </div>--}}
-
-
-    </div>
-</section>
-
-
-{{--    *** End Section Register in Course  *** --}}
-
-
 
     {{--    *** Section Online Classes  *** --}}
 {{--    <section class="sptb bg-white">--}}
@@ -128,10 +54,15 @@
 {{--    *** Section latest Courses  *** --}}
     <section class="sptb bg-white">
         <div class="container">
-            <div class="section-title d-md-flex">
+            <div class="section-title d-md-flex pb-3">
                 <div>
-                    <h2>البرامج و الدورات</h2>
-                    <p class="fs-18 lead">اختر الدورة المطلوبة</p>
+                    <h2>
+                    البرامج و الدورات
+                        <hr class="mt-2 mb-2">
+                    </h2>
+                    <p class="fs-20 lead">
+                        اختر الدورة المطلوبة
+                    </p>
                 </div>
                 <div class="ms-auto d-inline-flex">
                     <div class="w-150 mt-3 me-4">
@@ -214,8 +145,83 @@
     </section>
     <!--  *** End Section latest Courses *** -->
 
+    {{--    *** Start  Section Register in Course  *** --}}
+    <section class="sptb bg-gray-lightest" style="padding-bottom: 3rem">
+        <div class="container">
+            <div class="section-title d-md-flex pb-3">
+                <div>
+                    <h2>
+                        التسجيل في الدورات
+                        <hr class="mt-2 mb-2">
+                    </h2>
+                    <p class="fs-20 lead">
+                        سجل معنا الآن
+                    </p>
+                </div>
+            </div>
+            <div  style="display: flex; justify-content: center; width: 100%">
+                <form style="display: table-cell; vertical-align: middle; width: 70%"  >
+                    @method('POST')
+                    <div id="scrollTop" class="alert alert-success alert-dismissible fade show" role="alert" style="display: none;padding:7px;">
+                        تم التسجيل بالدورة بنجاح
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="form row" >
+                        <div class="form-group col-md-6">
+                            <span class="fs-15 fw-bold" >  الدورة </span>
+                            <select name="course_id" id="course_id" class="form-control select2-show-search  border-bottom-0" data-placeholder="Select Category">
+                                <option value=" " >اختر الدورة </option>
+                                @foreach($courses as $course)
+                                    <option class=" p-5"  value="{{$course->id}}" > {{$course->name}}  </option>
+                                @endforeach
+                            </select>
+                            <span class="text-danger" id="error_course_id"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <span class="fs-15 fw-bold" >  الاسم </span>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="أدخل الاسم">
+                             <span class="text-danger "id="error_name" ></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <span class="fs-15 fw-bold" >  الجنس  </span>
+                            <select name="gender" id="gender" class="form-control select2-show-search  border-bottom-0" data-placeholder="Select gender">
+                                <option value=" ">اختر الجنس </option>
+                                <option class=" p-5"  value="M" > ذكر  </option>
+                                <option class=" p-5"  value="F" > أنثى  </option>
+                            </select>
+                            <span class="text-danger" id="error_gender"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <span class="fs-15 fw-bold" >  الايميل  </span>
+                            <input type="text" class="form-control" id="email" name="email" placeholder="أدخل الايميل">
+                            <span class="text-danger" id="error_email"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <span class="fs-15 fw-bold"> رقم الجوال </span>
+                            <input type="text" class="form-control" id="mobile" name="mobile" placeholder="أدخل رقم الجوال">
+                            <span class="text-danger" id="error_mobile"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <span class="fs-15 fw-bold" > العنوان </span>
+                            <input type="text" class="form-control" name="address" id="address" placeholder=" أدخل العنوان  ">
+                            <span class="text-danger" id="error_address"></span>
+                        </div>
+                        <div class="form-group" >
+                            <button id="SubmitRegisterCourseForm" class="form-control btn btn-primary" style="margin: 0 auto; width: 35%; margin-top:25px"> سجل الآن </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    {{--    *** End Section Register in Course  *** --}}
+
 {{--   ****  Start Section What Says About Us *** --}}
-    <section class="sptb position-relative">
+    <section class="sptb position-relative bg-white">
         <div class="container">
             <div class="section-title d-md-flex">
                 <div>
@@ -314,4 +320,57 @@
 
 @endsection
 @section('script')
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        $(document).ready(function (){
+            $('#SubmitRegisterCourseForm').click(function(e){
+                e.preventDefault();
+                $("#SubmitRegisterCourseForm").html('تحميل').prepend('<span id="loadingCreate" class="spinner-border spinner-border-sm"></span>');
+                var course_id = $('#course_id').val();
+                var name= $('#name').val();
+                var gender= $('#gender').val();
+                var email= $('#email').val();
+                var mobile= $('#mobile').val();
+                var address= $('#address').val();
+                console.log(course_id +gender);
+                var myformData  = new FormData();
+                myformData.append("course_id", course_id);
+                myformData.append("name", name);
+                myformData.append("gender", gender);
+                myformData.append("email", email);
+                myformData.append("mobile", mobile);
+                myformData.append("address", address);
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $.ajax({
+                    url: "{{ route('course.register') }}",
+                    method: 'POST',
+                    dataType: 'json',
+                    // contentType: "multipart/form-data",// it used when data send to server
+                    processData: false,
+                    contentType: false,
+                    cache: false,
+                    data: myformData , // it send form data to server
+                    enctype: 'multipart/form-data',
+                    success: function(result) {
+                        $("#SubmitRegisterCourseForm").html('سجل الآن');
+                        $('#loadingCreate').css('display','none');
+                        // $('.alert-danger').hide();
+                        $('.alert-success').show();
+                    },
+                    error:function(xhr,status,error){
+                        $("#SubmitRegisterCourseForm").html('سجل الآن');
+                        $('#loadingCreate').css('display','none');
+                        // $('.alert-danger').html('');
+                        $.each(xhr.responseJSON.errors, function(key, value) {
+                            $('#error_'+key).text(value);
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 @endsection

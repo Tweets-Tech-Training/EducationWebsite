@@ -82,6 +82,5 @@ Route::group(['middleware'=>'auth','prefix'=>'training/admin'],function(){
 
 //  *** Start Front index Route *** //
 Route::get('/index',[HomeController::class,'index']);
-Route::get('/getCategories',[HomeController::class,'getSixCategories']);
-
+Route::post('/course-registration',[HomeController::class,'courseRegistration'])->name('course.register');
 //  *** End Front index Route *** //
