@@ -10,10 +10,7 @@ class CourseRegistration extends Model
     use HasFactory;
     protected $table = 'course_registrations';
     protected $fillable=[
-      'user_id',
-      'gender',
-      'mobile',
-      'address',
+      'student_id',
       'course_id',
     ];
 }

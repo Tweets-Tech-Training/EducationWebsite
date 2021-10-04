@@ -49,7 +49,7 @@
 
        .horizontalMenu{
            float: right !important;
-           margin-right: 40px !important;
+           margin-right: 195px !important;
            font-size: 17px;
            font-weight: 600;
        }

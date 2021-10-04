@@ -25,6 +25,7 @@ class CreateCoursesTable extends Migration
             $table->float('price');
             $table->string('payment_details');
             $table->string('image');
+            $table->foreignId('category_id')->constrained();
             $table->timestamps();
         });
     }

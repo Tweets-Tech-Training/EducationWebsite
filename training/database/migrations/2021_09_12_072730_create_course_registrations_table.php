@@ -15,10 +15,7 @@ class CreateCourseRegistrationsTable extends Migration
     {
         Schema::create('course_registrations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
-            $table->string('gender',1);
-            $table->string('mobile',10)->unique();
-            $table->string('address');
+            $table->foreignId('student_id')->constrained();
             $table->foreignId('course_id')->constrained();
             $table->timestamps();
         });

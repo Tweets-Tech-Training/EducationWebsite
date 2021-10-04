@@ -2,11 +2,47 @@
 @section('title','Home Page')
 @section('css')
     <style>
-
+        .form-control{
+            border: 1px solid #9797b6;
+            font-size: 13px;
+        }
+        .select2-container{
+            border-color:#9797b6 ;
+            border: 1px solid #9797b6;
+            /*1px solid #ededf5*/
+            border-radius: 7px;
+            font-size: 13px;
+        }
+        .select2,.select2-dropdown ,.select2-dropdown--below{
+            color: #494872;
+            border-color: #9797b6;
+        }
+        .select2-search__field{
+            border: 1px solid #9494ba !important;
+        }
     </style>
 @endsection
 @section('sliderImage')
-   @include('front_layout.sliderImage')
+    <div class="owl-carousel bannner-owl-carousel slider slider-header ">
+    @if(isset($sliders))
+        @forelse($sliders as $slider)
+            <div class="item cover-image" data-bs-image-src="">
+                <img  alt="first slide" src="{{asset('storage/images/'.$slider->image)}}" >
+            </div>
+        @empty
+            <div class="item cover-image" data-bs-image-src="">
+                <img  alt="first slide" src="{{asset('storage/FrontTheme/assets/images/banners/banner1.jpg')}}" >
+            </div>
+        @endforelse
+    @else
+        <div class="item cover-image" data-bs-image-src="">
+            <img  alt="first slide" src="{{asset('storage/FrontTheme/assets/images/banners/banner1.jpg')}}" >
+        </div>
+    @endif
+    </div>
+@endsection
+@section('sliderText')
+   @include('front_layout.sliderText')
 @endsection
 @section('content')
 
@@ -52,7 +88,7 @@
     <!--  *** End Section Online Classes  *** -->
 
 {{--    *** Section latest Courses  *** --}}
-    <section class="sptb bg-white">
+    <section class="sptb bg-gray-lightest">
         <div class="container">
             <div class="section-title d-md-flex pb-3">
                 <div>
@@ -65,23 +101,8 @@
                     </p>
                 </div>
                 <div class="ms-auto d-inline-flex">
-                    <div class="w-150 mt-3 me-4">
-                        <select class="form-control select2-show-search  border-bottom-0" data-placeholder="Select Category">
-                            <optgroup label="Categories">
-                                <option>اختر القسم </option>
-                                <option value="1">IT</option>
-                                <option value="2">Language</option>
-                                <option value="3">Science</option>
-                                <option value="4">Health</option>
-                                <option value="5">Humanities</option>
-                                <option value="6">Business</option>
-                                <option value="7">Maths</option>
-                                <option value="8">Marketing</option>
-                            </optgroup>
-                        </select>
-                    </div>
                     <div class="">
-                        <a class="btn btn-primary mt-3" href="javascript:void(0)"><i class="fe fe-arrow-right"></i> عرض الكل </a>
+                        <a class="btn btn-primary mt-3" href="{{route('front.courses.index')}}"><i class="fe fe-arrow-right"></i>  عرض الكل </a>
                     </div>
                 </div>
             </div>
@@ -146,11 +167,11 @@
     <!--  *** End Section latest Courses *** -->
 
     {{--    *** Start  Section Register in Course  *** --}}
-    <section class="sptb bg-gray-lightest" style="padding-bottom: 3rem">
+    <section class="sptb bg-white" style="padding-bottom: 3rem ; color: #494872; font-size: 17px ">
         <div class="container">
-            <div class="section-title d-md-flex pb-3">
+            <div class="section-title d-md-flex pb-3" style="color: #494872">
                 <div>
-                    <h2>
+                    <h2 style="color: #494872">
                         التسجيل في الدورات
                         <hr class="mt-2 mb-2">
                     </h2>
@@ -162,15 +183,14 @@
             <div  style="display: flex; justify-content: center; width: 100%">
                 <form style="display: table-cell; vertical-align: middle; width: 70%"  >
                     @method('POST')
-                    <div id="scrollTop" class="alert alert-success alert-dismissible fade show" role="alert" style="display: none;padding:7px;">
-                        تم التسجيل بالدورة بنجاح
+                    <div id="scrollTop" class="alert alert-dismissible fade show" role="alert" style="display: none;padding:7px;">
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="form row" >
                         <div class="form-group col-md-6">
-                            <span class="fs-15 fw-bold" >  الدورة </span>
+                            <span class="fw-bold" >  الدورة </span>
                             <select name="course_id" id="course_id" class="form-control select2-show-search  border-bottom-0" data-placeholder="Select Category">
                                 <option value=" " >اختر الدورة </option>
                                 @foreach($courses as $course)
@@ -180,12 +200,12 @@
                             <span class="text-danger" id="error_course_id"></span>
                         </div>
                         <div class="form-group col-md-6">
-                            <span class="fs-15 fw-bold" >  الاسم </span>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="أدخل الاسم">
+                            <span class="fw-bold" >  الاسم </span>
+                            <input type="text" class="form-control " id="name" name="name" placeholder="أدخل الاسم">
                              <span class="text-danger "id="error_name" ></span>
                         </div>
                         <div class="form-group col-md-6">
-                            <span class="fs-15 fw-bold" >  الجنس  </span>
+                            <span class="fw-bold" >  الجنس  </span>
                             <select name="gender" id="gender" class="form-control select2-show-search  border-bottom-0" data-placeholder="Select gender">
                                 <option value=" ">اختر الجنس </option>
                                 <option class=" p-5"  value="M" > ذكر  </option>
@@ -194,12 +214,12 @@
                             <span class="text-danger" id="error_gender"></span>
                         </div>
                         <div class="form-group col-md-6">
-                            <span class="fs-15 fw-bold" >  الايميل  </span>
+                            <span class="fw-bold" >  الايميل  </span>
                             <input type="text" class="form-control" id="email" name="email" placeholder="أدخل الايميل">
                             <span class="text-danger" id="error_email"></span>
                         </div>
                         <div class="form-group col-md-6">
-                            <span class="fs-15 fw-bold"> رقم الجوال </span>
+                            <span class="fw-bold"> رقم الجوال </span>
                             <input type="text" class="form-control" id="mobile" name="mobile" placeholder="أدخل رقم الجوال">
                             <span class="text-danger" id="error_mobile"></span>
                         </div>
@@ -209,7 +229,7 @@
                             <span class="text-danger" id="error_address"></span>
                         </div>
                         <div class="form-group" >
-                            <button id="SubmitRegisterCourseForm" class="form-control btn btn-primary" style="margin: 0 auto; width: 35%; margin-top:25px"> سجل الآن </button>
+                            <button id="SubmitRegisterCourseForm" class="form-control btn fs-16 fw-600" style="margin: 0 auto; width: 35%; margin-top:25px;background-color:#494872;color: whitesmoke"> سجل الآن </button>
                         </div>
                     </div>
                 </form>
@@ -221,7 +241,7 @@
     {{--    *** End Section Register in Course  *** --}}
 
 {{--   ****  Start Section What Says About Us *** --}}
-    <section class="sptb position-relative bg-white">
+    <section class="sptb position-relative bg-gray-lightest">
         <div class="container">
             <div class="section-title d-md-flex">
                 <div>
@@ -323,16 +343,17 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         $(document).ready(function (){
+            $('.select2-selection__placeholder').hide();
             $('#SubmitRegisterCourseForm').click(function(e){
                 e.preventDefault();
-                $("#SubmitRegisterCourseForm").html('تحميل').prepend('<span id="loadingCreate" class="spinner-border spinner-border-sm"></span>');
+                clearErrorMessage();
+                $("#SubmitRegisterCourseForm").html('تحميل').append('&nbsp;<span id="loadingCreate" class="spinner-border spinner-border-sm"></span>');
                 var course_id = $('#course_id').val();
                 var name= $('#name').val();
                 var gender= $('#gender').val();
                 var email= $('#email').val();
                 var mobile= $('#mobile').val();
                 var address= $('#address').val();
-                console.log(course_id +gender);
                 var myformData  = new FormData();
                 myformData.append("course_id", course_id);
                 myformData.append("name", name);
@@ -349,28 +370,42 @@
                     url: "{{ route('course.register') }}",
                     method: 'POST',
                     dataType: 'json',
-                    // contentType: "multipart/form-data",// it used when data send to server
                     processData: false,
                     contentType: false,
                     cache: false,
                     data: myformData , // it send form data to server
                     enctype: 'multipart/form-data',
                     success: function(result) {
+                        console.log(result);
                         $("#SubmitRegisterCourseForm").html('سجل الآن');
                         $('#loadingCreate').css('display','none');
-                        // $('.alert-danger').hide();
-                        $('.alert-success').show();
+                        if(result.success){
+                            $('.alert').addClass('alert-success').removeClass('alert-warning').html(result.success).show();
+                        }
+                        else if(result.warning){
+                            $('.alert').addClass('alert-warning').removeClass('alert-success').html(result.warning).show();
+                        }
+                        setTimeout(function(){
+                            $('.alert').hide();
+                            // window.location.reload();
+                        }, 2500);
                     },
                     error:function(xhr,status,error){
                         $("#SubmitRegisterCourseForm").html('سجل الآن');
                         $('#loadingCreate').css('display','none');
-                        // $('.alert-danger').html('');
                         $.each(xhr.responseJSON.errors, function(key, value) {
                             $('#error_'+key).text(value);
                         });
                     }
                 });
             });
+            function clearErrorMessage(){
+                var spanID = ['course_id','name','gender', 'email','mobile','address'];
+                $.each(spanID, function(key, value) {
+                    $('#error_'+value).text(" ");
+                });
+
+            }
         });
     </script>
 @endsection

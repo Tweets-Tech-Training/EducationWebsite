@@ -10,23 +10,13 @@
 <!--Section-->
 <div class="banner1 relative banner-top">
     <!-- Carousel -->
-    <div class="owl-carousel bannner-owl-carousel slider slider-header ">
-
-        @foreach($sliders as $slider)
-            <div class="item cover-image" data-bs-image-src="">
-                <img  alt="first slide" src="{{asset('storage/images/'.$slider->image)}}" >
-            </div>
-        @endforeach
-
-{{--        <div class="item">--}}
-{{--            <img  alt="first slide" src="{{asset('FrontTheme/assets/images/banners/slider2.jpg')}}" >--}}
-{{--        </div>--}}
-{{--        <div class="item">--}}
-{{--            <img  alt="first slide" src="{{asset('FrontTheme/assets/images/banners/slider3.jpg')}}" >--}}
-{{--        </div>--}}
-    </div>
+    <!--  Start Slider Image Section-->
+        @yield('sliderImage')
+    <!-- Carousel / -->
+    <!--  End Slider Image Section-->
     <!--Topbar-->
     <div class="header-main">
+{{--        ********** IMPORTANT  *****  --}}
 {{--        @include('front_layout.top-bar')--}}
         <!--/Topbar-->
 
@@ -42,12 +32,10 @@
 {{--    *** Section Slider Images  *** --}}
 <!--Section-->
     <section>
-        @yield('sliderImage')
+        @yield('sliderText')
     </section>
     <!--/Section-->
-
 </div>
-
 @yield('content')
 <!--Section-->
 {{--<section class="cover-image sptb bg-background-1" data-bs-image-src="{{asset('FrontTheme/assets/images/banners/slider.jpg')}}">--}}

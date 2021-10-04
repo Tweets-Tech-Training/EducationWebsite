@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\Front\CourseController;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Livewire\AboutUs\AboutUs;
 use App\Http\Livewire\AboutUs\AboutUsFormLivewire;
@@ -39,7 +40,7 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //    return view('dashboard');
     return view('dashboard_layout.main');
-})->name('dashboard');
+});
 
 //  *** Start Front Admin Panel Routes  ***
 Route::group(['middleware'=>'auth','prefix'=>'training/admin'],function(){
@@ -81,6 +82,8 @@ Route::group(['middleware'=>'auth','prefix'=>'training/admin'],function(){
 //  *** End Front Admin Panel Routes  ***
 
 //  *** Start Front index Route *** //
-Route::get('/index',[HomeController::class,'index']);
+Route::get('/index',[HomeController::class,'index'])->name('front.index');
 Route::post('/course-registration',[HomeController::class,'courseRegistration'])->name('course.register');
+Route::get('/courses',[CourseController::class,'index'])->name('front.courses.index');
+//Route::post('/courses/search',[CourseController::class,'courseSearch'])->name('front.courses.search');
 //  *** End Front index Route *** //

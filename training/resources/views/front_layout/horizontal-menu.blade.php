@@ -11,13 +11,13 @@
         </div>
         <nav class="horizontalMenu" >
             <ul class="horizontalMenu-list"  >
-                <li aria-haspopup="true" class="ml-5"><a href="index.html">الصفحة الرئيسية</a> </li>
+                <li aria-haspopup="true" class="ml-5"><a href="{{route('front.index')}}">الصفحة الرئيسية</a> </li>
                 <li aria-haspopup="true" class="ml-5"><a href="index.html"> المدربون </a> </li>
-                <li aria-haspopup="true" class="ml-5"><a href="index.html"> الدورات التدريبية </a> </li>
+                <li aria-haspopup="true" class="ml-5"><a href="{{route('front.courses.index')}}"> الدورات التدريبية </a> </li>
                 <li aria-haspopup="true"><a href="about.html"> ماذا قالوا عنا </a></li>
                 <li aria-haspopup="true"><a href="contact.html"> اتصل بنا </a></li>
                 <li aria-haspopup="true" class="p-0 mt-1">
-                    <span><a class="btn btn-primary" href="course-posts.html" style="margin-top: -5px !important;"> التسجيل الآن </a></span>
+                    <span><a class="btn btn-secondary" href="course-posts.html" style="margin-top: -5px !important;"> التسجيل الآن </a></span>
                 </li>
             </ul>
         </nav>

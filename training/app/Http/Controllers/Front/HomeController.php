@@ -8,6 +8,7 @@ use App\Models\Course;
 use App\Models\CourseRegistration;
 use App\Models\Partner;
 use App\Models\Slider;
+use App\Models\Student;
 use App\Models\Testimonial;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -37,8 +38,6 @@ class HomeController extends Controller
         return Slider::orderBy('id','desc')->take(3)->get();
     }
 
-
-
 //    *** get 6 Categories ***
     public function getSixCategories(){
         return Category::orderBy('id','desc')->take(6)->get();
@@ -58,6 +57,7 @@ class HomeController extends Controller
 
     public function courseRegistration(Request  $request){
         $data= $request->all();
+
         $this->validate($request,[
             'course_id' => 'required',
             'name' => 'required',
@@ -68,16 +68,20 @@ class HomeController extends Controller
         ],[],[]);
         $password = Str::random(8);
         $data['password']=Hash::make($password);
-        $user =User::where('email',$request->email)->first();
-//        dd($user->id);
-//        $data['user_id']=$user->id
-        $user ? $data['user_id']=$user->id : $user=User::create($data);
-        $course = CourseRegistration::where('course_id','=',$request->course_id)->
-        where('mobile','=',$request->moile)->first();
-        $course ?CourseRegistration::create($data) : $message = response()->json(['success'=>'أنت مسجل في هذا الكورس']);
-//            $message=" أنت مسجل في هذا الكورس ";
-//        CourseRegistration::create($data);
-//        return response()->json(['success'=>'تم التسجيل بنجاح']);
+        $student =Student::where([['email',$request->email] , ['mobile',$request->mobile]])->first();
+        if ($student){
+            $data['student_id']=$student->id ;
+        }else{
+            $student =Student::create($data);
+            $data['student_id']  =$student->id ;
+        }
+        $course = CourseRegistration::where([['course_id','=',$request->course_id],['student_id','=',$data['student_id']]])->first();
+        if ($course){
+            $message = response()->json(['warning'=>'أنت مسجل في هذا الكورس']);
+        }else{
+            CourseRegistration::create($data);
+            $message= response()->json(['success'=>'تم التسجيل بنجاح']);
+        }
         return $message ;
     }
 
