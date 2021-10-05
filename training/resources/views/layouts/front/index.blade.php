@@ -126,7 +126,7 @@
                         </div>
                         <div class="card-body">
                             <div class="item-card7-desc">
-                                <small class="text-muted">-- Marketing</small>
+                                <h4 class="text-muted"> {{ $course->category->name }} </h4>
                                 <div class="item-card7-text mt-1">
                                     <a href="javascript:void(0)" class="text-dark"><h4 class="font-weight-semibold mb-1"> {{$course->name}}  </h4></a>
                                 </div>
@@ -243,9 +243,9 @@
     {{--    *** End Section Register in Course  *** --}}
 
 {{--   ****  Start Section What Says About Us *** --}}
-    <section class="sptb position-relative bg-gray-lightest">
-        <div class="container">
-            <div class="section-title d-md-flex">
+    <section  class="sptb position-relative bg-gray-lightest">
+        <div class="container" >
+            <div id="testimonial-division" class="section-title d-md-flex">
                 <div>
                     <h2>  ماذا قال طلابنا عنا  </h2>
                     <p class="fs-20 fw-bold lead" > آراء بعض الطلاب الذين شاركوا معنا في الدورات </p>

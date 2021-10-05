@@ -15,27 +15,41 @@ class CourseController extends Controller
         $courseName = $request->courseName ;
         $courses = Course::query();
         if($category_id){
-            $courses = Course::where('category_id',$category_id)->get();
+            $courses = Course::where('category_id',$category_id);
         }
         if($courseName){
-            $courses = Course::where('name','like',"%$courseName%")->get();
+            $courses = Course::where('name','like',"%$courseName%");
         }
         $categories = Category::all();
-        $courses = $courses->orderBy('id','desc');
-
+        $courses = $courses->orderBy('id','desc')->get();
+//        dd($courses);
         return view('layouts.front.course')->with([
             'courses'=>$courses,
             'categories'=>$categories,
         ]);
     }
     public function courseSearch(Request $request){
-       $category_id = $request->category_id ;
-       $courseName = $request->courseName ;
-       if($category_id){
-           $courses = Course::where('category_id',$category_id)->get();
-       }
-       if($courseName){
-           Course::where('name','like',"%$courseName%")->get();
-       }
+        $category_id = $request->category_id ;
+        $courseName = $request->courseName ;
+        $courses = Course::query();
+        if($category_id){
+                $courses = Course::where('category_id',$category_id);
+        }
+        if($courseName){
+//            if ($category_id){
+//                $courses = Course::where([['category_id',$category_id],
+//                    ['name','like',"%$courseName%"]
+//                    ]);
+//            }else{
+                $courses = Course::where('name','like',"%$courseName%");
+//            }
+
+        }
+
+        $categories = Category::all();
+        $courses = $courses->orderBy('id','desc')->get();
+//        dd($courses);
+        return response()->json(['courses'=>$courses,]);
+
     }
 }

@@ -219,5 +219,14 @@
 
 <!-- Custom js-->
 <script src="{{asset('FrontTheme/assets/js/custom.js')}}"></script>
+<script>
+    $(document).ready(function (){
+        $("#testimonial").click(function (){
+            $('html, body').animate({
+                scrollTop: $("#testimonial-division").offset().top
+            }, 2500);
+        });
+    });
+</script>
 @yield('script')
 
