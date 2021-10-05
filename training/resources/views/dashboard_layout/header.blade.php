@@ -4,10 +4,7 @@
 <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
 <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
 <meta name="author" content="PIXINVENT">
-
 <title> لوحة التحكم | موقع تويتس تك</title>
-
-
 <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -56,6 +53,7 @@
 <link rel="stylesheet" type="text/css" href="{{asset('admin-layout/app-assets/css-rtl/pages/data-list-view.css')}}">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" integrity="sha384-tKLJeE1ALTUwtXlaGjJYM3sejfssWdAaWR2s97axw4xkiAdMzQjtOjgcyw0Y50KU" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 <!-- END: Custom CSS-->
 <style>
 
@@ -67,41 +65,4 @@
 </style>
 <link rel="manifest" href="{{request()->root()}}/public/manifest.json">
 <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/5.5.0/firebase-app.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-{{--<script src="https://www.gstatic.com/firebasejs/5.5.0/firebase-analytics.js"></script>--}}
-<script src="https://www.gstatic.com/firebasejs/5.5.0/firebase-messaging.js"></script>
-<script>
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    var firebaseConfig = {
-        apiKey: "AIzaSyDsaSX56Zsn318QgLpKTBx-CisXFGJG6Y4",
-        authDomain: "tickets-6d34e.firebaseapp.com",
-        projectId: "tickets-6d34e",
-        storageBucket: "tickets-6d34e.appspot.com",
-        messagingSenderId: "714661166719",
-        appId: "1:714661166719:web:b212718e5b7e2229ac094a",
-        measurementId: "G-64BEQCCQRD"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-//    firebase.analytics();
-
-
-    // Retrieve Firebase Messaging object.
-           console.log(firebase.messaging)
-        const messaging = firebase.messaging() ;
-        messaging.getToken().then(function(currentToken) {
-            console.log('Notification permission granted.');
-            // TODO(developer): Retrieve an Instance ID token for use with FCM.
-            // ...
-        }).catch(function(err) {
-            console.log('Unable to get permission to notify.', err);
-        })
-
-
-
-</script>
 

@@ -1,12 +1,13 @@
 (function($) {
 	/*---Owl-carousel----*/
-	
+
 	// ______________Owl-carousel-icons
 	var owl = $('.owl-carousel-icons');
 	owl.owlCarousel({
 		margin: 0,
 		padding:15,
-		loop: true,
+		loop:( $('.owl-carousel .items').length > 3 ),
+        // loop:true,
 		nav: true,
 		rtl: true,
 		autoplay: true,
@@ -23,8 +24,8 @@
 			}
 		}
 	})
-	
-		
+
+
 	// ______________Owl-carousel-icons2
 	var owl = $('.owl-carousel-icons2');
 	owl.owlCarousel({
@@ -56,7 +57,7 @@
 			}
 		}
 	})
-	
+
 	// ______________Owl-carousel-icons3
 	var owl = $('.owl-carousel-icons3');
 	owl.owlCarousel({
@@ -78,7 +79,7 @@
 			}
 		}
 	})
-	
+
 	// ______________Owl-carousel-icons4
 	var owl = $('.owl-carousel-icons4');
 	owl.owlCarousel({
@@ -100,7 +101,7 @@
 			}
 		}
 	})
-	
+
 	// ______________Owl-carousel-icons5
 	var owl = $('.owl-carousel-icons5');
 	owl.owlCarousel({
@@ -132,7 +133,7 @@
 			}
 		}
 	})
-	
+
 	// ______________Owl-carousel-icons6
 	var owl = $('.owl-carousel-icons6');
 	owl.owlCarousel({
@@ -154,7 +155,7 @@
 			}
 		}
 	})
-	
+
 	// ______________Owl-carousel-icons7
 	var owl = $('.owl-carousel-icons7');
 	owl.owlCarousel({
@@ -193,7 +194,7 @@
 			}
 		}
 	})
-	
+
 	// ______________Testimonial-owl-carousel3
 	var owl = $('.testimonial-owl-carousel3');
 	owl.owlCarousel({
@@ -209,7 +210,7 @@
 			}
 		}
 	})
-	
+
 	// ______________Testimonial-owl-carousel4
 	var owl = $('.testimonial-owl-carousel4');
 	owl.owlCarousel({
@@ -225,7 +226,7 @@
 			}
 		}
 	})
-	
+
 	// ______________Testimonial-owl-carousel
 	var owl = $('.testimonial-owl-carousel');
 	owl.owlCarousel({
@@ -252,7 +253,7 @@
 			}
 		}
 	})
-	
+
 	// ______________Testimonial-owl-carousel
 	var owl = $('.testimonial-owl-carousel-01');
 	owl.owlCarousel({
@@ -279,7 +280,7 @@
 			}
 		}
 	})
-	
+
 	// ______________Client-carousel
 	var owl = $('.client-carousel');
 	owl.owlCarousel({
@@ -310,7 +311,7 @@
 			}
 		}
 	})
-	
+
 	// ______________Client-carousel
 	var owl = $('.classes-carousel');
 	owl.owlCarousel({
@@ -339,7 +340,7 @@
 			}
 		}
 	})
-	
+
 	// ______________Client-carousel
 	var owl = $('.classes-carousel-1');
 	owl.owlCarousel({
@@ -369,7 +370,7 @@
 			}
 		}
 	})
-	
+
 	// ______________Client-carousel
 	var owl = $('.classes-carousel-2');
 	owl.owlCarousel({
@@ -417,7 +418,7 @@
 			}
 		}
 	})
-	
+
 	// ______________bannner-owl-carousel1
 	var owl = $('.bannner-owl-carousel1');
 	owl.owlCarousel({
@@ -435,6 +436,6 @@
 			}
 		}
 	})
-	
+
 })(jQuery);
 

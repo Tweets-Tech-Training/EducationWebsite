@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Courses;
 
 
+use App\Models\Category;
 use App\Models\Course ;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -13,6 +14,7 @@ class CourseFormLivewire extends Component
     public $image ,$course ,$detailsEditor , $isUpdate=0;
     protected $rules = [
         'course.name'=>'required',
+        'course.category_id'=>'required',
         'course.place'=>'required',
         'course.lectures_num'=>'required|numeric',
         'course.lecture_interval'=>'required',
@@ -30,7 +32,9 @@ class CourseFormLivewire extends Component
     }
     public function render()
     {
-        return view('livewire.courses.form')->extends('dashboard_layout.main');
+        return view('livewire.courses.form',[
+            'categories'=>Category::all(),
+            ])->extends('dashboard_layout.main');
     }
 
     public function save()
