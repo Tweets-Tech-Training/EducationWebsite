@@ -116,7 +116,7 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div id="resultAfterSearch" class="row">
                 {{--  *** Start Courses Section  ***  --}}
                 @forelse($courses as $course)
                     <div class="col-md-4">
@@ -150,7 +150,7 @@
                                     <div class="d-flex">
                                         <div class="d-md-flex d-block mb-0">
                                             <div class="star-ratings start-ratings-main clearfix me-3">
-                                                <a class="form-control btn btn-secondary" href=""> سجل الآن </a>
+                                                <a class="form-control btn btn-secondary" href=""> بحث </a>
                                             </div>
                                             {{--                                    <span class="">875 reviews</span>--}}
                                         </div>
@@ -183,14 +183,13 @@
             $('.select2-selection__placeholder').hide();
             $('#submitCourseSearch').click(function(e){
                 e.preventDefault();
-                // clearInput();
                 $("#submitCourseSearch").html('تحميل').append('&nbsp;<span id="loadingCreate" class="spinner-border spinner-border-sm"></span>');
                 var category_id = $('#category_id').val();
                 var courseName= $('#courseName').val();
                 var myformData  = new FormData();
                 myformData.append("category_id", category_id);
                 myformData.append("courseName", courseName);
-                console.log(category_id);
+                // console.log(category_id);
                 $.ajaxSetup({
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -207,36 +206,23 @@
                     enctype: 'multipart/form-data',
                     success: function(result) {
                         // console.log(result);
-                        $("#submitCourseSearch").html('سجل الآن');
+                        clearInput();
+                        $("#submitCourseSearch").html('بحث');
                         $('#loadingCreate').css('display','none');
-                        if(result.success){
-                            $('.alert').addClass('alert-success').removeClass('alert-warning').html(result.success).show();
-                        }
-                        else if(result.warning){
-                            $('.alert').addClass('alert-warning').removeClass('alert-success').html(result.warning).show();
-                        }
-                        setTimeout(function(){
-                            $('.alert').hide();
-                            // window.location.reload();
-                        }, 2500);
+                        $('#resultAfterSearch').html(result.html);
+
                     },
                     error:function(xhr,status,error){
-                        $("#submitCourseSearch").html('سجل الآن');
+                        clearInput();
+                        $("#submitCourseSearch").html('بحث');
                         $('#loadingCreate').css('display','none');
-                        // $.each(xhr.responseJSON.errors, function(key, value) {
-                        //     $('#error_'+key).text(value);
-                        // });
                     }
                 });
             });
             function clearInput(){
-                $('#category_id').val(" ");
-                $('#courseName').text(" ");
-                // var spanID = ['course_id','name','gender', 'email','mobile','address'];
-                // $.each(spanID, function(key, value) {
-                //     $('#error_'+value).text(" ");
-                // });
-
+                $('#courseName').prop('value'," ");
+                $('#category_id option:first').prop('selected',true);
+                console.log($('#category_id').val()+ " ** "+$('#courseName').val());
             }
         });
     </script>

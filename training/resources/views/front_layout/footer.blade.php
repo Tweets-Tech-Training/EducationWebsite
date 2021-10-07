@@ -6,57 +6,71 @@
                 <div class="col-lg-6">
                     <div class="row">
                         <div class="col-lg-7 col-md-12">
-                            <img src="{{asset('FrontTheme/assets/images/brand/logo-white.png')}}" class="w-auto border-0" alt="img">
-                            <ul class="list-unstyled mb-0 mt-4">
-                                <li>
-                                    <a href="javascript:void(0)">Second stret, New York, NY 10012, US</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">info@example.com, info@edomi.com</a></li>
-                                <li>
-                                    <a href="javascript:void(0)">+ 01 234 567 88</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">+ 01 234 567 89</a>
-                                </li>
-                            </ul>
-                            <ul class="list-unstyled list-inline mt-5 mb-lg-0 mb-5">
-                                <li class="list-inline-item">
-                                    <a class="social-icons btn-sm rgba-white-slight waves-effect waves-light">
-                                        <i class="fa fa-facebook"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a class="social-icons btn-sm rgba-white-slight waves-effect waves-light">
-                                        <i class="fa fa-twitter"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a class="social-icons btn-sm rgba-white-slight waves-effect waves-light">
-                                        <i class="fa fa-google-plus"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a class="social-icons btn-sm rgba-white-slight waves-effect waves-light">
-                                        <i class="fa fa-linkedin"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a class="social-icons btn-sm rgba-white-slight waves-effect waves-light">
-                                        <i class="fa fa-github"></i>
-                                    </a>
-                                </li>
-                            </ul>
+{{--                            @if($setting)--}}
+{{--                                @foreach($setting as $data)--}}
+{{--                                    <?php  ?>--}}
+{{--                                @foreach($setting as $oneSetting)--}}
+{{--                                    <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> {{$category->name}} </a></li>--}}
+{{--                                @endforeach--}}
+{{--                                    <img src="{{asset('FrontTheme/assets/images/brand/logo-white.png')}}" class="w-auto border-0" alt="img">--}}
+{{--                                    <ul class="list-unstyled mb-0 mt-4">--}}
+{{--                                        <li>--}}
+{{--                                            <a href="javascript:void(0)">Second stret, New York, NY 10012, US</a>--}}
+{{--                                        </li>--}}
+{{--                                        <li>--}}
+{{--                                            <a href="javascript:void(0)">info@example.com, {{$data->email}}</a></li>--}}
+{{--                                        <li>--}}
+{{--                                            <a href="javascript:void(0)">{{$data->mobile}}</a>--}}
+{{--                                        </li>--}}
+{{--                                        <li>--}}
+{{--                                            <a href="javascript:void(0)">+ 01 234 567 89</a>--}}
+{{--                                        </li>--}}
+{{--                                    </ul>--}}
+{{--                                    <ul class="list-unstyled list-inline mt-5 mb-lg-0 mb-5">--}}
+{{--                                    <li class="list-inline-item">--}}
+{{--                                        <a class="social-icons btn-sm rgba-white-slight waves-effect waves-light" href="{{$data->facebook}}">--}}
+{{--                                            <i class="fa fa-facebook"></i>--}}
+{{--                                        </a>--}}
+{{--                                    </li>--}}
+{{--                                    <li class="list-inline-item">--}}
+{{--                                        <a class="social-icons btn-sm rgba-white-slight waves-effect waves-light" href="{{ $data->twitter }}">--}}
+{{--                                            <i class="fa fa-twitter"></i>--}}
+{{--                                        </a>--}}
+{{--                                    </li>--}}
+{{--                                    <li class="list-inline-item">--}}
+{{--                                        <a class="social-icons btn-sm rgba-white-slight waves-effect waves-light" href="{{ $data->gmail }}">--}}
+{{--                                            <i class="fa fa-google-plus"></i>--}}
+{{--                                        </a>--}}
+{{--                                    </li>--}}
+{{--                                    <li class="list-inline-item">--}}
+{{--                                        <a class="social-icons btn-sm rgba-white-slight waves-effect waves-light" href="{{ $data->instagram }}">--}}
+{{--                                            <i class="fa fa-instagram"></i>--}}
+{{--                                        </a>--}}
+{{--                                    </li>--}}
+{{--                                    <li class="list-inline-item">--}}
+{{--                                        <a class="social-icons btn-sm rgba-white-slight waves-effect waves-light" href="{{ $data->youtube }}">--}}
+{{--                                            <i class="fa fa-youtube-square"></i>--}}
+{{--                                        </a>--}}
+{{--                                    </li>--}}
+{{--                                </ul>--}}
+{{--                                @endforeach--}}
+{{--                            @endif--}}
+
                         </div>
                         <div class="col-lg-5 col-md-12">
                             <h6 class="font-weight-normal text-white">Categories</h6>
                             <ul class="list-unstyled mb-5 mb-lg-0">
-                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Software Development</a></li>
-                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Web Development</a></li>
-                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Web Designing</a></li>
-                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Business Classes</a></li>
-                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Animation Classes</a></li>
-                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Networking Classes</a></li>
+                                @if($categories->count())
+                                    @foreach($categories as $category)
+                                        <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> {{$category->name}} </a></li>
+                                    @endforeach
+                                @endif
+
+{{--                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Web Development</a></li>--}}
+{{--                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Web Designing</a></li>--}}
+{{--                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Business Classes</a></li>--}}
+{{--                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Animation Classes</a></li>--}}
+{{--                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Networking Classes</a></li>--}}
                             </ul>
                         </div>
                     </div>
@@ -66,12 +80,17 @@
                         <div class="col-lg-4 col-md-12">
                             <h6 class="font-weight-normal text-white">Courses</h6>
                             <ul class="list-unstyled mb-5 mb-lg-0">
-                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Angular</a></li>
-                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Java</a></li>
-                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> HTML</a></li>
-                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Devops</a></li>
-                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Php Laravel</a></li>
-                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Digital Marketing</a></li>
+                                @if($courses->count())
+                                    @foreach($courses as $course)
+                                        <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> {{$course->name}} </a></li>
+                                    @endforeach
+                                @endif
+{{--                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Augular</a></li>--}}
+{{--                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Java</a></li>--}}
+{{--                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> HTML</a></li>--}}
+{{--                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Devops</a></li>--}}
+{{--                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Php Laravel</a></li>--}}
+{{--                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Digital Marketing</a></li>--}}
                             </ul>
                         </div>
                         <div class="col-lg-4 col-md-12">

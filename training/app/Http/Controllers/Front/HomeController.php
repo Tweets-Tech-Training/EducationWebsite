@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Course;
 use App\Models\CourseRegistration;
 use App\Models\Partner;
+use App\Models\Setting;
 use App\Models\Slider;
 use App\Models\Student;
 use App\Models\Testimonial;
@@ -20,16 +21,18 @@ class HomeController extends Controller
 {
     public function index(){
         $sliders = $this->getImagesSlider();
-        $categories = $this->getSixCategories();
+        $categories = $this->getCategories();
         $courses = $this->getCourses();
         $reviews = $this->getTestimonial();
         $partners = $this->getPartners();
+        $setting =  $this->getSetting();
         return view('layouts.front.index')->with([
             'sliders'=>$sliders,
             'categories'=>$categories,
             'courses'=>$courses,
             'reviews'=>$reviews,
             'partners'=>$partners,
+            'setting'=>$setting,
         ]);
     }
 
@@ -39,8 +42,8 @@ class HomeController extends Controller
     }
 
 //    *** get 6 Categories ***
-    public function getSixCategories(){
-        return Category::orderBy('id','desc')->take(6)->get();
+    public function getCategories(){
+        return Category::orderBy('id','desc')->get();
     }
     //    *** get  Courses ***
     public function getCourses(){
@@ -83,6 +86,10 @@ class HomeController extends Controller
             $message= response()->json(['success'=>'تم التسجيل بنجاح']);
         }
         return $message ;
+    }
+
+    public function getSetting(){
+        return Setting::all();
     }
 
 }

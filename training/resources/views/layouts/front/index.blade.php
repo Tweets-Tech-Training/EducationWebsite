@@ -139,17 +139,21 @@
                         </div>
                         <div class="card-footer">
                             <div class="d-flex">
+{{--                                <div class="form row">--}}
                                 <div class="d-md-flex d-block mb-0">
-                                    <div class="star-ratings start-ratings-main clearfix me-3">
-                                        <a class="form-control btn btn-secondary" href=""> سجل الآن </a>
-                                    </div>
+{{--                                    <div class="form-group" >--}}
+                                        <button id="SubmitRegisterCourseForm" class="form-control btn btn-secondary fs-16 fw-600" style="color: whitesmoke"> سجل الآن </button>
+{{--                                    </div>--}}
+{{--                                    <div class="star-ratings start-ratings-main clearfix me-3">--}}
+{{--                                        <a class="form-control btn btn-secondary" href=""> سجل الآن </a>--}}
+{{--                                    </div>--}}
 {{--                                    <span class="">875 reviews</span>--}}
                                 </div>
-                                <div class="ms-auto d-flex">
-                                    <a class="form-control btn btn-primary" href=""> تفاصيل الدورة </a>
+{{--                                <div class="ms-auto d-flex">--}}
+{{--                                    <a class="form-control btn btn-primary" href=""> تفاصيل الدورة </a>--}}
 {{--                                    <a class="viewmore-btn-icon mx-1" href="javascript:void(0)"><i class="fe fe-heart"></i></a>--}}
 {{--                                    <a class="viewmore-btn-icon mx-1" href="javascript:void(0)"><i class="fe fe-share-2"></i></a>--}}
-                                </div>
+{{--                                </div>--}}
                             </div>
                         </div>
                     </div>

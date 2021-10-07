@@ -36,20 +36,17 @@ class CourseController extends Controller
                 $courses = Course::where('category_id',$category_id);
         }
         if($courseName){
-//            if ($category_id){
-//                $courses = Course::where([['category_id',$category_id],
-//                    ['name','like',"%$courseName%"]
-//                    ]);
-//            }else{
                 $courses = Course::where('name','like',"%$courseName%");
-//            }
-
         }
 
         $categories = Category::all();
         $courses = $courses->orderBy('id','desc')->get();
-//        dd($courses);
-        return response()->json(['courses'=>$courses,]);
+        $html=\View::make('layouts.front.searchCourseResult',[
+            'courses'=> $courses ,
+//            'categories'=>$categories,
+        ])->render();
+        return response()->json(['html'=>$html]);
+//        return response()->json(['courses'=>$courses,]);
 
     }
 }

@@ -2,7 +2,7 @@
 <div class="horizontal-main header-style1  bg-dark-transparent clearfix p-0 pt-4">
     <div class="horizontal-mainwrapper container clearfix">
         <div class="desktoplogo">
-            <a href="index.html"><img src="{{asset('FrontTheme/assets/images/brand/logo1.png')}}" alt="img">
+            <a href="{{route('front.index')}}"><img src="{{asset('FrontTheme/assets/images/brand/logo1.png')}}" alt="img">
                 <img src="{{asset('FrontTheme/assets/images/brand/logo.png')}}" class="header-brand-img header-white" alt="logo">
             </a>
         </div>
