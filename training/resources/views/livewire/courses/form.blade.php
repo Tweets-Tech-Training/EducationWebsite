@@ -45,10 +45,24 @@
                                     <div class="col-12 col-sm-8">
                                         <div class="form-group row">
                                             <div class="col-md-6">
-                                                <span> الاسم </span>
+                                                <span> اسم الدورة </span>
                                                 <input type="text" class="form-control" wire:model="course.name"  name="name"   placeholder="الاسم">
                                                 @error('course.name') <span class="text-danger">{{ $message }}</span> @enderror
                                             </div>
+                                            <div class="col-md-6">
+                                                <span> نوع الدورة </span>
+                                                <div class="form-check " style="padding-top: 5px">
+                                                    <input class="form-check-input" type="checkbox"  wire:model="course.course_type"  name="type">
+                                                    <span> وجاهي </span>
+{{--                                                    <label class="form-check-label" for="flexCheckDefault">--}}
+{{--                                                        وجاهي--}}
+{{--                                                    </label>--}}
+                                                </div>
+{{--                                                    <input type="checkbox" class="form-control" wire:model="course.course_type"  name="type" style="width: 50%; height: 20px;"  >online--}}
+                                                @error('course.course_type') <span class="text-danger">{{ $message }}</span> @enderror
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
                                             <div wire:ignore  class="col-md-6">
                                                 <span> الصنف </span>
                                                 <select wire:model="course.category_id" name="category_id" id="select2-dropdown" class="form-control"  data-placeholder="Select Category">
@@ -56,6 +70,18 @@
                                                     @if($categories->count())
                                                         @foreach($categories as $category)
                                                             <option class="p-5" name="category_id" value="{{$category->id}}">  {{$category->name}}  </option>
+                                                        @endforeach
+                                                    @endif
+                                                </select>
+                                                @error('course.category_id') <span class="text-danger">{{ $message }}</span> @enderror
+                                            </div>
+                                            <div wire:ignore  class="col-md-6">
+                                                <span> المدرب </span>
+                                                <select wire:model="course.trainer_id" name="trainer_id" id="select2-dropdown" class="form-control"  >
+                                                    <option value=" " >اختر المدرب </option>
+                                                    @if($trainers->count())
+                                                        @foreach($trainers as $trainer)
+                                                            <option class="p-5" name="trainer_id" value="{{$trainer->id}}">  {{$trainer->name}}  </option>
                                                         @endforeach
                                                     @endif
                                                 </select>
@@ -100,13 +126,7 @@
                                                 @error('course.price') <span class="text-danger">{{ $message }}</span> @enderror
                                             </div>
                                         </div>
-                                        <div class="form-group row">
-                                            <div class="col-md-12">
-                                                <span> تفاصيل الدفع </span>
-                                                <textarea type="text" class="form-control" wire:model="course.payment_details"  name="details" rows="4" placeholder="تفاصيل الدفع"> </textarea>
-                                                @error('course.payment_details') <span class="text-danger">{{ $message }}</span> @enderror
-                                            </div>
-                                        </div>
+
                                         <div class="form-group row">
                                             <div  class="col-md-12" wire:ignore>
                                                 <span> تفاصيل الدورة </span>

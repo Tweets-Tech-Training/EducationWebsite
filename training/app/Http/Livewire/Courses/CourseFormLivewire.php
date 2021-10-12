@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Courses;
 
 use App\Models\Category;
 use App\Models\Course ;
+use App\Models\Trainer;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -14,7 +15,9 @@ class CourseFormLivewire extends Component
     public $image ,$course ,$detailsEditor , $isUpdate=0;
     protected $rules = [
         'course.name'=>'required',
+        'course.course_type'=>'required',
         'course.category_id'=>'required',
+        'course.trainer_id'=>'required',
         'course.place'=>'required',
         'course.lectures_num'=>'required|numeric',
         'course.lecture_interval'=>'required',
@@ -22,7 +25,6 @@ class CourseFormLivewire extends Component
         'course.end_date'=>'required|date',
         'course.details'=>'required',
         'course.price'=>'required|numeric',
-        'course.payment_details'=>'required',
         'course.image'=>'required',
     ];
     public function mount($id=null){
@@ -34,6 +36,7 @@ class CourseFormLivewire extends Component
     {
         return view('livewire.courses.form',[
             'categories'=>Category::all(),
+            'trainers'=>Trainer::all(),
             ])->extends('dashboard_layout.main');
     }
 
