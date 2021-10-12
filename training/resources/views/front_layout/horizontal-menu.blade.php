@@ -15,7 +15,7 @@
                 <li aria-haspopup="true" class="ml-5"><a href="index.html"> المدربون </a> </li>
                 <li aria-haspopup="true" class="ml-5"><a href="{{route('front.courses.index')}}"> الدورات التدريبية </a> </li>
                 <li aria-haspopup="true"><a id="testimonial" href="#"> ماذا قالوا عنا </a></li>
-                <li aria-haspopup="true"><a href="contact.html"> اتصل بنا </a></li>
+                <li aria-haspopup="true"><a href="{{route('front.contact-us.index')}}"> اتصل بنا </a></li>
                 <li aria-haspopup="true" class="p-0 mt-1">
                     <span><a class="btn btn-secondary" href="course-posts.html" style="margin-top: -5px !important;"> التسجيل الآن </a></span>
                 </li>

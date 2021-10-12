@@ -29,6 +29,10 @@
         </li>
         <li class=" nav-item"><a href="{{route('partners.index')}}"><i class="feather icon-users"></i><span class="menu-title" data-i18n="Dashboard"> الشركاء </span></a>
         </li>
+        <li class=" nav-item"><a href="{{route('trainer')}}"><i class="feather icon-users"></i><span class="menu-title" data-i18n="Dashboard"> المدربون </span></a>
+        </li>
+        <li class=" nav-item"><a href="{{route('contact-us')}}"><i class="feather icon-phone-call"></i><span class="menu-title" data-i18n="Dashboard"> اتصل بنا  </span></a>
+        </li>
         <li class=" nav-item"><a href="{{route('settings.index')}}"><i class="feather icon-settings"></i><span class="menu-title" data-i18n="Dashboard"> الإعدادات </span></a>
         </li>
 {{--        <li class=" nav-item"><a href="{{route('dashboard.statisics')}}"><i class="feather icon-credit-card"></i><span class="menu-title" data-i18n="Dashboard">احصائيات</span></a>--}}

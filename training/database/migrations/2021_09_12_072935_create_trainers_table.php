@@ -17,10 +17,10 @@ class CreateTrainersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('PCT');
-            $table->string('ISID');
-            $table->string('SBS');
             $table->string('image');
+            $table->string('mobile');
+            $table->string('password');
+            $table->integer('course_id');
             $table->timestamps();
         });
     }
