@@ -56,11 +56,11 @@
                         <div class="col-lg-5 col-md-12">
                             <h6 class="font-weight-normal text-white"> التصنيفات </h6>
                             <ul class="list-unstyled mb-5 mb-lg-0">
-                                @if($categories->count())
-                                    @foreach($categories as $category)
-                                        <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> {{$category->name}} </a></li>
-                                    @endforeach
-                                @endif
+{{--                                @if($categories->count())--}}
+{{--                                    @foreach($categories as $category)--}}
+{{--                                        <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> {{$category->name}} </a></li>--}}
+{{--                                    @endforeach--}}
+{{--                                @endif--}}
 
 {{--                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Web Development</a></li>--}}
 {{--                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Web Designing</a></li>--}}
@@ -76,11 +76,11 @@
                         <div class="col-lg-4 col-md-12">
                             <h6 class="font-weight-normal text-white">الدورات </h6>
                             <ul class="list-unstyled mb-5 mb-lg-0">
-                                @if($courses->count())
-                                    @foreach($courses as $course)
-                                        <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> {{$course->name}} </a></li>
-                                    @endforeach
-                                @endif
+{{--                                @if($courses->count())--}}
+{{--                                    @foreach($courses as $course)--}}
+{{--                                        <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> {{$course->name}} </a></li>--}}
+{{--                                    @endforeach--}}
+{{--                                @endif--}}
 {{--                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Augular</a></li>--}}
 {{--                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Java</a></li>--}}
 {{--                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> HTML</a></li>--}}
@@ -234,14 +234,14 @@
 
 <!-- Custom js-->
 <script src="{{asset('FrontTheme/assets/js/custom.js')}}"></script>
-<script>
-    $(document).ready(function (){
-        $("#testimonial").click(function (){
-            $('html, body').animate({
-                scrollTop: $("#testimonial-division").offset().top
-            }, 2500);
-        });
-    });
-</script>
+{{--<script>--}}
+{{--    $(document).ready(function (){--}}
+{{--        $("#testimonial").click(function (){--}}
+{{--            $('html, body').animate({--}}
+{{--                scrollTop: $("#testimonial-division").offset().top--}}
+{{--            }, 2500);--}}
+{{--        });--}}
+{{--    });--}}
+{{--</script>--}}
 @yield('script')
 

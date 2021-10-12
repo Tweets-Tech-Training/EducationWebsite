@@ -1,12 +1,14 @@
 <?php
 
 
+use App\Http\Controllers\Front\ContactUsController;
 use App\Http\Controllers\Front\CourseController;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Livewire\AboutUs\AboutUs;
 use App\Http\Livewire\AboutUs\AboutUsFormLivewire;
 use App\Http\Livewire\Categories\Categories;
 use App\Http\Livewire\Categories\CategoriesFormLivewire;
+use App\Http\Livewire\ContactUs\ContactUs;
 use App\Http\Livewire\Courses\Course;
 use App\Http\Livewire\Courses\CourseFormLivewire;
 use App\Http\Livewire\Images\ImagesGallery;
@@ -22,6 +24,8 @@ use App\Http\Livewire\Slider;
 use App\Http\Livewire\SliderFormLivewire;
 use App\Http\Livewire\Testimonial\Testimonial;
 use App\Http\Livewire\Testimonial\TestimonialFormLivewire;
+use App\Http\Livewire\Trainer\Trainer;
+use App\Http\Livewire\Trainer\TrainerForm;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -79,7 +83,15 @@ Route::group(['middleware'=>'auth','prefix'=>'training/admin'],function(){
     Route::get('/categories/create',CategoriesFormLivewire::class)->name('categories.create');
     Route::get('/categories/{id}/edit',CategoriesFormLivewire::class)->name('categories.edit');
 
-    Route::get('lists',ListFormLivewire::class)->name('lists.index');
+
+
+    Route::get('trainer',Trainer::class)->name('trainer');
+    Route::get('trainer/create', TrainerForm::class)->name('trainer.create');
+    Route::get('trainer/{id}/edit', TrainerForm::class)->name('trainer.edit');
+
+
+    Route::get('contact-us',ContactUs::class)->name('contact-us');
+
 
 });
 //  *** End Front Admin Panel Routes  ***
@@ -88,5 +100,8 @@ Route::group(['middleware'=>'auth','prefix'=>'training/admin'],function(){
 Route::get('/',[HomeController::class,'index'])->name('front.index');
 Route::post('/course-registration',[HomeController::class,'courseRegistration'])->name('course.register');
 Route::get('/courses',[CourseController::class,'index'])->name('front.courses.index');
+Route::get('/contact-us',[ContactUsController::class,'index'])->name('front.contact-us.index');
+Route::post('/send',[ContactUsController::class,'send'])->name('contact.send');
+
 Route::post('/courses/search',[CourseController::class,'courseSearch'])->name('front.courses.search');
 //  *** End Front index Route *** //
