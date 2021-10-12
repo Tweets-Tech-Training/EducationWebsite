@@ -14,6 +14,8 @@ use App\Http\Livewire\Courses\CourseFormLivewire;
 use App\Http\Livewire\Images\ImagesGallery;
 use App\Http\Livewire\Images\ImagesGalleryFormLivewire;
 use App\Http\Livewire\Images\ShowImages;
+use App\Http\Livewire\Lists\ListFormLivewire;
+use App\Http\Livewire\Lists\ListLivewire;
 use App\Http\Livewire\Partners\Partners;
 use App\Http\Livewire\Partners\PartnersFormLivewire;
 use App\Http\Livewire\Settings\Settings;
@@ -45,7 +47,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //    return view('dashboard');
     return view('dashboard_layout.main');
 });
-
 //  *** Start Front Admin Panel Routes  ***
 Route::group(['middleware'=>'auth','prefix'=>'training/admin'],function(){
     Route::get('/',function(){
@@ -96,7 +97,7 @@ Route::group(['middleware'=>'auth','prefix'=>'training/admin'],function(){
 //  *** End Front Admin Panel Routes  ***
 
 //  *** Start Front index Route *** //
-Route::get('/index',[HomeController::class,'index'])->name('front.index');
+Route::get('/',[HomeController::class,'index'])->name('front.index');
 Route::post('/course-registration',[HomeController::class,'courseRegistration'])->name('course.register');
 Route::get('/courses',[CourseController::class,'index'])->name('front.courses.index');
 Route::get('/contact-us',[ContactUsController::class,'index'])->name('front.contact-us.index');

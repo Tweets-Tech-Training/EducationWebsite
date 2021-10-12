@@ -29,6 +29,7 @@
         </li>
         <li class=" nav-item"><a href="{{route('partners.index')}}"><i class="feather icon-users"></i><span class="menu-title" data-i18n="Dashboard"> الشركاء </span></a>
         </li>
+<<<<<<< HEAD
         <li class=" nav-item"><a href="{{route('trainer')}}"><i class="feather icon-users"></i><span class="menu-title" data-i18n="Dashboard"> المدربون </span></a>
         </li>
         <li class=" nav-item"><a href="{{route('contact-us')}}"><i class="feather icon-phone-call"></i><span class="menu-title" data-i18n="Dashboard"> اتصل بنا  </span></a>
@@ -59,12 +60,13 @@
 {{--        </li>--}}
 {{--        <li class=" nav-item"><a href="{{route('dashboard.news_letter')}}"><i class="feather icon-message-square"></i><span class="menu-title" data-i18n="Dashboard"> القائمة البريدية</span></a>--}}
 
+=======
+{{--          *** Control Header And Footer  ***  --}}
+{{--        <li class=" nav-item"><a href="{{route('lists.index')}}"><i class="feather icon-link-2"></i><span class="menu-title" data-i18n="Dashboard"> القوائم </span></a>--}}
+>>>>>>> e1439205d082c9b9fdb2fd7fd6bea9ac3e942b6f
 {{--        </li>--}}
-{{--   <li class=" nav-item"><a href="{{route('dashboard.setting')}}"><i class="feather icon-settings"></i><span class="menu-title" data-i18n="Dashboard">الاعدادات</span></a>--}}
 
-{{--        </li>--}}
-
-
-
+        <li class=" nav-item"><a href="{{route('settings.index')}}"><i class="feather icon-settings"></i><span class="menu-title" data-i18n="Dashboard"> الإعدادات </span></a>
+        </li>
     </ul>
 </div>
