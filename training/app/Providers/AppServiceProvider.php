@@ -2,8 +2,12 @@
 
 namespace App\Providers;
 
+use App\Models\Category;
+use App\Models\Course;
+use App\Models\Setting;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,5 +29,13 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Paginator::useBootstrap();
+//        $setting = Setting::all();
+//        $categories = Category::orderBy('id','desc')->take(6)->get();
+//        $courses = Course::orderBy('id','desc')->take(6)->get();
+//        View::share([
+//            'setting'=>$setting ,
+//            'categories'=>$categories,
+//            'courses'=>$courses,
+//            ]);
     }
 }

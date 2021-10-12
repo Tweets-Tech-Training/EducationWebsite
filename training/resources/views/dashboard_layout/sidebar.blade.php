@@ -29,38 +29,11 @@
         </li>
         <li class=" nav-item"><a href="{{route('partners.index')}}"><i class="feather icon-users"></i><span class="menu-title" data-i18n="Dashboard"> الشركاء </span></a>
         </li>
+{{--          *** Control Header And Footer  ***  --}}
+{{--        <li class=" nav-item"><a href="{{route('lists.index')}}"><i class="feather icon-link-2"></i><span class="menu-title" data-i18n="Dashboard"> القوائم </span></a>--}}
+{{--        </li>--}}
+
         <li class=" nav-item"><a href="{{route('settings.index')}}"><i class="feather icon-settings"></i><span class="menu-title" data-i18n="Dashboard"> الإعدادات </span></a>
         </li>
-{{--        <li class=" nav-item"><a href="{{route('dashboard.statisics')}}"><i class="feather icon-credit-card"></i><span class="menu-title" data-i18n="Dashboard">احصائيات</span></a>--}}
-
-{{--        </li>--}}
-{{--        <li class=" nav-item"><a href="{{route('dashboard.about_us')}}"><i class="feather icon-info"></i><span class="menu-title" data-i18n="Dashboard">من نحن</span></a>--}}
-
-{{--        </li>--}}
-{{--        <li class=" nav-item"><a href="{{route('dashboard.our_services')}}"><i class="feather icon-server"></i><span class="menu-title" data-i18n="Dashboard"> أهم خدماتنا</span></a>--}}
-
-{{--        </li>--}}
-{{--        <li class=" nav-item"><a href="{{route('dashboard.our_works')}}"><i class="fa fa-suitcase"></i><span class="menu-title" data-i18n="Dashboard">اخر أعمالنا</span></a>--}}
-
-{{--        </li>--}}
-{{--        <li class=" nav-item"><a href="{{route('dashboard.partners')}}"><i class="fa fa-users"></i><span class="menu-title" data-i18n="Dashboard">الشركاء</span></a>--}}
-
-{{--        </li>--}}
-
-{{--        <li class=" nav-item"><a href="{{route('dashboard.teams')}}"><i class="feather icon-users"></i><span class="menu-title" data-i18n="Dashboard">اعضاء الفريق</span></a>--}}
-
-{{--        </li>--}}
-{{--        <li class=" nav-item"><a href="{{route('dashboard.contact_us')}}"><i class="feather icon-phone-call"></i><span class="menu-title" data-i18n="Dashboard">تواصل معنا</span></a>--}}
-
-{{--        </li>--}}
-{{--        <li class=" nav-item"><a href="{{route('dashboard.news_letter')}}"><i class="feather icon-message-square"></i><span class="menu-title" data-i18n="Dashboard"> القائمة البريدية</span></a>--}}
-
-{{--        </li>--}}
-{{--   <li class=" nav-item"><a href="{{route('dashboard.setting')}}"><i class="feather icon-settings"></i><span class="menu-title" data-i18n="Dashboard">الاعدادات</span></a>--}}
-
-{{--        </li>--}}
-
-
-
     </ul>
 </div>

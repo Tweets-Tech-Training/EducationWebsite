@@ -6,59 +6,55 @@
                 <div class="col-lg-6">
                     <div class="row">
                         <div class="col-lg-7 col-md-12">
-{{--                            @if($setting)--}}
-{{--                                @foreach($setting as $data)--}}
-{{--                                    <?php  ?>--}}
-{{--                                @foreach($setting as $oneSetting)--}}
-{{--                                    <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> {{$category->name}} </a></li>--}}
-{{--                                @endforeach--}}
-{{--                                    <img src="{{asset('FrontTheme/assets/images/brand/logo-white.png')}}" class="w-auto border-0" alt="img">--}}
-{{--                                    <ul class="list-unstyled mb-0 mt-4">--}}
-{{--                                        <li>--}}
-{{--                                            <a href="javascript:void(0)">Second stret, New York, NY 10012, US</a>--}}
-{{--                                        </li>--}}
-{{--                                        <li>--}}
-{{--                                            <a href="javascript:void(0)">info@example.com, {{$data->email}}</a></li>--}}
-{{--                                        <li>--}}
-{{--                                            <a href="javascript:void(0)">{{$data->mobile}}</a>--}}
-{{--                                        </li>--}}
-{{--                                        <li>--}}
-{{--                                            <a href="javascript:void(0)">+ 01 234 567 89</a>--}}
-{{--                                        </li>--}}
-{{--                                    </ul>--}}
-{{--                                    <ul class="list-unstyled list-inline mt-5 mb-lg-0 mb-5">--}}
-{{--                                    <li class="list-inline-item">--}}
-{{--                                        <a class="social-icons btn-sm rgba-white-slight waves-effect waves-light" href="{{$data->facebook}}">--}}
-{{--                                            <i class="fa fa-facebook"></i>--}}
-{{--                                        </a>--}}
-{{--                                    </li>--}}
-{{--                                    <li class="list-inline-item">--}}
-{{--                                        <a class="social-icons btn-sm rgba-white-slight waves-effect waves-light" href="{{ $data->twitter }}">--}}
-{{--                                            <i class="fa fa-twitter"></i>--}}
-{{--                                        </a>--}}
-{{--                                    </li>--}}
-{{--                                    <li class="list-inline-item">--}}
-{{--                                        <a class="social-icons btn-sm rgba-white-slight waves-effect waves-light" href="{{ $data->gmail }}">--}}
-{{--                                            <i class="fa fa-google-plus"></i>--}}
-{{--                                        </a>--}}
-{{--                                    </li>--}}
-{{--                                    <li class="list-inline-item">--}}
-{{--                                        <a class="social-icons btn-sm rgba-white-slight waves-effect waves-light" href="{{ $data->instagram }}">--}}
-{{--                                            <i class="fa fa-instagram"></i>--}}
-{{--                                        </a>--}}
-{{--                                    </li>--}}
-{{--                                    <li class="list-inline-item">--}}
-{{--                                        <a class="social-icons btn-sm rgba-white-slight waves-effect waves-light" href="{{ $data->youtube }}">--}}
-{{--                                            <i class="fa fa-youtube-square"></i>--}}
-{{--                                        </a>--}}
-{{--                                    </li>--}}
-{{--                                </ul>--}}
-{{--                                @endforeach--}}
-{{--                            @endif--}}
+                            @if($setting)
+                                @foreach($setting as $data)
+                                    <img src="{{asset('FrontTheme/assets/images/brand/logo-white.png')}}" class="w-auto border-0" alt="img">
+                                    <ul class="list-unstyled mb-0 mt-4">
+                                        <li>
+                                            <a href="javascript:void(0)">Second stret, New York, NY 10012, US</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">info@example.com, {{$data->email}}</a></li>
+                                        <li>
+                                            <a href="javascript:void(0)">{{$data->mobile}}</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">+ 01 234 567 89</a>
+                                        </li>
+                                    </ul>
+                                    <ul class="list-unstyled list-inline mt-5 mb-lg-0 mb-5">
+                                    <li class="list-inline-item">
+                                        <a class="social-icons btn-sm rgba-white-slight waves-effect waves-light" href="{{$data->facebook}}">
+                                            <i class="fa fa-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a class="social-icons btn-sm rgba-white-slight waves-effect waves-light" href="{{ $data->twitter }}">
+                                            <i class="fa fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a class="social-icons btn-sm rgba-white-slight waves-effect waves-light" href="{{ $data->gmail }}">
+                                            <i class="fa fa-google-plus"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a class="social-icons btn-sm rgba-white-slight waves-effect waves-light" href="{{ $data->instagram }}">
+                                            <i class="fa fa-instagram"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a class="social-icons btn-sm rgba-white-slight waves-effect waves-light" href="{{ $data->youtube }}">
+                                            <i class="fa fa-youtube-square"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                                @endforeach
+                            @endif
 
                         </div>
                         <div class="col-lg-5 col-md-12">
-                            <h6 class="font-weight-normal text-white">Categories</h6>
+                            <h6 class="font-weight-normal text-white"> التصنيفات </h6>
                             <ul class="list-unstyled mb-5 mb-lg-0">
                                 @if($categories->count())
                                     @foreach($categories as $category)
@@ -78,7 +74,7 @@
                 <div class="col-lg-6">
                     <div class="row">
                         <div class="col-lg-4 col-md-12">
-                            <h6 class="font-weight-normal text-white">Courses</h6>
+                            <h6 class="font-weight-normal text-white">الدورات </h6>
                             <ul class="list-unstyled mb-5 mb-lg-0">
                                 @if($courses->count())
                                     @foreach($courses as $course)

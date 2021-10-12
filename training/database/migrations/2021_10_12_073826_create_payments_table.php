@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddCourseIdColumnToStudentsTable extends Migration
+class CreatePaymentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class AddCourseIdColumnToStudentsTable extends Migration
      */
     public function up()
     {
-        Schema::table('students', function (Blueprint $table) {
-            $table->foreignId('course_id')->after('address')->constrained();
+        Schema::create('payments', function (Blueprint $table) {
+            $table->id();
+            $table->float('payment_amount');
+            $table->integer('course_id');
+            $table->text('notes');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +29,6 @@ class AddCourseIdColumnToStudentsTable extends Migration
      */
     public function down()
     {
-        Schema::table('students', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('payments');
     }
 }

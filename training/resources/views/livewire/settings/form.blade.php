@@ -1,11 +1,12 @@
 <div>
-    <style>
-        .upload-btn-wrapper{
-            width: 250px !important;
-            height: 250px !important;
-        }
-
-    </style>
+    @push('style')
+        <style>
+            .upload-btn-wrapper{
+                width: 250px !important;
+                height: 250px !important;
+            }
+        </style>
+    @endpush
     <section class="users-edit">
         <div class="card">
 

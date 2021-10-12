@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTrainersTable extends Migration
+class CreateHallsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateTrainersTable extends Migration
      */
     public function up()
     {
-        Schema::create('trainers', function (Blueprint $table) {
+        Schema::create('halls', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email')->unique();
-            $table->string('PCT');
-            $table->string('ISID');
-            $table->string('SBS');
-            $table->string('image');
+            $table->integer('capacity');
+            $table->string('computerized',1);
+            $table->string('available_from');
+            $table->string('available_to');
+            $table->string('availability',1);
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ class CreateTrainersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('trainers');
+        Schema::dropIfExists('halls');
     }
 }

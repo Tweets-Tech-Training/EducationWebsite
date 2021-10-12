@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Course;
+use App\Models\Setting;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 
@@ -22,7 +23,6 @@ class CourseController extends Controller
         }
         $categories = Category::all();
         $courses = $courses->orderBy('id','desc')->get();
-//        dd($courses);
         return view('layouts.front.course')->with([
             'courses'=>$courses,
             'categories'=>$categories,
