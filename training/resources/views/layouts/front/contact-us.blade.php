@@ -21,10 +21,10 @@
                 <div class="header-text mb-0">
                     <div class="container">
                         <div class="text-center text-white py-7">
-                            <h1 class="fs-22"> البرامج  و الدورات  </h1>
+                            <h1 class="fs-22"> اتصل بنا   </h1>
                             <ol class="breadcrumb text-center">
                                 <li class="breadcrumb-item"><a href="{{route('front.index')}}"> الصفحة الرئيسية </a></li>
-                                <li class="breadcrumb-item active text-white" aria-current="page"> الدورات التدريبية </li>
+                                <li class="breadcrumb-item active text-white" aria-current="page"> اتصل بنا  </li>
                             </ol>
                         </div>
                     </div>

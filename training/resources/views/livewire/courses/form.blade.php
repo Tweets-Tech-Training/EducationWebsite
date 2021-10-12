@@ -45,9 +45,8 @@
                                     <div class="col-12 col-sm-8">
                                         <div class="form-group row">
                                             <div class="col-md-6">
-                                                <span> الاسم </span>
-                                                <input type="text" class="form-control" wire:model="course.name"  name="name"   placeholder="الاسم">
-                                                @error('course.name') <span class="text-danger">{{ $message }}</span> @enderror
+                                                <x-form.input title="الاسم"  type="text" class="form-control" wire:model="course.name"  name="course.name"/>
+
                                             </div>
                                             <div wire:ignore  class="col-md-6">
                                                 <span> الصنف </span>
