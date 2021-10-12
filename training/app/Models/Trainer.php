@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Trainer extends Model
 {
-    use HasFactory;
+    use HasFactory ;
     protected $table = 'trainers';
     protected $fillable = [
         'name',
@@ -20,4 +20,5 @@ class Trainer extends Model
     protected $hidden = [
         'password',
     ];
+
 }
