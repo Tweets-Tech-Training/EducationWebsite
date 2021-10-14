@@ -134,7 +134,10 @@
                                     <a class="me-4"><i class="fe fe-calendar float-start me-1 mt-1"></i><span class=""> {{$course->lectures_num}} محاضرات </span></a>
                                     <a class="ms-4 float-end"><i class="fe fe-clock float-start me-1 mt-1"></i><span class=""> {{$course->lecture_interval}} ساعة / كل يوم </span></a>
                                 </div>
-                                <p class="mb-0 text-dark"> {!! $course->details !!} </p>
+{{--                                <div>--}}
+{{--                                    <p class="mb-0 text-dark" style="max-height:40px !important; height: 40px !important; "> {!! $course->details !!} </p>--}}
+{{--                                </div>--}}
+
                             </div>
                         </div>
                         <div class="card-footer">

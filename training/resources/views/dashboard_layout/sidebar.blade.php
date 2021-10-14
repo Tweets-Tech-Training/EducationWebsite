@@ -25,12 +25,13 @@
         <li class=" nav-item"><a href="{{route('halls.index')}}"><i class="feather icon-arrow-left-circle"></i><span class="menu-title" data-i18n="Dashboard"> القاعات  </span></a>
 
 
-        <li class=" nav-item"><a href="{{route('studyDivision')}}"><i class="feather icon-file-text"></i><span class="menu-title" data-i18n="Dashboard"> الشعب </span></a>
+        <li class=" nav-item"><a href="{{route('studyDivision.index')}}"><i class="feather icon-file-text"></i><span class="menu-title" data-i18n="Dashboard"> الشعب </span></a>
 
         </li>
         <li class=" nav-item"><a href="{{route('about-us.index')}}"><i class="feather icon-server"></i><span class="menu-title" data-i18n="Dashboard"> من نحن </span></a>
         </li>
-        <li class=" nav-item"><a href="{{route('imagesGallery.index')}}"><i class="feather icon-image"></i><span class="menu-title" data-i18n="Dashboard"> معرض الصور </span></a>
+        <li class=" n
+        av-item"><a href="{{route('imagesGallery.index')}}"><i class="feather icon-image"></i><span class="menu-title" data-i18n="Dashboard"> معرض الصور </span></a>
         </li>
         <li class=" nav-item"><a href="{{route('testimonial.index')}}"><i class="feather icon-message-circle"></i><span class="menu-title" data-i18n="Dashboard"> ماذا قالوا عنا </span></a>
         </li>

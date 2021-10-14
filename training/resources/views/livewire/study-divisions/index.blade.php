@@ -4,12 +4,12 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-left mb-0"> الدورات </h2>
+                        <h2 class="content-header-title float-left mb-0"> الشعب </h2>
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{route('dashboard')}}">الرئيسية</a>
                                 </li>
-                                <li class="breadcrumb-item active">الدورات </li>
+                                <li class="breadcrumb-item active">الشعب </li>
                             </ol>
                         </div>
                     </div>
@@ -31,32 +31,32 @@
                                         <div id="collapse1" role="tabpanel" aria-labelledby="headingCollapse1" class="collapse">
                                             <div class="card-content">
                                                 <div class="card-body">
-                                                    <form class="form" wire:submit.prevent="search">
-                                                        <div class="form-body">
-                                                            <div class="row">
-                                                                <div class="col-md-4 col-12">
-                                                                    <div class="form-group">
-                                                                        <label for="اسم الدورة"> اسم الدورة </label>
-                                                                        <input type="text" wire:model.defer="search_array.name" id="name" class="form-control" placeholder="اسم الدورة" name="اسم الدورة">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-12 mt-4 text-right">
-                                                                    <button wire:loading.attr="disabled" type="submit" class="btn btn-primary mr-1 mb-1 waves-effect waves-light search_btn" wire:click="search">
-                                                                        بحث
-                                                                        <span wire:loading="" wire:target="search">
-                                                                        <i class="fa fa-spinner fa-spin " aria-hidden="true"></i>
-                                                                        </span>
-                                                                    </button>
-                                                                    <button wire:loading.attr="disabled" type="reset" class="btn btn-outline-warning mr-1 mb-1 waves-effect waves-light" wire:click="resetSearch">
-                                                                        افراغ الحقول
-                                                                        <span wire:loading="" wire:target="resetSearch">
-                                                                            <i class="fa fa-spinner fa-spin " aria-hidden="true"></i>
-                                                                        </span>
-                                                                    </button>
+                                                    {{--                                                    <form class="form" wire:submit.prevent="search">--}}
+                                                    <div class="form-body">
+                                                        <div class="row">
+                                                            <div class="col-md-4 col-12">
+                                                                <div class="form-group">
+                                                                    <label for="اسم الشعبة">  اسم الشعبة  </label>
+                                                                    <input type="text" wire:model.defer="searchByName" id="searchByTitle" class="form-control" placeholder="اسم الشعبة" name="searchByTitle">
                                                                 </div>
                                                             </div>
+                                                            <div class="col-12 mt-4 text-right">
+                                                                <button wire:click="search" wire:loading.attr="disabled" type="submit" class="btn btn-primary mr-1 mb-1 waves-effect waves-light search_btn">
+                                                                    بحث
+                                                                    <span  wire:loading="" wire:target="search">
+                                                                            <i class="fa fa-spinner fa-spin " aria-hidden="true"></i>
+                                                                        </span>
+                                                                </button>
+                                                                <button wire:click="resetSearch" wire:loading.attr="disabled" type="reset" class="btn btn-outline-warning mr-1 mb-1 waves-effect waves-light" >
+                                                                    افراغ الحقول
+                                                                    <span wire:loading="" wire:target="resetSearch">
+                                                                            <i class="fa fa-spinner fa-spin " aria-hidden="true"></i>
+                                                                        </span>
+                                                                </button>
+                                                            </div>
                                                         </div>
-                                                    </form>
+                                                    </div>
+                                                    {{--                                                    </form>--}}
                                                 </div>
                                             </div>
                                         </div>
@@ -66,6 +66,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="table-responsive">
                     <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                         <div class="top">
@@ -73,9 +74,8 @@
                             <div class="actions action-btns">
 
                                 <div class="dt-buttons btn-group">
-                                    <a href="{{route('course.create')}}"  class="btn btn-outline-primary mr-1 mb-1 waves-effect waves-light"><i class="feather icon-plus-circle"></i>
-                                        اضافة دورة جديدة                                 </a>
-
+                                    <a href="{{route('studyDivision.create')}}"  class="btn btn-outline-primary mr-1 mb-1 waves-effect waves-light"><i class="feather icon-plus-circle"></i>
+                                        اضافة شعبة جديدة                                 </a>
                                 </div>
                             </div>
                             <div class="action-filters">
@@ -86,7 +86,8 @@
                                             <option value="20">20</option>
                                             <option value="50">50</option>
                                             <option value="100">100</option>
-                                        </select>                                </label>
+                                        </select>
+                                    </label>
                                 </div>
                             </div>
                         </div>
@@ -100,17 +101,17 @@
                                 </th>
 
                                 <th rowspan="1" colspan="1">
-                                    الاسم
+                                    اسم الشعبة
+                                </th>
+                                <th rowspan="1" colspan="1">
+                                    اسم الدورة التابعة لها
+                                </th>
+                                <th rowspan="1" colspan="1">
+                                    اسم القاعة المخصصة لها
                                 </th>
 
                                 <th rowspan="1" colspan="1">
-                                    السعر
-                                </th>
-                                <th rowspan="1" colspan="1">
-                                    تاريخ البدء
-                                </th>
-                                <th rowspan="1" colspan="1">
-                                    تاريخ النهاية
+                                    عدد الطلاب
                                 </th>
 
                                 <th rowspan="1" colspan="1" >
@@ -120,23 +121,20 @@
                             </tr>
                             </thead>
                             <tbody>
-
-                            @forelse($courses as $course)
+                            @forelse($divisions as $division)
                                 <tr>
-                                    <td >{{ $course->id }}</td>
-                                    <td >{{ $course->name }}</td>
-                                    <td >{{ $course->price }}</td>
-                                    <td >{{ $course->start_date }}</td>
-                                    <td >{{ $course->end_date }}</td>
+                                    <td >{{ $division->id }}</td>
+                                    <td >{{ $division->name }}</td>
+                                    <td >{{ $division->course->name }}</td>
+                                    <td >{{ $division->hall->name }}</td>
+                                    <td >{{ $division->students_number }}</td>
                                     <td >
-                                        <a type="button" class="btn btn-icon btn-icon rounded-circle btn-primary mr-1 mb-1 waves-effect waves-light" href="{{route('course.edit',$course->id)}}"><i class="feather icon-edit"></i></a>
-                                        <a type="button" title="إضافة شعبة" class="btn btn-icon btn-icon rounded-circle btn-success mr-1 mb-1 waves-effect waves-light" href="{{route('studyDivision.index')}}"><i class="feather icon-plus-circle"></i></a>
-                                        <button type="button" class="btn btn-icon btn-icon rounded-circle btn-danger mr-1 mb-1 waves-effect waves-light" wire:click="delete({{ $course->id }})"><i class="feather icon-trash"></i></button>
+                                        <a type="button" class="btn btn-icon btn-icon rounded-circle btn-primary mr-1 mb-1 waves-effect waves-light" href="{{route('studyDivision.edit',$division->id)}}"><i class="feather icon-edit"></i></a>
+                                        <button type="button" class="btn btn-icon btn-icon rounded-circle btn-danger mr-1 mb-1 waves-effect waves-light" wire:click="delete({{ $division->id }})"><i class="feather icon-trash"></i></button>
                                     </td>
                                 </tr>
                             @empty
-                                    <x-nodata></x-nodata>
-
+                            <x-nodata></x-nodata>
                             @endforelse
                             </tbody>
                         </table>
@@ -145,7 +143,8 @@
                             <div class="actions"></div>
                             <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
                                 <div>
-                                    {{ $courses->links() }}
+                                    {{--  ****  pagination  *** --}}
+                                    {{ $divisions->links() }}
                                 </div>
 
                             </div>
@@ -162,7 +161,6 @@
 
     </div>
 </div>
-
 
 
 

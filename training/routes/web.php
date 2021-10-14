@@ -102,7 +102,7 @@ Route::group(['middleware'=>'auth','prefix'=>'training/admin'],function(){
 
     Route::get('contact-us',ContactUs::class)->name('contact-us');
 
-    Route::get('studyDivision',StudyDivision::class)->name('studyDivision');
+    Route::get('studyDivision',StudyDivision::class)->name('studyDivision.index');
     Route::get('studyDivision/create',StudyDivisionForm::class)->name('studyDivision.create');
     Route::get('studyDivision/{id}/edit',StudyDivisionForm::class)->name('studyDivision.edit');
 
@@ -115,6 +115,5 @@ Route::post('/course-registration',[HomeController::class,'courseRegistration'])
 Route::get('/courses',[CourseController::class,'index'])->name('front.courses.index');
 Route::get('/contact-us',[ContactUsController::class,'index'])->name('front.contact-us.index');
 Route::post('/send',[ContactUsController::class,'send'])->name('contact.send');
-
 Route::post('/courses/search',[CourseController::class,'courseSearch'])->name('front.courses.search');
 //  *** End Front index Route *** //

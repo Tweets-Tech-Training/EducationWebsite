@@ -124,6 +124,11 @@
 <script src="{{asset('admin-layout/app-assets/vendors/js/tables/datatable/dataTables.select.min.js')}}"></script>
 <script src="{{asset('admin-layout/app-assets/vendors/js/tables/datatable/datatables.checkboxes.min.js')}}"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="{{asset('admin-layout/app-assets/vendors/js/pickers/pickadate/picker.js')}}"></script>
+<script src="{{asset('admin-layout/app-assets/vendors/js/pickers/pickadate/picker.date.js')}}"></script>
+<script src="{{asset('admin-layout/app-assets/vendors/js/pickers/pickadate/picker.time.js')}}"></script>
+<script src="{{asset('admin-layout/app-assets/vendors/js/pickers/pickadate/legacy.js')}}"></script>
+<script src="{{asset('admin-layout/app-assets/vendors/js/pickers/flatpickr/flatpickr.min.js')}}"></script>
 
 <!-- BEGIN: Page JS-->
 <!-- END: Page JS-->

@@ -14,4 +14,8 @@ class Course extends Model
     function students(){
         return $this->belongsToMany(Student::class,'course_registrations');
     }
+
+    public function studyDivisions(){
+        return $this->hasMany(StudyDivision::class);
+    }
 }

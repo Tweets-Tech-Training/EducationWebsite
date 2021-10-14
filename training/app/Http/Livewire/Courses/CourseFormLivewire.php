@@ -48,7 +48,6 @@ class CourseFormLivewire extends Component
             $this->course->image = $imageName;
         }
         $this->validate();
-        dd($this->validate());
         $this->course->save();
         $this->dispatchBrowserEvent('swal:modal', [
             'type' => 'success',
