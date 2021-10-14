@@ -60,6 +60,10 @@ Route::group(['middleware'=>'auth','prefix'=>'training/admin'],function(){
     Route::get('courses/create',CourseFormLivewire::class)->name('course.create');
     Route::get('courses/{id}/edit', CourseFormLivewire::class)->name('course.edit');
 
+    Route::get('halls',Course::class)->name('halls.index');
+    Route::get('halls/create',CourseFormLivewire::class)->name('halls.create');
+    Route::get('halls/{id}/edit', CourseFormLivewire::class)->name('halls.edit');
+
     Route::get('about-us',AboutUsFormLivewire::class)->name('about-us.index');
 
     Route::get('/imagesGallery',ImagesGallery::class)->name('imagesGallery.index');
@@ -76,19 +80,14 @@ Route::group(['middleware'=>'auth','prefix'=>'training/admin'],function(){
     Route::get('/partners/{id}/edit',PartnersFormLivewire::class)->name('partners.edit');
 
     Route::get('settings',SettingsFormLivewire::class)->name('settings.index');
-//    Route::get('/settings/create',SettingsFormLivewire::class)->name('settings.create');
-//    Route::get('/settings/{id}/edit',SettingsFormLivewire::class)->name('settings.edit');
 
     Route::get('categories',Categories::class)->name('categories.index');
     Route::get('/categories/create',CategoriesFormLivewire::class)->name('categories.create');
     Route::get('/categories/{id}/edit',CategoriesFormLivewire::class)->name('categories.edit');
 
-
-
     Route::get('trainer',Trainer::class)->name('trainer');
     Route::get('trainer/create', TrainerForm::class)->name('trainer.create');
     Route::get('trainer/{id}/edit', TrainerForm::class)->name('trainer.edit');
-
 
     Route::get('contact-us',ContactUs::class)->name('contact-us');
 

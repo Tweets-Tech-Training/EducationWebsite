@@ -16,6 +16,12 @@
             .select2-container--default .select2-selection--single {
                 border: 1px solid #d9d9d9;
             }
+            #course_image{
+                border: 3px solid #D3D3D3;
+                border-radius: 15px;
+                width: 100%;
+                height: 100%;
+            }
         </style>
    @endpush
     <section class="users-edit">
@@ -45,101 +51,73 @@
                                     <div class="col-12 col-sm-8">
                                         <div class="form-group row">
                                             <div class="col-md-6">
-
                                                 <x-form.input title="الاسم"  type="text" class="form-control" wire:model="course.name"  name="course.name"/>
-
                                             </div>
                                             <div class="col-md-6">
-                                                <span> نوع الدورة </span>
-                                                <div class="form-check " style="padding-top: 5px">
-                                                    <input class="form-check-input" type="checkbox"  wire:model="course.course_type"  name="type">
-                                                    <span> وجاهي </span>
-{{--                                                    <label class="form-check-label" for="flexCheckDefault">--}}
-{{--                                                        وجاهي--}}
-{{--                                                    </label>--}}
-                                                </div>
-{{--                                                    <input type="checkbox" class="form-control" wire:model="course.course_type"  name="type" style="width: 50%; height: 20px;"  >online--}}
-                                                @error('course.course_type') <span class="text-danger">{{ $message }}</span> @enderror
+                                                <x-form.check title="نوع الدورة" checkbox-label="وجاهي" type="checkbox" class="custom-control-input"  id="customCheck3" wire:model="course.course_type"  name="course.course_type"/>
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <div wire:ignore  class="col-md-6">
-                                                <span> الصنف </span>
-                                                <select wire:model="course.category_id" name="category_id" id="select2-dropdown" class="form-control"  data-placeholder="Select Category">
-                                                    <option value=" " >اختر التصنيف </option>
-                                                    @if($categories->count())
-                                                        @foreach($categories as $category)
-                                                            <option class="p-5" name="category_id" value="{{$category->id}}">  {{$category->name}}  </option>
-                                                        @endforeach
-                                                    @endif
-                                                </select>
-                                                @error('course.category_id') <span class="text-danger">{{ $message }}</span> @enderror
-                                            </div>
-                                            <div wire:ignore  class="col-md-6">
+                                                <div   class="col-md-6">
+                                                    <span> الصنف </span>
+                                                    <div wire:ignore>
+                                                        <select wire:model="course.category_id" name="category_id" id="select2-dropdown" class="form-control"  data-placeholder="Select Category">
+                                                            <option value=" ">اختر التصنيف </option>
+                                                            @if($categories->count())
+                                                                @foreach($categories as $category)
+                                                                    <option class="p-5" name="category_id" value="{{$category->id}}">  {{$category->name}}  </option>
+                                                                @endforeach
+                                                            @endif
+                                                        </select>
+                                                    </div>
+                                                   @error('course.category_id') <span class="text-danger">{{ $message }}</span> @enderror
+                                                </div>
+                                            <div  class="col-md-6">
                                                 <span> المدرب </span>
-                                                <select wire:model="course.trainer_id" name="trainer_id" id="select2-dropdown" class="form-control"  >
-                                                    <option value=" " >اختر المدرب </option>
-                                                    @if($trainers->count())
-                                                        @foreach($trainers as $trainer)
-                                                            <option class="p-5" name="trainer_id" value="{{$trainer->id}}">  {{$trainer->name}}  </option>
-                                                        @endforeach
-                                                    @endif
-                                                </select>
-                                                @error('course.category_id') <span class="text-danger">{{ $message }}</span> @enderror
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <div class="col-md-6">
-                                                <span> مكان الانعقاد </span>
-                                                <input type="text" class="form-control" wire:model="course.place"  name="place"   placeholder="المكان">
-                                                @error('course.place') <span class="text-danger">{{ $message }}</span> @enderror
-                                            </div>
-                                            <div class="col-md-6">
-                                                <span> عدد المحاضرات </span>
-                                                <input type="text" class="form-control" wire:model="course.lectures_num"  name="lectures_num"   placeholder="عدد المحاضرات">
-                                                @error('course.lectures_num') <span class="text-danger">{{ $message }}</span> @enderror
-                                            </div>
-
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="col-md-6">
-                                                <span> مدة المحاضرة </span>
-                                                <input type="text" class="form-control" wire:model="course.lecture_interval"  name="lecture_interval"   placeholder="مدة المحاضرة">
-                                                @error('course.lecture_interval') <span class="text-danger">{{ $message }}</span> @enderror
-                                            </div>
-                                            <div class="col-md-6">
-                                                <span> تاريخ البدء </span>
-                                                <input type="date" class="form-control" wire:model="course.start_date"  name="start_date"   placeholder="تاريخ البداية">
-                                                @error('course.start_date') <span class="text-danger">{{ $message }}</span> @enderror
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="col-md-6">
-                                                <span> تاريخ الانتهاء </span>
-                                                <input type="date" class="form-control" wire:model="course.end_date"  name="end_date"   placeholder="تاريخ الانتهاء">
-                                                @error('course.end_date') <span class="text-danger">{{ $message }}</span> @enderror
-                                            </div>
-                                            <div class="col-md-6">
-                                                <span> السعر </span>
-                                                <input type="text" class="form-control" wire:model="course.price"  name="price"   placeholder="السعر">
-                                                @error('course.price') <span class="text-danger">{{ $message }}</span> @enderror
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <div  class="col-md-12" wire:ignore>
-                                                <span> تفاصيل الدورة </span>
-                                                <div id="detailsEditor"  name="detailsEditor">
-                                                    {!! $course->details !!}
+                                                <div wire:ignore >
+                                                    <select wire:model="course.trainer_id" name="trainer_id" id="select2-dropdown" class="form-control"  >
+                                                        <option value=" " >اختر المدرب </option>
+                                                        @if($trainers->count())
+                                                            @foreach($trainers as $trainer)
+                                                                <option class="p-5" name="trainer_id" value="{{$trainer->id}}">  {{$trainer->name}}  </option>
+                                                            @endforeach
+                                                        @endif
+                                                    </select>
                                                 </div>
+                                                @error('course.trainer_id') <span class="text-danger">{{ $message }}</span> @enderror
                                             </div>
-                                            @error('course.details') <span class="text-danger">{{ $message }}</span> @enderror
-
 
                                         </div>
 
+                                        <div class="form-group row">
+                                            <div class="col-md-6">
+                                                <x-form.input title="مكان الانعقاد"  type="text" class="form-control" wire:model="course.place"  name="course.place" placeholder="المكان"/>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <x-form.input title="عدد المحاضرات"  type="text" class="form-control" wire:model="course.lectures_num"  name="course.lectures_num" placeholder="عدد المحاضرات"/>
+                                            </div>
 
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-md-6">
+                                                <x-form.input title="مدة المحاضرة"  type="text" class="form-control" wire:model="course.lecture_interval"  name="course.lecture_interval" placeholder="مدة المحاضرة"/>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <x-form.input title=" تاريخ البدء"  type="date" class="form-control" wire:model="course.start_date"  name="course.start_date" placeholder="تاريخ البدء"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-md-6">
+                                                <x-form.input title="تاريخ الانتهاء"  type="date" class="form-control" wire:model="course.end_date"  name="course.end_date" placeholder="تاريخ الانتهاء"/>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <x-form.input title="السعر"  type="text" class="form-control" wire:model="course.price"  name="course.price" placeholder="السعر"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                                <x-form.ckEditor title=" تفاصيل الدورة"  type="text" class="form-control" wire:model="course.details"  name="course.details"  id="detailsEditor" value="{!! $course->details !!}"/>
+                                        </div>
                                     </div>
 
                                     <div class="col-12 col-sm-4">
@@ -147,15 +125,14 @@
                                         <div class="upload-btn-wrapper mx-auto">
                                             <div class="upload-btn">
                                                 @if($image)
-
-                                                    <img src="{{$image->temporaryUrl()}}">
-
+                                                    <x-form.image src="{{$image->temporaryUrl()}}" />
                                                 @else
-
                                                     <div style="width: 250px ; height: 250px">
                                                         <div>
-                                                            <img style="border: 3px solid #D3D3D3; border-radius: 15px; width: 100%; height: 100%" src="{{$course->image?asset('storage/images/'.$course->image):asset('storage/images/no-image.png')}}">
-                                                            @error('course.image') <span class="text-danger" style="font-size: 1rem ;display: block;!important;">{{ $message }}</span> @enderror
+                                                            <x-form.image id="course_image"  src="{{$course->image?asset('storage/images/'.$course->image):asset('storage/images/no-image.png')}}"
+                                                            name="course.image" style="font-size: 1rem ;display: block;!important;"/>
+{{--                                                            <img style="border: 3px solid #D3D3D3; border-radius: 15px; width: 100%; height: 100%" src="{{$course->image?asset('storage/images/'.$course->image):asset('storage/images/no-image.png')}}">--}}
+{{--                                                            @error('course.image') <span class="text-danger" style="font-size: 1rem ;display: block;!important;">{{ $message }}</span> @enderror--}}
                                                         </div>
                                                     </div>
                                                 @endif

@@ -143,6 +143,15 @@ return [
         'course.lectures_num'=>[
             'required'=>' عدد المحاضرات  مطلوب'
         ],
+        'course.course_type'=>[
+            'required'=>' نوع الدورة  مطلوب'
+        ],
+        'course.trainer_id'=>[
+            'required'=>' مدرب الدورة  مطلوب'
+        ],
+        'course.category_id'=>[
+            'required'=>' صنف الدورة مطلوب'
+        ],
         'partner.title'=>[
             'required'=>' الاسم  مطلوب'
         ],
@@ -208,6 +217,9 @@ return [
         'link'                  =>'رابط الموقع',
         'whatsapp'              =>'حساب الواتس آب',
         'site_name'             =>'اسم الموقع',
-        'course_id'             =>'الدورة'
+        'course_id'             =>'الدورة',
+        'category_id'           =>'التصنيف',
+        'trainer_id'            =>'المدرب',
+        'course_type'           =>'نوع الدورة',
     ],
 ];

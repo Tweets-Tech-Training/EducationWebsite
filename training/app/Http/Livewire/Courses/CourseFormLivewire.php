@@ -42,13 +42,13 @@ class CourseFormLivewire extends Component
 
     public function save()
     {
-
         if ($this->image ) {
             $filename = $this->image->store('public/images');
             $imageName = $this->image->hashName();
             $this->course->image = $imageName;
         }
         $this->validate();
+        dd($this->validate());
         $this->course->save();
         $this->dispatchBrowserEvent('swal:modal', [
             'type' => 'success',
