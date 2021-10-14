@@ -22,9 +22,13 @@ use App\Http\Livewire\Settings\Settings;
 use App\Http\Livewire\Settings\SettingsFormLivewire;
 use App\Http\Livewire\Slider;
 use App\Http\Livewire\SliderFormLivewire;
+use App\Http\Livewire\Student\Studentform;
+use App\Http\Livewire\StudyDivisions\StudyDivision;
+use App\Http\Livewire\StudyDivisions\StudyDivisionForm;
 use App\Http\Livewire\Testimonial\Testimonial;
 use App\Http\Livewire\Testimonial\TestimonialFormLivewire;
 use App\Http\Livewire\Trainer\Trainer;
+use App\Http\Livewire\Student\Student;
 use App\Http\Livewire\Trainer\TrainerForm;
 use Illuminate\Support\Facades\Route;
 
@@ -89,8 +93,18 @@ Route::group(['middleware'=>'auth','prefix'=>'training/admin'],function(){
     Route::get('trainer/create', TrainerForm::class)->name('trainer.create');
     Route::get('trainer/{id}/edit', TrainerForm::class)->name('trainer.edit');
 
+
+    Route::get('student',Student::class)->name('student');
+//    Route::get('student/create', Studentform::class)->name('student.create');
+    Route::get('student/{id}/edit',Studentform::class)->name('student.edit');
+    Route::get('student/{id}/show',\App\Http\Livewire\Student\StudentShow::class)->name('student.show');
+
+
     Route::get('contact-us',ContactUs::class)->name('contact-us');
 
+    Route::get('studyDivision',StudyDivision::class)->name('studyDivision');
+    Route::get('studyDivision/create',StudyDivisionForm::class)->name('studyDivision.create');
+    Route::get('studyDivision/{id}/edit',StudyDivisionForm::class)->name('studyDivision.edit');
 
 });
 //  *** End Front Admin Panel Routes  ***

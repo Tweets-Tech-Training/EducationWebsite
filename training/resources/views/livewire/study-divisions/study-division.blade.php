@@ -30,8 +30,8 @@
                             <div class="col-12 d-flex flex-sm-row flex-column justify-content-between mt-1">
 
                                 <div class="dt-buttons btn-group">
-                                    <a href="{{route('trainer.create')}}" class="btn btn-outline-primary mr-1 mb-1 waves-effect waves-light"><i class="feather icon-plus-circle"></i>
-                                        اضافة مدرب جديد                                 </a>
+                                    <a href="{{route('studyDivision')}}" class="btn btn-outline-primary mr-1 mb-1 waves-effect waves-light"><i class="feather icon-plus-circle"></i>
+                                        اضافة  شعبة جديدة                                  </a>
 
                                 </div>
                                 <div  class="col-md-4">
@@ -68,16 +68,16 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @forelse ($trainers as $trainer)
+                            @forelse ($studyDivisions as $studyDivision)
                                 <tr>
-                                    <td>{{$trainer->id}}</td>
-                                    <td>{{$trainer->name}}</td>
-                                    <td>{{$trainer->mobile}}</td>
-                                    <td>{{ $trainer->specialization }}</td>
+                                    <td>{{$studyDivision->id}}</td>
+                                    <td>{{$studyDivision->name}}</td>
+                                    <td>{{$studyDivision->mobile}}</td>
+                                    <td>{{ $studyDivision->specialization }}</td>
                                     <td>
                                         <div class="inline-block whitespace-no-wrap">
-                                            <a   class="btn btn-icon btn-icon rounded-circle btn-primary mr-1 mb-1 waves-effect waves-light" href="{{ route('trainer.edit',$trainer->id) }}" ><i class="feather icon-edit"></i></a>
-                                            <button type="button" wire:click="deleteId({{ $trainer->id }})" class="btn btn-icon btn-icon rounded-circle btn-danger mr-1 mb-1 waves-effect waves-light" data-toggle="modal" data-target="#exampleModal"><i class="feather icon-trash"></i></button>
+                                            <a   class="btn btn-icon btn-icon rounded-circle btn-primary mr-1 mb-1 waves-effect waves-light" href="{{ route('studyDivision.edit',$studyDivision->id) }}" ><i class="feather icon-edit"></i></a>
+                                            <button type="button" wire:click="deleteId({{ $studyDivision->id }})" class="btn btn-icon btn-icon rounded-circle btn-danger mr-1 mb-1 waves-effect waves-light" data-toggle="modal" data-target="#exampleModal"><i class="feather icon-trash"></i></button>
 
                                         </div>
                                     </td>
@@ -93,7 +93,7 @@
                         <div class="bottom">
                             <div class="actions"></div>
                             <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
-                                                                {{$trainers->links()}}
+                                {{$studyDivisions->links()}}
                                 <div>
                                 </div>
 

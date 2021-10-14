@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Student extends Model
 {
     use HasFactory;
+    protected $table = 'students';
     protected $fillable = [
         'name',
         'email',
@@ -16,5 +17,11 @@ class Student extends Model
         'password',
         'address',
         'notes',
+        'status',
+        'image'
     ];
+
+    function courses(){
+        return $this->belongsToMany(Course::class,'course_registrations');
+    }
 }

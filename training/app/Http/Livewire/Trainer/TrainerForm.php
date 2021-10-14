@@ -22,7 +22,11 @@ class TrainerForm extends Component
             'trainer.name' => 'required|string',
             'trainer.email' =>  $this->trainer->id?'required|string|email|max:255|unique:trainers,email, '. $this->trainer->id:"required|string|email|max:255|unique:trainers,email",
             'password' => 'required',
+            'trainer.facebook' => 'required',
             'trainer.image' => 'required',
+            'trainer.specialization' => 'required',
+            'trainer.gender' => 'required',
+            'trainer.address' => 'required',
             'trainer.mobile' =>  $this->trainer->id?'required|string|max:255|unique:trainers,mobile, '. $this->trainer->id:"required|string|max:255|unique:trainers,mobile",
 
         ];
@@ -40,7 +44,7 @@ class TrainerForm extends Component
             //$this->image = $imagename;
             $this->trainer->image=$imagename;
         }
-        ;
+
         $this->validate();
 
         if($this->password){

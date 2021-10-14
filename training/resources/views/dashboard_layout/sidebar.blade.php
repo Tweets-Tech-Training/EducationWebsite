@@ -21,7 +21,12 @@
         </li>
         <li class=" nav-item"><a href="{{route('courses.index')}}"><i class="feather icon-file-text"></i><span class="menu-title" data-i18n="Dashboard"> الدورات </span></a>
         </li>
+
         <li class=" nav-item"><a href="{{route('halls.index')}}"><i class="feather icon-arrow-left-circle"></i><span class="menu-title" data-i18n="Dashboard"> القاعات  </span></a>
+
+
+        <li class=" nav-item"><a href="{{route('studyDivision')}}"><i class="feather icon-file-text"></i><span class="menu-title" data-i18n="Dashboard"> الشعب </span></a>
+
         </li>
         <li class=" nav-item"><a href="{{route('about-us.index')}}"><i class="feather icon-server"></i><span class="menu-title" data-i18n="Dashboard"> من نحن </span></a>
         </li>
@@ -36,6 +41,15 @@
         <li class=" nav-item"><a href="{{route('contact-us')}}"><i class="feather icon-phone-call"></i><span class="menu-title" data-i18n="Dashboard"> اتصل بنا  </span></a>
         </li>
 
+
+        <li class=" nav-item"><a href="{{route('student')}}"><i class="feather icon-users"></i><span class="menu-title" data-i18n="Dashboard"> الطلاب  </span></a>
+        </li>
+        <li class=" nav-item"><a href="{{route('trainer')}}"><i class="feather icon-user"></i><span class="menu-title" data-i18n="Dashboard"> المدربون </span></a>
+        </li>
+        <li class=" nav-item"><a href="{{route('contact-us')}}"><i class="feather icon-phone-call"></i><span class="menu-title" data-i18n="Dashboard"> اتصل بنا  </span></a>
+        </li>
+        <li class=" nav-item"><a href="{{route('settings.index')}}"><i class="feather icon-settings"></i><span class="menu-title" data-i18n="Dashboard"> الإعدادات </span></a>
+        </li>
 
 {{--          *** Control Header And Footer  ***  --}}
 {{--        <li class=" nav-item"><a href="{{route('lists.index')}}"><i class="feather icon-link-2"></i><span class="menu-title" data-i18n="Dashboard"> القوائم </span></a>--}}
