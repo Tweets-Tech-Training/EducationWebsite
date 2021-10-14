@@ -12,10 +12,16 @@ class Trainer extends Model
     protected $fillable = [
         'name',
         'email',
-        'course_id',
+        'specialization',
         'mobile',
         'password',
-        'image'
+        'image',
+        'gender',
+        'facebook',
+        'address',
+
+
+
     ];
     protected $hidden = [
         'password',

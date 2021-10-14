@@ -8,12 +8,12 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-left mb-0">الزبائن</h2>
+                        <h2 class="content-header-title float-left mb-0">الطلاب</h2>
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="">الرئيسية</a>
                                 </li>
-                                <li class="breadcrumb-item active">المدربون </li>
+                                <li class="breadcrumb-item active">الطلاب  </li>
                             </ol>
                         </div>
                     </div>
@@ -30,8 +30,6 @@
                             <div class="col-12 d-flex flex-sm-row flex-column justify-content-between mt-1">
 
                                 <div class="dt-buttons btn-group">
-                                    <a href="{{route('trainer.create')}}" class="btn btn-outline-primary mr-1 mb-1 waves-effect waves-light"><i class="feather icon-plus-circle"></i>
-                                        اضافة مدرب جديد                                 </a>
 
                                 </div>
                                 <div  class="col-md-4">
@@ -68,16 +66,17 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @forelse ($trainers as $trainer)
+                            @forelse ($students as $student)
                                 <tr>
-                                    <td>{{$trainer->id}}</td>
-                                    <td>{{$trainer->name}}</td>
-                                    <td>{{$trainer->mobile}}</td>
-                                    <td>{{ $trainer->specialization }}</td>
+                                    <td>{{$student->id}}</td>
+                                    <td>{{$student->name}}</td>
+                                    <td>{{$student->mobile}}</td>
+                                    <td>{{ $student->email }}</td>
                                     <td>
                                         <div class="inline-block whitespace-no-wrap">
-                                            <a   class="btn btn-icon btn-icon rounded-circle btn-primary mr-1 mb-1 waves-effect waves-light" href="{{ route('trainer.edit',$trainer->id) }}" ><i class="feather icon-edit"></i></a>
-                                            <button type="button" wire:click="deleteId({{ $trainer->id }})" class="btn btn-icon btn-icon rounded-circle btn-danger mr-1 mb-1 waves-effect waves-light" data-toggle="modal" data-target="#exampleModal"><i class="feather icon-trash"></i></button>
+                                            <a   class="btn btn-icon btn-icon rounded-circle btn-primary mr-1 mb-1 waves-effect waves-light" href="{{ route('student.edit',$student->id) }}" ><i class="feather icon-edit"></i></a>
+                                            <a   class="btn btn-icon btn-icon rounded-circle btn-success mr-1 mb-1 waves-effect waves-light" href="{{ route('student.show',$student->id) }}" ><i class="feather icon-eye"></i></a>
+                                            <button type="button" wire:click="deleteId({{ $student->id }})" class="btn btn-icon btn-icon rounded-circle btn-danger mr-1 mb-1 waves-effect waves-light" data-toggle="modal" data-target="#exampleModal"><i class="feather icon-trash"></i></button>
 
                                         </div>
                                     </td>
@@ -93,7 +92,7 @@
                         <div class="bottom">
                             <div class="actions"></div>
                             <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
-                                                                {{$trainers->links()}}
+                                {{$students->links()}}
                                 <div>
                                 </div>
 
@@ -106,8 +105,6 @@
 
             </section>
         </div>
-
-
 
     </div>
 

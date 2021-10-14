@@ -21,6 +21,9 @@
         </li>
         <li class=" nav-item"><a href="{{route('courses.index')}}"><i class="feather icon-file-text"></i><span class="menu-title" data-i18n="Dashboard"> الدورات </span></a>
         </li>
+
+        <li class=" nav-item"><a href="{{route('studyDivision')}}"><i class="feather icon-file-text"></i><span class="menu-title" data-i18n="Dashboard"> الشعب </span></a>
+        </li>
         <li class=" nav-item"><a href="{{route('about-us.index')}}"><i class="feather icon-server"></i><span class="menu-title" data-i18n="Dashboard"> من نحن </span></a>
         </li>
         <li class=" nav-item"><a href="{{route('imagesGallery.index')}}"><i class="feather icon-image"></i><span class="menu-title" data-i18n="Dashboard"> معرض الصور </span></a>
@@ -29,37 +32,14 @@
         </li>
         <li class=" nav-item"><a href="{{route('partners.index')}}"><i class="feather icon-users"></i><span class="menu-title" data-i18n="Dashboard"> الشركاء </span></a>
         </li>
-
-        <li class=" nav-item"><a href="{{route('trainer')}}"><i class="feather icon-users"></i><span class="menu-title" data-i18n="Dashboard"> المدربون </span></a>
+        <li class=" nav-item"><a href="{{route('student')}}"><i class="feather icon-users"></i><span class="menu-title" data-i18n="Dashboard"> الطلاب  </span></a>
+        </li>
+        <li class=" nav-item"><a href="{{route('trainer')}}"><i class="feather icon-user"></i><span class="menu-title" data-i18n="Dashboard"> المدربون </span></a>
         </li>
         <li class=" nav-item"><a href="{{route('contact-us')}}"><i class="feather icon-phone-call"></i><span class="menu-title" data-i18n="Dashboard"> اتصل بنا  </span></a>
         </li>
         <li class=" nav-item"><a href="{{route('settings.index')}}"><i class="feather icon-settings"></i><span class="menu-title" data-i18n="Dashboard"> الإعدادات </span></a>
         </li>
-{{--        <li class=" nav-item"><a href="{{route('dashboard.statisics')}}"><i class="feather icon-credit-card"></i><span class="menu-title" data-i18n="Dashboard">احصائيات</span></a>--}}
-
-{{--        </li>--}}
-{{--        <li class=" nav-item"><a href="{{route('dashboard.about_us')}}"><i class="feather icon-info"></i><span class="menu-title" data-i18n="Dashboard">من نحن</span></a>--}}
-
-{{--        </li>--}}
-{{--        <li class=" nav-item"><a href="{{route('dashboard.our_services')}}"><i class="feather icon-server"></i><span class="menu-title" data-i18n="Dashboard"> أهم خدماتنا</span></a>--}}
-
-{{--        </li>--}}
-{{--        <li class=" nav-item"><a href="{{route('dashboard.our_works')}}"><i class="fa fa-suitcase"></i><span class="menu-title" data-i18n="Dashboard">اخر أعمالنا</span></a>--}}
-
-{{--        </li>--}}
-{{--        <li class=" nav-item"><a href="{{route('dashboard.partners')}}"><i class="fa fa-users"></i><span class="menu-title" data-i18n="Dashboard">الشركاء</span></a>--}}
-
-{{--        </li>--}}
-
-{{--        <li class=" nav-item"><a href="{{route('dashboard.teams')}}"><i class="feather icon-users"></i><span class="menu-title" data-i18n="Dashboard">اعضاء الفريق</span></a>--}}
-
-{{--        </li>--}}
-{{--        <li class=" nav-item"><a href="{{route('dashboard.contact_us')}}"><i class="feather icon-phone-call"></i><span class="menu-title" data-i18n="Dashboard">تواصل معنا</span></a>--}}
-
-{{--        </li>--}}
-{{--        <li class=" nav-item"><a href="{{route('dashboard.news_letter')}}"><i class="feather icon-message-square"></i><span class="menu-title" data-i18n="Dashboard"> القائمة البريدية</span></a>--}}
-
 
 {{--          *** Control Header And Footer  ***  --}}
 {{--        <li class=" nav-item"><a href="{{route('lists.index')}}"><i class="feather icon-link-2"></i><span class="menu-title" data-i18n="Dashboard"> القوائم </span></a>--}}
