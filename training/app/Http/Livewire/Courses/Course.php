@@ -10,10 +10,15 @@ class Course extends Component
 {
     use WithPagination ;
     protected $paginationTheme = 'bootstrap';
+    public $searchByCourseName  ;
+    public function updatingSearchByCourseName()
+    {
+        $this->resetPage();
+    }
     public function render()
     {
         return view('livewire.courses.index',
-            ['courses' => CourseModel::orderBy('id','desc')->paginate(3)]
+            ['courses' => CourseModel::orderBy('id','desc')->where('name', 'like', '%' . $this->updatingSearchByCourseName() . '%')->paginate(3)]
         )->extends('dashboard_layout.main');
     }
     public function delete($id)
@@ -23,5 +28,11 @@ class Course extends Component
             'type' => 'success',
             'message' => 'تم حذف الدورة بنجاح',
         ]);
+    }
+    public function search(){
+    }
+
+    public function resetSearch(){
+        $this->searchByCourseName = " ";
     }
 }

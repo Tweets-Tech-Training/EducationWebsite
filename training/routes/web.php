@@ -18,6 +18,8 @@ use App\Http\Livewire\Lists\ListFormLivewire;
 use App\Http\Livewire\Lists\ListLivewire;
 use App\Http\Livewire\Partners\Partners;
 use App\Http\Livewire\Partners\PartnersFormLivewire;
+use App\Http\Livewire\PaymentSystem\PaymentSystem;
+use App\Http\Livewire\PaymentSystem\PaymentSystemForm;
 use App\Http\Livewire\Settings\Settings;
 use App\Http\Livewire\Settings\SettingsFormLivewire;
 use App\Http\Livewire\Slider;
@@ -105,6 +107,10 @@ Route::group(['middleware'=>'auth','prefix'=>'training/admin'],function(){
     Route::get('studyDivision',StudyDivision::class)->name('studyDivision.index');
     Route::get('studyDivision/create',StudyDivisionForm::class)->name('studyDivision.create');
     Route::get('studyDivision/{id}/edit',StudyDivisionForm::class)->name('studyDivision.edit');
+
+    Route::get('paymentSystem',PaymentSystem::class)->name('paymentSystem.index');
+    Route::get('paymentSystem/create',PaymentSystemForm::class)->name('paymentSystem.create');
+    Route::get('paymentSystem/{id}/edit',PaymentSystemForm::class)->name('paymentSystem.edit');
 
 });
 //  *** End Front Admin Panel Routes  ***

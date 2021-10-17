@@ -4,12 +4,12 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-left mb-0"> الدورات </h2>
+                        <h2 class="content-header-title float-left mb-0"> السجل المالي </h2>
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{route('dashboard')}}">الرئيسية</a>
                                 </li>
-                                <li class="breadcrumb-item active">الدورات </li>
+                                <li class="breadcrumb-item active">السجل المالي </li>
                             </ol>
                         </div>
                     </div>
@@ -36,8 +36,8 @@
                                                             <div class="row">
                                                                 <div class="col-md-4 col-12">
                                                                     <div class="form-group">
-                                                                        <label for="اسم الدورة"> اسم الدورة </label>
-                                                                        <input type="text" wire:model.defer="SearchByCourseName" id="name" class="form-control" placeholder="اسم الدورة" name="اسم الدورة">
+                                                                        <label for="اسم الطالب"> اسم الطالب </label>
+                                                                        <input type="text" wire:model.defer="SearchByStudentName" id="name" class="form-control" placeholder="اسم الطالب" name="اسم الطالب">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-12 mt-4 text-right">
@@ -74,7 +74,7 @@
 
                                 <div class="dt-buttons btn-group">
                                     <a href="{{route('course.create')}}"  class="btn btn-outline-primary mr-1 mb-1 waves-effect waves-light"><i class="feather icon-plus-circle"></i>
-                                        اضافة دورة جديدة                                 </a>
+                                        تسجيل طالب جديد                                 </a>
 
                                 </div>
                             </div>
@@ -100,18 +100,20 @@
                                 </th>
 
                                 <th rowspan="1" colspan="1">
-                                    الاسم
+                                    اسم الطالب
+                                </th>
+                                <th rowspan="1" colspan="1">
+                                    اسم الدورة
                                 </th>
 
                                 <th rowspan="1" colspan="1">
-                                    السعر
+                                     السعر الكلي للدورة
                                 </th>
+
                                 <th rowspan="1" colspan="1">
-                                    تاريخ البدء
+                                     المبلغ المتبقي
                                 </th>
-                                <th rowspan="1" colspan="1">
-                                    تاريخ النهاية
-                                </th>
+
 
                                 <th rowspan="1" colspan="1" >
                                     الخيارات
@@ -121,21 +123,28 @@
                             </thead>
                             <tbody>
 
-                            @forelse($courses as $course)
+                            @forelse($payments as $payment)
+                                <?php
+                                $price =$payment->course->price ;
+                                $paymentAmount =$payment->payment_amount;
+                                $remainingAmount = $price - $paymentAmount ;
+                                ?>
                                 <tr>
-                                    <td >{{ $course->id }}</td>
-                                    <td >{{ $course->name }}</td>
-                                    <td >{{ $course->price }}</td>
-                                    <td >{{ $course->start_date }}</td>
-                                    <td >{{ $course->end_date }}</td>
+                                    <td >{{ $payment->id }}</td>
+                                    <td >{{ $payment->student->name }}</td>
+                                    <td >{{ $payment->course->name }}</td>
+                                    <td >{{ $payment->course->price }}</td>
+
+                                    <td >{{$remainingAmount}}
+                                    </td>
                                     <td >
-                                        <a type="button" class="btn btn-icon btn-icon rounded-circle btn-primary mr-1 mb-1 waves-effect waves-light" href="{{route('course.edit',$course->id)}}"><i class="feather icon-edit"></i></a>
-                                        <a type="button" title="إضافة شعبة" class="btn btn-icon btn-icon rounded-circle btn-success mr-1 mb-1 waves-effect waves-light" href="{{route('studyDivision.index')}}"><i class="feather icon-plus-circle"></i></a>
-                                        <button type="button" class="btn btn-icon btn-icon rounded-circle btn-danger mr-1 mb-1 waves-effect waves-light" wire:click="delete({{ $course->id }})"><i class="feather icon-trash"></i></button>
+                                        <a type="button" class="btn btn-icon btn-icon rounded-circle btn-primary mr-1 mb-1 waves-effect waves-light" href="{{route('paymentSystem.edit',$payment->id)}}"><i class="feather icon-edit"></i></a>
+                                        <a type="button" title="إضافة دفعة جديدة" class="btn btn-icon btn-icon rounded-circle btn-success mr-1 mb-1 waves-effect waves-light" href="{{route('paymentSystem.index')}}"><i class="feather icon-plus-circle"></i></a>
+                                        <button type="button" class="btn btn-icon btn-icon rounded-circle btn-danger mr-1 mb-1 waves-effect waves-light" wire:click="delete({{ $payment->id }})"><i class="feather icon-trash"></i></button>
                                     </td>
                                 </tr>
                             @empty
-                                    <x-nodata></x-nodata>
+                                <x-nodata></x-nodata>
 
                             @endforelse
                             </tbody>
@@ -145,7 +154,7 @@
                             <div class="actions"></div>
                             <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
                                 <div>
-                                    {{ $courses->links() }}
+                                    {{ $payments->links() }}
                                 </div>
 
                             </div>
@@ -162,6 +171,7 @@
 
     </div>
 </div>
+
 
 
 

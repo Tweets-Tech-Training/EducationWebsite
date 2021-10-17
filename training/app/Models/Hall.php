@@ -11,4 +11,8 @@ class Hall extends Model
     public function studyDivision(){
         return $this->hasMany(StudyDivision::class);
     }
+    public function reservedHallsList(){
+//        hall has many reserved time in list
+        return $this->hasMany(ReservedHallList::class,'hall_id');
+    }
 }

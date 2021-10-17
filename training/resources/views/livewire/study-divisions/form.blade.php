@@ -60,7 +60,7 @@
                                         <div  class="col-md-6">
                                             <span>  اختر الدورة التابعة لها </span>
                                             <div wire:ignore>
-                                                <select wire:model="studyDivision.course_id" name="course_id" id="select2-dropdown" class="form-control"  data-placeholder="Select Category">
+                                                <select  name="course_id" id="select2-dropdown" class="form-control" >
                                                     <option value=" ">اختر الدورة   </option>
                                                     @if($courses->count())
                                                         @foreach($courses as $course)
@@ -70,6 +70,20 @@
                                                 </select>
                                             </div>
                                             @error('studyDivision.course_id') <span class="text-danger">{{ $message }}</span> @enderror
+                                        </div>
+
+                                        <div wire:ignore class="col-md-6">
+                                            <x-form.pickerLimitTime title="وقت البداية"  type="text"  wire:model="studyDivision.start_time" name="studyDivision.start_time" id="start_time" class="form-control " placeholder="9:00 AM"
+                                                                    aria-haspopup="true" aria-readonly="false" aria-owns="pt-min-max_root" />
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-group row">
+
+                                        <div wire:ignore class="col-md-6">
+                                            <x-form.pickerLimitTime title="وقت النهاية"  type="text"  wire:model="studyDivision.end_time"  name="studyDivision.end_time" id="end_time" class="form-control" placeholder="11:00 AM"
+                                                                    aria-haspopup="true" aria-readonly="false" aria-owns="pt-min-max_root"/>
                                         </div>
 
                                         <div  class="col-md-6">
@@ -85,18 +99,6 @@
                                                 </select>
                                             </div>
                                             @error('studyDivision.hall_id') <span class="text-danger">{{ $message }}</span> @enderror
-                                        </div>
-
-                                    </div>
-
-                                    <div class="form-group row">
-                                        <div class="col-md-6">
-                                            <label>وقت البداية</label>
-                                            <input type="text" id="fp-time" class="form-control flatpickr-time text-left" placeholder="HH:MM" />
-{{--                                            <x-form.input title="وقت البداية"  type="text" class="form-control" wire:model="studyDivision.start_time"  name="studyDivision.start_time" placeholder="وقت بداية الشعبة"/>--}}
-                                        </div>
-                                        <div class="col-md-6">
-                                            <x-form.input title="وقت النهاية"  type="text" class="form-control" wire:model="studyDivision.end_time"  name="studyDivision.end_time" placeholder="وقت انتهاء الشعبة "/>
                                         </div>
 
                                     </div>
@@ -149,7 +151,7 @@
                     var details= newEditor.getData();
                     newEditor.model.document.on('change:data', () => {
                         // $dispatch('detailsEditor', newEditor.getData())
-                    @this.set('course.details', newEditor.getData());
+                    @this.set('studyDivision.start_time', newEditor.getData());
                     })
 
                 } )
@@ -168,28 +170,35 @@
             });
         </script>
         <script>
-            var basicPickr = $('.flatpickr-basic'),
-                timePickr = $('.flatpickr-time'),
-                dateTimePickr = $('.flatpickr-date-time'),
-                multiPickr = $('.flatpickr-multiple'),
-                rangePickr = $('.flatpickr-range'),
-                humanFriendlyPickr = $('.flatpickr-human-friendly'),
-                disabledRangePickr = $('.flatpickr-disabled-range'),
-                inlineRangePickr = $('.flatpickr-inline');
+            // var basicPickr = $('.flatpickr-basic'),
+            //     timePickr = $('.flatpickr-time'),
+            //     dateTimePickr = $('.flatpickr-date-time'),
+            //     multiPickr = $('.flatpickr-multiple'),
+            //     rangePickr = $('.flatpickr-range'),
+            //     humanFriendlyPickr = $('.flatpickr-human-friendly'),
+            //     disabledRangePickr = $('.flatpickr-disabled-range'),
+            //     inlineRangePickr = $('.flatpickr-inline');
 
-            // Default
-            if (basicPickr.length) {
-                basicPickr.flatpickr();
-            }
+
 
             // Time
-            if (timePickr.length) {
-                timePickr.flatpickr({
-                    enableTime: true,
-                    noCalendar: true
-                });
-            }
-            $('#fp-time').pickatime();
+            // if (timePickr.length) {
+            //     timePickr.flatpickr({
+            //         enableTime: true,
+            //         noCalendar: true
+            //     });
+            // }
+            // $('#fp-time').pickatime();
+            // if (dateTimePickr.length) {
+            //     dateTimePickr.flatpickr({
+            //         enableTime: true
+            //     });
+            // }
+            // Min - Max Time to select
+            $('.pickatime-min-max').pickatime({
+                min: [9,0],
+                max: [19,0]
+            });
         </script>
     @endpush
 </div>

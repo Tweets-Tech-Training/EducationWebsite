@@ -9,7 +9,7 @@ use \App\Models\StudyDivision ;
 
 class StudyDivisionForm extends Component
 {
-    public $studyDivision , $isUpdate=0;
+    public $studyDivision , $isUpdate=0, $course,$name_momen ;
     protected $rules = [
         'studyDivision.name'=>'required',
         'studyDivision.start_time'=>'required| date_format:H:i',
@@ -34,7 +34,7 @@ class StudyDivisionForm extends Component
     public function save()
     {
         $this->validate();
-
+        dd($this->studyDivision);
         $this->studyDivision->save();
         $this->dispatchBrowserEvent('swal:modal', [
             'type' => 'success',

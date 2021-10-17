@@ -24,10 +24,6 @@
 
         <li class=" nav-item"><a href="{{route('halls.index')}}"><i class="feather icon-arrow-left-circle"></i><span class="menu-title" data-i18n="Dashboard"> القاعات  </span></a>
 
-
-        <li class=" nav-item"><a href="{{route('studyDivision.index')}}"><i class="feather icon-file-text"></i><span class="menu-title" data-i18n="Dashboard"> الشعب </span></a>
-
-        </li>
         <li class=" nav-item"><a href="{{route('about-us.index')}}"><i class="feather icon-server"></i><span class="menu-title" data-i18n="Dashboard"> من نحن </span></a>
         </li>
         <li class=" n
@@ -44,6 +40,8 @@
 
 
         <li class=" nav-item"><a href="{{route('student')}}"><i class="feather icon-users"></i><span class="menu-title" data-i18n="Dashboard"> الطلاب  </span></a>
+        </li>
+        <li class=" nav-item"><a href="{{route('paymentSystem.index')}}"><i class="feather icon-users"></i><span class="menu-title" data-i18n="Dashboard"> نظام الدفعات المالية  </span></a>
         </li>
         <li class=" nav-item"><a href="{{route('trainer')}}"><i class="feather icon-user"></i><span class="menu-title" data-i18n="Dashboard"> المدربون </span></a>
         </li>
