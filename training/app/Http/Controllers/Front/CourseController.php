@@ -49,4 +49,17 @@ class CourseController extends Controller
 //        return response()->json(['courses'=>$courses,]);
 
     }
+
+
+    public function show($id){
+        $course=Course::find($id);
+
+        $trainer=$course->trainer()->first();
+        //dd($trainer);
+        return view('layouts.front.course-details')->with([
+            'course'=>$course,
+            'trainer'=>$trainer,
+        ]);
+
+    }
 }

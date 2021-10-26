@@ -58,6 +58,9 @@
 
                                     التخصص      </th>
                                 <th rowspan="1" colspan="1">
+
+                                    الراتب      </th>
+                                <th rowspan="1" colspan="1">
                                     الخيارات
                                 </th>
 
@@ -70,6 +73,7 @@
                                     <td>{{$trainer->name}}</td>
                                     <td>{{$trainer->mobile}}</td>
                                     <td>{{ $trainer->specialization }}</td>
+                                    <td>{{ $trainer->salary }}</td>
                                     <td>
                                         <div class="inline-block whitespace-no-wrap">
                                             <a   class="btn btn-icon btn-icon rounded-circle btn-primary mr-1 mb-1 waves-effect waves-light" href="{{ route('trainer.edit',$trainer->id) }}" ><i class="feather icon-edit"></i></a>

@@ -40,7 +40,7 @@
                                         <x-form.input title="رقم الجوال "  type="text" class="form-control" wire:model="trainer.mobile"  name="trainer.mobile"/>
                                     </div>
                                         <div class="col-md-6">
-                                            <x-form.input title="كلمة المرور "  type="text" class="form-control" wire:model="password"  name="password"/>
+                                            <x-form.input title="الراتب"  type="text" class="form-control" wire:model="trainer.salary"  name="password"/>
 
                                 </div>
 

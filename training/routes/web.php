@@ -49,7 +49,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/main', function () {
-    return view('edomi_dashboard_layout.main');
+    return view('layouts.front.course-registration');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
@@ -128,8 +128,10 @@ Route::group(['middleware'=>'auth','prefix'=>'training/admin'],function(){
 
 //  *** Start Front index Route *** //
 Route::get('/',[HomeController::class,'index'])->name('front.index');
+Route::get('/course-registration-form',[HomeController::class,'courseRegistrationShow'])->name('course.register.form');
 Route::post('/course-registration',[HomeController::class,'courseRegistration'])->name('course.register');
-Route::get('/courses',[CourseController::class,'index'])->name('front.courses.index');
+Route::get('/courses/{id}/details',[CourseController::class,'show'])->name('front.courses.details');
+Route::get('/courses/',[CourseController::class,'index'])->name('front.courses.index');
 Route::get('/contact-us',[ContactUsController::class,'index'])->name('front.contact-us.index');
 Route::post('/send',[ContactUsController::class,'send'])->name('contact.send');
 Route::get('/trainer/index',[\App\Http\Controllers\Front\TrainerController::class,'index'])->name('front.trainer.index');

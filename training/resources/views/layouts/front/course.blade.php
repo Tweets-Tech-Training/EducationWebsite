@@ -138,7 +138,7 @@
                             <div class="card-footer">
                                 <div class="d-flex">
                                     <div class="d-md-flex d-block mb-0">
-                                        <a href="" class="form-control btn btn-primary fs-16 fw-600" style="color: whitesmoke"> عرض تفاصيل الدورة  </a>
+                                        <a href="{{route('front.courses.details',$course->id)}}" class="form-control btn btn-primary fs-16 fw-600" style="color: whitesmoke"> عرض تفاصيل الدورة  </a>
                                     </div>
                                 </div>
                             </div>
@@ -207,3 +207,4 @@
         });
     </script>
 @endsection
+
