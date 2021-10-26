@@ -54,6 +54,12 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" integrity="sha384-tKLJeE1ALTUwtXlaGjJYM3sejfssWdAaWR2s97axw4xkiAdMzQjtOjgcyw0Y50KU" crossorigin="anonymous">
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+
+<link rel="stylesheet" type="text/css" href="{{asset('admin-layout/app-assets/vendors/css/pickers/pickadate/pickadate.css')}}">
+{{--<link rel="stylesheet" type="text/css" href="{{asset('admin-layout/app-assets/vendors/css/pickers/flatpickr/flatpickr.min.css')}}">--}}
+<link rel="stylesheet" type="text/css" href="{{asset('admin-layout/app-assets/css-rtl/plugins/forms/pickers/form-flat-pickr.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('admin-layout/app-assets/css-rtl/plugins/forms/pickers/form-pickadate.css')}}">
 <!-- END: Custom CSS-->
 <style>
 
@@ -63,6 +69,7 @@
 
 
 </style>
-<link rel="manifest" href="{{request()->root()}}/public/manifest.json">
-<!-- The core Firebase JS SDK is always required and must be listed first -->
+<link rel="manifest" href="{{request()->root()}}/public/manifest.json" />
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
+{{--<!-- The core Firebase JS SDK is always required and must be listed first -->--}}
 

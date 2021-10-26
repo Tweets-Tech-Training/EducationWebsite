@@ -59,7 +59,7 @@
                                         </div>
                                         <div class="form-group row">
                                                 <div   class="col-md-6">
-                                                    <span> الصنف </span>
+                                                    <label> الصنف </label>
                                                     <div wire:ignore>
                                                         <select wire:model="course.category_id" name="category_id" id="select2-dropdown" class="form-control"  data-placeholder="Select Category">
                                                             <option value=" ">اختر التصنيف </option>
@@ -73,7 +73,7 @@
                                                    @error('course.category_id') <span class="text-danger">{{ $message }}</span> @enderror
                                                 </div>
                                             <div  class="col-md-6">
-                                                <span> المدرب </span>
+                                                <label> المدرب </label>
                                                 <div wire:ignore >
                                                     <select wire:model="course.trainer_id" name="trainer_id" id="select2-dropdown" class="form-control"  >
                                                         <option value=" " >اختر المدرب </option>
@@ -199,7 +199,7 @@
                        var details= newEditor.getData();
                        newEditor.model.document.on('change:data', () => {
                            // $dispatch('detailsEditor', newEditor.getData())
-                       @this.set('course.details', newEditor.getData());
+                        @this.set('course.details', newEditor.getData());
                        })
 
                    } )
@@ -213,7 +213,7 @@
                    $('#select2-dropdown').on('change', function (e) {
                        var data = $('#select2-dropdown').select2("val");
                        console.log(data)
-                   @this.set('course.category_id', data);
+                        @this.set('course.category_id', data);
                    });
                });
            </script>

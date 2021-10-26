@@ -75,7 +75,11 @@
                                     <td >{{ $course->end_date }}</td>
                                     <td >
                                         <a type="button" class="btn btn-icon btn-icon rounded-circle btn-primary mr-1 mb-1 waves-effect waves-light" href="{{route('course.edit',$course->id)}}"><i class="feather icon-edit"></i></a>
+                                        <a type="button" title="إضافة شعبة" class="btn btn-icon btn-icon rounded-circle btn-success mr-1 mb-1 waves-effect waves-light" href="{{route('studyDivision.index')}}"><i class="feather icon-plus-circle"></i></a>
+
                                         <button type="button" wire:click="deleteId({{ $course->id }})" class="btn btn-icon btn-icon rounded-circle btn-danger mr-1 mb-1 waves-effect waves-light" data-toggle="modal" data-target="#exampleModal"><i class="feather icon-trash"></i></button>
+
+
                                     </td>
                                 </tr>
                             @empty

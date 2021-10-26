@@ -75,7 +75,9 @@
                                     </td>
                                 </tr>
                             @empty
+
                            <x-nodata></x-nodata>
+
 
                             @endforelse
                             </tbody>

@@ -4,12 +4,12 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-left mb-0"> معرض الصور </h2>
+                        <h2 class="content-header-title float-left mb-0"> السجل المالي </h2>
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{route('dashboard')}}">الرئيسية</a>
                                 </li>
-                                <li class="breadcrumb-item active">معرض الصور  </li>
+                                <li class="breadcrumb-item active">السجل المالي </li>
                             </ol>
                         </div>
                     </div>
@@ -36,8 +36,8 @@
                                                             <div class="row">
                                                                 <div class="col-md-4 col-12">
                                                                     <div class="form-group">
-                                                                        <label for="اسم معرض الصور"> اسم معرض الصور </label>
-                                                                        <input type="text" wire:model.defer="search_array.name" id="name" class="form-control" placeholder="اسم معرض الصور" name="اسم معرض الصور">
+                                                                        <label for="اسم الطالب"> اسم الطالب </label>
+                                                                        <input type="text" wire:model.defer="SearchByStudentName" id="name" class="form-control" placeholder="اسم الطالب" name="اسم الطالب">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-12 mt-4 text-right">
@@ -66,7 +66,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="table-responsive">
                     <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                         <div class="top">
@@ -74,8 +73,8 @@
                             <div class="actions action-btns">
 
                                 <div class="dt-buttons btn-group">
-                                    <a href="{{route('imagesGallery.create')}}"  class="btn btn-outline-primary mr-1 mb-1 waves-effect waves-light"><i class="feather icon-plus-circle"></i>
-                                        اضافة معرض صور جديد                                 </a>
+                                    <a href="{{route('course.create')}}"  class="btn btn-outline-primary mr-1 mb-1 waves-effect waves-light"><i class="feather icon-plus-circle"></i>
+                                        تسجيل طالب جديد                                 </a>
 
                                 </div>
                             </div>
@@ -101,12 +100,20 @@
                                 </th>
 
                                 <th rowspan="1" colspan="1">
-                                    اسم معرض الصور
+                                    اسم الطالب
+                                </th>
+                                <th rowspan="1" colspan="1">
+                                    اسم الدورة
                                 </th>
 
                                 <th rowspan="1" colspan="1">
-                                    اسم الكورس
+                                     السعر الكلي للدورة
                                 </th>
+
+                                <th rowspan="1" colspan="1">
+                                     المبلغ المتبقي
+                                </th>
+
 
                                 <th rowspan="1" colspan="1" >
                                     الخيارات
@@ -116,15 +123,24 @@
                             </thead>
                             <tbody>
 
-                            @forelse($imagesGallery as $imageGallery)
+                            @forelse($payments as $payment)
+                                <?php
+                                $price =$payment->course->price ;
+                                $paymentAmount =$payment->payment_amount;
+                                $remainingAmount = $price - $paymentAmount ;
+                                ?>
                                 <tr>
-                                    <td >{{ $imageGallery->id }}</td>
-                                    <td >{{ $imageGallery->name }}</td>
-                                    <td >{{ $imageGallery->course_name }}</td>
+                                    <td >{{ $payment->id }}</td>
+                                    <td >{{ $payment->student->name }}</td>
+                                    <td >{{ $payment->course->name }}</td>
+                                    <td >{{ $payment->course->price }}</td>
+
+                                    <td >{{$remainingAmount}}
+                                    </td>
                                     <td >
-                                        <a title=" عرض صور  المعرض" type="button" class="btn btn-icon btn-icon rounded-circle btn-primary mr-1 mb-1 waves-effect waves-light" href="{{route('images.show',$imageGallery->id)}}"><i class="feather icon-eye"></i></a>
-                                        <a title=" تعديل معرض الصور " type="button" class="btn btn-icon btn-icon rounded-circle btn-primary mr-1 mb-1 waves-effect waves-light" href="{{route('imagesGallery.edit',$imageGallery->id)}}"><i class="feather icon-edit"></i></a>
-                                        <button title="حذف معرض الصور" type="button" class="btn btn-icon btn-icon rounded-circle btn-danger mr-1 mb-1 waves-effect waves-light" wire:click="delete({{ $imageGallery->id }})"><i class="feather icon-trash"></i></button>
+                                        <a type="button" class="btn btn-icon btn-icon rounded-circle btn-primary mr-1 mb-1 waves-effect waves-light" href="{{route('paymentSystem.edit',$payment->id)}}"><i class="feather icon-edit"></i></a>
+                                        <a type="button" title="إضافة دفعة جديدة" class="btn btn-icon btn-icon rounded-circle btn-success mr-1 mb-1 waves-effect waves-light" href="{{route('paymentSystem.index')}}"><i class="feather icon-plus-circle"></i></a>
+                                        <button type="button" class="btn btn-icon btn-icon rounded-circle btn-danger mr-1 mb-1 waves-effect waves-light" wire:click="delete({{ $payment->id }})"><i class="feather icon-trash"></i></button>
                                     </td>
                                 </tr>
                             @empty
@@ -138,7 +154,7 @@
                             <div class="actions"></div>
                             <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
                                 <div>
-                                    {{ $imagesGallery->links() }}
+                                    {{ $payments->links() }}
                                 </div>
 
                             </div>
@@ -155,6 +171,7 @@
 
     </div>
 </div>
+
 
 
 

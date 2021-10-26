@@ -20,6 +20,8 @@ use App\Http\Livewire\Lists\ListFormLivewire;
 use App\Http\Livewire\Lists\ListLivewire;
 use App\Http\Livewire\Partners\Partners;
 use App\Http\Livewire\Partners\PartnersFormLivewire;
+use App\Http\Livewire\PaymentSystem\PaymentSystem;
+use App\Http\Livewire\PaymentSystem\PaymentSystemForm;
 use App\Http\Livewire\Settings\Settings;
 use App\Http\Livewire\Settings\SettingsFormLivewire;
 use App\Http\Livewire\Slider;
@@ -107,12 +109,18 @@ Route::group(['middleware'=>'auth','prefix'=>'training/admin'],function(){
 
     Route::get('contact-us',ContactUs::class)->name('contact-us');
 
-    Route::get('studyDivision',StudyDivision::class)->name('studyDivision');
+    Route::get('studyDivision',StudyDivision::class)->name('studyDivision.index');
     Route::get('studyDivision/create',StudyDivisionForm::class)->name('studyDivision.create');
     Route::get('studyDivision/{id}/edit',StudyDivisionForm::class)->name('studyDivision.edit');
 
 
 
+
+
+
+    Route::get('paymentSystem',PaymentSystem::class)->name('paymentSystem.index');
+    Route::get('paymentSystem/create',PaymentSystemForm::class)->name('paymentSystem.create');
+    Route::get('paymentSystem/{id}/edit',PaymentSystemForm::class)->name('paymentSystem.edit');
 
 
 });
@@ -125,7 +133,6 @@ Route::get('/courses',[CourseController::class,'index'])->name('front.courses.in
 Route::get('/contact-us',[ContactUsController::class,'index'])->name('front.contact-us.index');
 Route::post('/send',[ContactUsController::class,'send'])->name('contact.send');
 Route::get('/trainer/index',[\App\Http\Controllers\Front\TrainerController::class,'index'])->name('front.trainer.index');
-
 Route::post('/courses/search',[CourseController::class,'courseSearch'])->name('front.courses.search');
 //  *** End Front index Route *** //
 
