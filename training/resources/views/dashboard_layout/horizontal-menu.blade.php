@@ -17,8 +17,8 @@
         <!-- Begin: Main Menu- user profile-->
     <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link" href="javascript:;" data-toggle="dropdown">
     <div class="user-nav d-sm-flex d-none"><span class="user-name text-bold-600"> {{ Auth::user()->name }}</span></div>
-            @if (auth()->user()->photo)
-                <span><img class="round" src="{{asset('storage/'.auth()->user()->photo)}}" alt="avatar" height="40" width="40"></span>
+            @if (auth()->user()->image)
+                <span><img class="round" src="{{asset('storage/images/'.auth()->user()->image)}}" alt="avatar" height="40" width="40"></span>
 
             @else
                 <span><img class="round" src="{{asset('admin-layout/app-assets/images/portrait/small/avatar-s-11.jpg')}}" alt="avatar" height="40" width="40"></span>
@@ -27,7 +27,7 @@
         </a>
     <div class="dropdown-menu dropdown-menu-right">
 
-{{--        <a class="dropdown-item" href="{{ route('profile') }}"><i class="feather icon-user"></i> تعديل بياناتي</a>--}}
+        <a class="dropdown-item" href="{{ route('admin.profile') }}"><i class="feather icon-user"></i> تعديل بياناتي</a>
 
             {{--<a class="dropdown-item" href="app-email.html"><i class="feather icon-mail"></i> My Inbox</a><a class="dropdown-item" href="app-todo.html"><i class="feather icon-check-square"></i> Task</a><a class="dropdown-item" href="app-chat.html"><i class="feather icon-message-square"></i> Chats</a>--}}
     <div class="dropdown-divider"></div><a class="dropdown-item" href="{{ route('logout') }}"

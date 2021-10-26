@@ -9,7 +9,6 @@
 
                     <div class="col-12 d-flex flex-sm-row flex-column justify-content-between mt-1">
                         <p>
-{{--                            <span class="font-weight-bold ">رقم الفاتورة: الفاتورة    {{ $bill->id }}</span> <br>--}}
                             <span class="font-weight-bold">اسم الطالب : </span> <span class="font-weight-bold"  style="color: #3737e4;">{{$student->name}}</span> <br>
                         </p>
                         <p>
@@ -33,9 +32,6 @@
                     <div class="col-md-4">
 
                     </div>
-
-
-
 
                     <table class="table table-hover">
                         <thead>

@@ -42,18 +42,10 @@ class SliderFormLivewire extends Component
         $this->dispatchBrowserEvent('swal:modal', [
             'type' => 'success',
             'message' => $this->isUpdate ? 'تم تعديل السلايدر بنجاح' : 'تم إضافة السلايدر بنجاح',
-//            'url'=> $this->isUpdate ? route('slider.index'):route('slider.create'),
             'url'=>  route('slider.index'),
         ]);
-
-//        if (!$this->slider->id){
-//            $this->resetForm();
-//        }
     }
-//    public function resetForm(){
-//        $this->slider = new SliderModel() ;
-//        $this->image = null ;
-//    }
+
 
 
 }

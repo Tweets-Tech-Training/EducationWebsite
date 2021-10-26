@@ -12,6 +12,7 @@ class Slider extends Component
     protected $paginationTheme = 'bootstrap';
     public  $slider ;
     public $title, $details, $image ,$searchByTitle  ;
+    public $deleteId = '';
     public function updatingSearchByTitle()
     {
         $this->resetPage();
@@ -23,9 +24,15 @@ class Slider extends Component
         )->extends('dashboard_layout.main');
     }
 
-    public function delete($id)
+
+    public function deleteId($id)
     {
-        SliderModel::find($id)->delete();
+        $this->deleteId = $id;
+    }
+
+    public function delete()
+    {
+        SliderModel::find($this->deleteId)->delete();
         $this->dispatchBrowserEvent('swal:modal', [
             'type' => 'success',
             'message' => 'تم حذف السلايدر بنجاح',

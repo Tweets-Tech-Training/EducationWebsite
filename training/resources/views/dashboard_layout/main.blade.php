@@ -66,7 +66,7 @@
     @stack('style')
     @livewireStyles
 </head>
-<!-- END: Head-->
+<!-- END: Head--><meta name="csrf-token" content="{{ csrf_token() }}">
 <!-- BEGIN: Body-->
 <body class="vertical-layout vertical-menu-modern 2-columns  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
 <!-- BEGIN: Header - horizontal-header -->
@@ -141,6 +141,12 @@
     });
 </script>
 <script>
+    window.livewire.on('modalHide', (data) => {
+        $(data).modal('hide');
+    });
+    window.livewire.on('modalShow', (data) => {
+        $(data).modal('show');
+    });
 
     window.addEventListener('swal:modal', event => {
         swal({
@@ -169,6 +175,14 @@
                     window.livewire.emit('remove');
                 }
             });
+    });
+    window.addEventListener('swal2:modal', event => {
+        Swal.fire({
+            icon: 'error',
+            text: event.detail.message,
+            confirmButtonText: 'موافق',
+            // footer: '<a href="">Why do I have this issue?</a>'
+        })
     });
 </script>
 @stack('script')

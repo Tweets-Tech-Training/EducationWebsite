@@ -47,130 +47,81 @@
    @include('front_layout.sliderText')
 @endsection
 @section('content')
-
-    {{--    *** Section Online Classes  *** --}}
-{{--    <section class="sptb bg-white">--}}
-{{--        <div class="container">--}}
-{{--            <div class="section-title">--}}
-{{--                <h2>Online Classes</h2>--}}
-{{--                <p class="fs-18 lead">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>--}}
-{{--            </div>--}}
-{{--            <div class="row">--}}
-{{--                <div class="col-12 col-md-12 col-lg-12 col-xl-12">--}}
-{{--                    <div class="row">--}}
-{{--                        @forelse($categories as $category)--}}
-{{--                        <div class="col-sm-12 col-lg-4 col-md-4">--}}
-{{--                            <a href="javascript:void(0)" class="item-card overflow-hidden">--}}
-{{--                                <div class="item-card-desc">--}}
-{{--                                    <div class="card text-center overflow-hidden">--}}
-{{--                                        <div class="card-img">--}}
-{{--                                            <img src="{{asset('FrontTheme/assets/images/media/14.jpg')}}" alt="img" class="cover-image">--}}
-{{--                                        </div>--}}
-{{--                                        <div class="item-card-text item-card-text-footer">--}}
-{{--                                            <h4 class="font-weight-semibold"> {{ $category->name }} </h4>--}}
-{{--                                            <span class="text-white-80"><strong class="fs-18 font-weight-bold text-white">{{$category->getCourses()->count()}}</strong> Over  Courses</span>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </a>--}}
-{{--                        </div>--}}
-{{--                        @empty--}}
-{{--                            <div  class=" col-10 alert alert-primary alert-dismissible fade show" role="alert">--}}
-{{--                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">--}}
-{{--                                    <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>--}}
-{{--                                </svg>--}}
-{{--                                <h5 style="display: inline-block; margin-left: 1px">لا يتم إضافة دورات بعد...</h5>--}}
-{{--                            </div>--}}
-
-{{--                        @endforelse--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </section>--}}
-    <!--  *** End Section Online Classes  *** -->
-
 {{--    *** Section latest Courses  *** --}}
-    <section class="sptb bg-gray-lightest">
-        <div class="container">
-            <div class="section-title d-md-flex pb-3">
-                <div>
-                    <h2>
-                    البرامج و الدورات
-                        <hr class="mt-2 mb-2">
-                    </h2>
-                    <p class="fs-20 lead">
-                        اختر الدورة المطلوبة
-                    </p>
-                </div>
-                <div class="ms-auto d-inline-flex">
-                    <div class="">
-                        <a class="btn btn-primary mt-3" href="{{route('front.courses.index')}}"><i class="fe fe-arrow-right"></i>  عرض الكل </a>
-                    </div>
-                </div>
-            </div>
-            <div  class="owl-carousel owl-carousel-icons">
-                {{--  *** Start Courses Section  ***  --}}
-                @forelse($courses as $course)
-                <div class="item" style="height: 400px; max-height: 400px">
-                    <div class="card overflow-hidden mb-0" style="height:100%;">
-                        {{--   **** appear when course has sale  *** --}}
-{{--                        <div class="power-ribbon power-ribbon-top-left text-warning"><span class="bg-warning"><img src="{{asset('FrontTheme/assets/images/png/power.png')}}" class=""></span></div>--}}
-                        <div class="item-card7-img pt-5 px-5">
-                            <div class="item-card7-imgs">
-                                <a href="javascript:void(0)"></a>
-                                <img src="{{asset('storage/images/'.$course->image)}}" alt="img" class="cover-image br-7 border">
-                            </div>
-                            <div class="item-card7-overlaytext">
-                                <h4 class="mb-0"> ${{$course->price}} <del class="fs-12">$1560</del></h4>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <div class="item-card7-desc">
-                                <h4 class="text-muted"> {{ $course->category->name }} </h4>
-                                <div class="item-card7-text mt-1">
-                                    <a href="javascript:void(0)" class="text-dark"><h4 class="font-weight-semibold mb-1"> {{$course->name}}  </h4></a>
+
+    <!--  *** End Section latest Courses *** -->
+
+
+
+
+<!-------------       section for courses ---------------------------->
+
+<section class="sptb">
+    <div class="container">
+        <div class="section-title">
+            <h2>الدورات </h2>
+            <p class="fs-18 lead">   اختر الدورة المطلوبة </p>
+        </div>
+        <div class="panel panel-primary">
+            <div class="panel-body p-0">
+                <div class="tab-content">
+                    <div class="tab-pane active show" id="tab1">
+                        <div class="row">
+                            @forelse($courses as $course)
+                            <div class="col-xl-4 col-md-6">
+                                <div class="card overflow-hidden">
+                                    <div class="ribbon ribbon-top-left text-warning"><span class="bg-warning">${{$course->price}}</span></div>
+                                    <div class="item-card7-img pt-5 px-5">
+                                        <div class="item-card7-imgs">
+                                            <a href="javascript:void(0)"></a>
+                                            <img src="{{asset('storage/images/'.$course->image)}}" alt="img" class="cover-image br-7 border">
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="item-card7-desc">
+                                            <div class="item-card7-text">
+                                                <a href="javascript:void(0)" class="text-dark"><h4 class="font-weight-semibold mb-1">{{$course->name}}</h4></a>
+                                            </div>
+                                            <div class="d-flex mb-0">
+                                                <h4 class="text-muted"> {{ $course->category->name }} </h4>
+                                            </div>
+                                            <div class="pt-2 mb-3">
+                                                <a class="me-4"><span class="font-weight-bold">عدد المحاضرات  :</span> <span class="text-muted"> {{$course->lectures_num}}</span></a>
+                                                <a class="me-4 float-end"><span class="font-weight-bold">مدة المحاضرة  :</span><span class="text-muted"> {{$course->lecture_interval}}</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="d-flex">
+                                            <div class="d-md-flex d-block mb-0">
+                                                <button id="SubmitRegisterCourseForm" class="form-control btn btn-secondary fs-16 fw-600" style="color: whitesmoke"> سجل الآن </button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="pt-2 mb-2">
-                                    <a class="me-4"><i class="fe fe-calendar float-start me-1 mt-1"></i><span class=""> {{$course->lectures_num}} محاضرات </span></a>
-                                    <a class="ms-4 float-end"><i class="fe fe-clock float-start me-1 mt-1"></i><span class=""> {{$course->lecture_interval}} ساعة / كل يوم </span></a>
-                                </div>
-                                <p class="mb-0 text-dark"> {!! $course->details !!} </p>
                             </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="d-flex">
-{{--                                <div class="form row">--}}
-                                <div class="d-md-flex d-block mb-0">
-{{--                                    <div class="form-group" >--}}
-                                        <button id="SubmitRegisterCourseForm" class="form-control btn btn-secondary fs-16 fw-600" style="color: whitesmoke"> سجل الآن </button>
-{{--                                    </div>--}}
-{{--                                    <div class="star-ratings start-ratings-main clearfix me-3">--}}
-{{--                                        <a class="form-control btn btn-secondary" href=""> سجل الآن </a>--}}
-{{--                                    </div>--}}
-{{--                                    <span class="">875 reviews</span>--}}
+                            @empty
+                                <div  class=" col-10 alert alert-primary alert-dismissible fade show" role="alert">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+                                        <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                                    </svg>
+                                    <h5 style="display: inline-block; margin-left: 1px">لا يوجد دورات...</h5>
                                 </div>
-{{--                                <div class="ms-auto d-flex">--}}
-{{--                                    <a class="form-control btn btn-primary" href=""> تفاصيل الدورة </a>--}}
-{{--                                    <a class="viewmore-btn-icon mx-1" href="javascript:void(0)"><i class="fe fe-heart"></i></a>--}}
-{{--                                    <a class="viewmore-btn-icon mx-1" href="javascript:void(0)"><i class="fe fe-share-2"></i></a>--}}
-{{--                                </div>--}}
-                            </div>
+                            @endforelse
+
                         </div>
                     </div>
                 </div>
-                @empty
-                    <div  class=" col-10 alert alert-primary alert-dismissible fade show" role="alert">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
-                            <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                        </svg>
-                        <h5 style="display: inline-block; margin-left: 1px">لا يوجد دورات...</h5>
-                    </div>
-                @endforelse
-                {{--  *** End Courses Section  ***  --}}
             </div>
         </div>
-    </section>
-    <!--  *** End Section latest Courses *** -->
+    </div>
+</section>
+
+
+
+<!---------------------      end courses section -------------->
+
+
 
     {{--    *** Start  Section Register in Course  *** --}}
     <section class="sptb bg-white" style="padding-bottom: 3rem ; color: #494872; font-size: 17px ">
@@ -312,38 +263,70 @@
 {{--   ****  End Section What Says About Us *** --}}
 
 {{--   ****  Start Section Sponsers *** --}}
-    <section class="sptb bg-white">
-        <div class="container">
-            <div class="section-title">
-                <h2> شركاؤنا </h2>
-                <p class="fs-18 lead"> مجموعة من الشركات الداعمة لنا في رحلتنا </p>
-            </div>
-            <div id="small-categories" class="owl-carousel client-carousel">
-                @forelse($partners as $partner)
-                <div class="item" >
-                    <div class="p-4 border br-7">
-                        <a href="{{$partner->link}}">
-                            <img src="{{asset('storage/images/'.$partner->image)}}" style="width: 100px; height: 95px;"
-                                 alt="{{$partner->title}}"
-                                 title="{{$partner->title}}"
-                            >
-                        </a>
+{{--    <section class="sptb bg-white">--}}
+{{--        <div class="container">--}}
+{{--            <div class="section-title">--}}
+{{--                <h2> شركاؤنا </h2>--}}
+{{--                <p class="fs-18 lead"> مجموعة من الشركات الداعمة لنا في رحلتنا </p>--}}
+{{--            </div>--}}
+{{--            <div id="small-categories" class="owl-carousel client-carousel">--}}
+{{--                @forelse($partners as $partner)--}}
+{{--                <div class="item" >--}}
+{{--                    <div class="p-4 border br-7">--}}
+{{--                        <a href="{{$partner->link}}">--}}
+{{--                            <img src="{{asset('storage/images/'.$partner->image)}}" style="width: 100px; height: 95px;"--}}
+{{--                                 alt="{{$partner->title}}"--}}
+{{--                                 title="{{$partner->title}}"--}}
+{{--                            >--}}
+{{--                        </a>--}}
 
-                    </div>
-                </div>
-                @empty
-                    <div  class=" col-10 alert alert-primary alert-dismissible fade show" role="alert">--}}
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
-                            <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                        </svg>
-                        <h5 style="display: inline-block; margin-left: 1px">لا يوجد داعمين بعد...</h5>
-                    </div>
-                @endforelse
-            </div>
-        </div>
-    </section>
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                @empty--}}
+{{--                    <div  class=" col-10 alert alert-primary alert-dismissible fade show" role="alert">--}}
+{{--                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">--}}
+{{--                            <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>--}}
+{{--                        </svg>--}}
+{{--                        <h5 style="display: inline-block; margin-left: 1px">لا يوجد داعمين بعد...</h5>--}}
+{{--                    </div>--}}
+{{--                @endforelse--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </section>--}}
 {{--   ****  End Section Sponsers *** --}}
 
+
+{{--   ****  Start Section Sponsers *** --}}
+<section class="sptb bg-white">
+    <div class="container">
+        <div class="section-title">
+            <h2>الشركاء </h2>
+{{--            <p class="fs-18 lead">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>--}}
+        </div>
+        <div id="small-categories" class="owl-carousel client-carousel owl-rtl owl-loaded owl-drag">
+            <div class="owl-stage-outer">
+                <div class="owl-stage" style="transform: translate3d(1682px, 0px, 0px); transition: all 0.25s ease 0s; width: 4084px;">
+                    @forelse($partners as $partner)
+                    <div class="owl-item cloned" style="width: 215.2px; margin-left: 25px;">
+                        <div class="item">
+                            <div class="client-img">
+                                <img src="{{asset('storage/images/'.$partner->image)}}"   alt="{{$partner->title}}"
+                                     title="{{$partner->title}}">
+                            </div>
+                        </div>
+                    </div>
+                    @empty
+                        <div  class=" col-10 alert alert-primary alert-dismissible fade show" role="alert">--}}
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+                                <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                            </svg>
+                            <h5 style="display: inline-block; margin-left: 1px">لا يوجد داعمين بعد...</h5>
+                        </div>
+                    @endforelse
+                </div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div><div class="owl-dots disabled"></div></div>
+    </div>
+</section>
+{{--   ****  End Section Sponsers *** --}}
 @endsection
 @section('script')
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

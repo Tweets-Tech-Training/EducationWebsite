@@ -47,6 +47,7 @@
     <div class="cover-image bg-background-1" data-bs-image-src="{{asset('FrontTheme/assets/images/banners/banner1.jpg')}}">
         <!--Section-->
         <section>
+            <br>
             <div class="sptb-2 bannerimg">
                 <div class="header-text mb-0">
                     <div class="container">
@@ -86,15 +87,6 @@
                     </p>
                 </div>
                 <div class="ms-auto d-inline-flex">
-                    {{--                    <div class="w-150 mt-3 me-4">--}}
-                    {{--                        <select class="form-control select2 select2-show-search  border-bottom-0" data-placeholder="Select-category">--}}
-                    {{--                                <option value="  "> اختر القسم </option>--}}
-                    {{--                                @foreach($categories as $category)--}}
-                    {{--                                    <option value="{{$category->id}}">{{$category->name}}</option>--}}
-                    {{--                                @endforeach--}}
-                    {{--                        </select>--}}
-                    {{--                    </div>--}}
-
                 </div>
             </div>
             <div class="form row pb-7">
@@ -119,46 +111,34 @@
             <div id="resultAfterSearch" class="row">
                 {{--  *** Start Courses Section  ***  --}}
                 @forelse($courses as $course)
-                    <div class="col-md-4">
-                        <div class="item" style="height: 400px; max-height: 400px">
-                            <div class="card overflow-hidden mb-0" style="height:100%;">
-                                {{--   **** appear when course has sale  *** --}}
-                                {{--                        <div class="power-ribbon power-ribbon-top-left text-warning"><span class="bg-warning"><img src="{{asset('FrontTheme/assets/images/png/power.png')}}" class=""></span></div>--}}
-                                <div class="item-card7-img pt-5 px-5">
-                                    <div class="item-card7-imgs">
-                                        <a href="javascript:void(0)"></a>
-                                        <img src="{{asset('storage/images/'.$course->image)}}" alt="img" class="cover-image br-7 border">
-                                    </div>
-                                    <div class="item-card7-overlaytext">
-                                        <h4 class="mb-0"> ${{$course->price}} <del class="fs-12">$1560</del></h4>
-                                    </div>
+                    <div class="col-xl-4 col-md-6">
+                        <div class="card overflow-hidden">
+                            <div class="ribbon ribbon-top-left text-warning"><span class="bg-warning">${{$course->price}}</span></div>
+                            <div class="item-card7-img pt-5 px-5">
+                                <div class="item-card7-imgs">
+                                    <a href="javascript:void(0)"></a>
+                                    <img src="{{asset('storage/images/'.$course->image)}}" alt="img" class="cover-image br-7 border">
                                 </div>
-                                <div class="card-body">
-                                    <div class="item-card7-desc">
-                                        <small class="text-muted"> {{ $course->category->name }} </small>
-                                        <div class="item-card7-text mt-1">
-                                            <a href="javascript:void(0)" class="text-dark"><h4 class="font-weight-semibold mb-1"> {{$course->name}}  </h4></a>
-                                        </div>
-                                        <div class="pt-2 mb-2">
-                                            <a class="me-4"><i class="fe fe-calendar float-start me-1 mt-1"></i><span class=""> {{$course->lectures_num}} محاضرات </span></a>
-                                            <a class="ms-4 float-end"><i class="fe fe-clock float-start me-1 mt-1"></i><span class=""> {{$course->lecture_interval}} ساعة / كل يوم </span></a>
-                                        </div>
-                                        <p class="mb-0 text-dark"> {!! $course->details !!} </p>
+                            </div>
+                            <div class="card-body">
+                                <div class="item-card7-desc">
+                                    <div class="item-card7-text">
+                                        <a href="javascript:void(0)" class="text-dark"><h4 class="font-weight-semibold mb-1">{{$course->name}}</h4></a>
                                     </div>
+                                    <div class="d-flex mb-0">
+                                        <h4 class="text-muted"> {{ $course->category->name }} </h4>
+                                    </div>
+                                    <div class="pt-2 mb-3">
+                                        <a class="me-4"><span class="font-weight-bold">عدد المحاضرات  :</span> <span class="text-muted"> {{$course->lectures_num}}</span></a>
+                                        <a class="me-4 float-end"><span class="font-weight-bold">مدة المحاضرة  :</span><span class="text-muted"> {{$course->lecture_interval}}</span></a>
+                                    </div>
+
                                 </div>
-                                <div class="card-footer">
-                                    <div class="d-flex">
-                                        <div class="d-md-flex d-block mb-0">
-                                            <div class="star-ratings start-ratings-main clearfix me-3">
-                                                <a class="form-control btn btn-secondary" href=""> بحث </a>
-                                            </div>
-                                            {{--                                    <span class="">875 reviews</span>--}}
-                                        </div>
-                                        <div class="ms-auto d-flex">
-                                            <a class="form-control btn btn-primary" href=""> تفاصيل الدورة </a>
-                                            {{--                                    <a class="viewmore-btn-icon mx-1" href="javascript:void(0)"><i class="fe fe-heart"></i></a>--}}
-                                            {{--                                    <a class="viewmore-btn-icon mx-1" href="javascript:void(0)"><i class="fe fe-share-2"></i></a>--}}
-                                        </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="d-flex">
+                                    <div class="d-md-flex d-block mb-0">
+                                        <a href="" class="form-control btn btn-primary fs-16 fw-600" style="color: whitesmoke"> عرض تفاصيل الدورة  </a>
                                     </div>
                                 </div>
                             </div>

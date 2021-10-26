@@ -11,6 +11,8 @@ use App\Http\Livewire\Categories\CategoriesFormLivewire;
 use App\Http\Livewire\ContactUs\ContactUs;
 use App\Http\Livewire\Courses\Course;
 use App\Http\Livewire\Courses\CourseFormLivewire;
+use App\Http\Livewire\Halls\Halls;
+use App\Http\Livewire\Halls\HallsLivewireForm;
 use App\Http\Livewire\Images\ImagesGallery;
 use App\Http\Livewire\Images\ImagesGalleryFormLivewire;
 use App\Http\Livewire\Images\ShowImages;
@@ -30,6 +32,7 @@ use App\Http\Livewire\Testimonial\TestimonialFormLivewire;
 use App\Http\Livewire\Trainer\Trainer;
 use App\Http\Livewire\Student\Student;
 use App\Http\Livewire\Trainer\TrainerForm;
+use App\Http\Livewire\TrainerAdmin\TrainerProfile;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,8 +46,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/main', function () {
+    return view('edomi_dashboard_layout.main');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
@@ -59,14 +62,16 @@ Route::group(['middleware'=>'auth','prefix'=>'training/admin'],function(){
     Route::get('slider', Slider::class)->name('slider.index');
     Route::get('slider/create', SliderFormLivewire::class)->name('slider.create');
     Route::get('slider/{id}/edit', SliderFormLivewire::class)->name('slider.edit');
+    Route::get('admin-profile',\App\Http\Livewire\Profile\AdminProfile::class)->name('admin.profile');
 
     Route::get('courses',Course::class)->name('courses.index');
     Route::get('courses/create',CourseFormLivewire::class)->name('course.create');
     Route::get('courses/{id}/edit', CourseFormLivewire::class)->name('course.edit');
 
-    Route::get('halls',Course::class)->name('halls.index');
-    Route::get('halls/create',CourseFormLivewire::class)->name('halls.create');
-    Route::get('halls/{id}/edit', CourseFormLivewire::class)->name('halls.edit');
+
+    Route::get('halls',Halls::class)->name('halls.index');
+//    Route::get('halls/show',HallsLivewireForm::class)->name('halls.show');
+    Route::get('halls/{id}/show', HallsLivewireForm::class)->name('halls.show');
 
     Route::get('about-us',AboutUsFormLivewire::class)->name('about-us.index');
 
@@ -106,6 +111,10 @@ Route::group(['middleware'=>'auth','prefix'=>'training/admin'],function(){
     Route::get('studyDivision/create',StudyDivisionForm::class)->name('studyDivision.create');
     Route::get('studyDivision/{id}/edit',StudyDivisionForm::class)->name('studyDivision.edit');
 
+
+
+
+
 });
 //  *** End Front Admin Panel Routes  ***
 
@@ -115,6 +124,31 @@ Route::post('/course-registration',[HomeController::class,'courseRegistration'])
 Route::get('/courses',[CourseController::class,'index'])->name('front.courses.index');
 Route::get('/contact-us',[ContactUsController::class,'index'])->name('front.contact-us.index');
 Route::post('/send',[ContactUsController::class,'send'])->name('contact.send');
+Route::get('/trainer/index',[\App\Http\Controllers\Front\TrainerController::class,'index'])->name('front.trainer.index');
 
 Route::post('/courses/search',[CourseController::class,'courseSearch'])->name('front.courses.search');
 //  *** End Front index Route *** //
+
+
+Route::get('/student-login', \App\Http\Livewire\StudentDashboard\StudentAdmin\Login::class)->name('student-login');
+
+
+
+
+/////////////////// Route for student dashboard ///////////////////////
+Route::group(['middleware'=>['auth:student'],'prefix'=>'training/admin'],function(){
+    Route::get('/student-profile', \App\Http\Livewire\StudentDashboard\StudentAdmin\StudentProfile::class)->name('student-profile');
+    Route::get('/student-courses', \App\Http\Livewire\StudentDashboard\StudentAdmin\Studentcourses::class)->name('student-courses');
+    Route::get('/student-course/{id}/show', \App\Http\Livewire\StudentDashboard\StudentAdmin\StudentShow::class)->name('student-course.show');
+
+});
+
+
+
+///////////////////////// ////////////////////////////////
+Route::group(['middleware'=>['auth:trainer'],'prefix'=>'training/admin'],function(){
+    Route::get('/profile', TrainerProfile::class)->name('profile');
+    Route::get('/trainer-courses', \App\Http\Livewire\TrainerAdmin\TrainerCourses::class)->name('trainer-courses');
+    Route::get('/trainer-course/{id}/show', \App\Http\Livewire\TrainerAdmin\CourseShow::class)->name('trainer-course.show');
+
+});

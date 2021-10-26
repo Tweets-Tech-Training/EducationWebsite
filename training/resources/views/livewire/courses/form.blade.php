@@ -116,7 +116,9 @@
                                         </div>
 
                                         <div class="form-group row">
-                                                <x-form.ckEditor title=" تفاصيل الدورة"  type="text" class="form-control" wire:model="course.details"  name="course.details"  id="detailsEditor" value="{!! $course->details !!}"/>
+                                            <x-form.ckEditor title=" تفاصيل الدورة"  type="text" class="form-control" wire:model="course.details"  name="course.details"  id="detailsEditor" >
+                                                {!! $course->details !!}
+                                            </x-form.ckEditor>
                                         </div>
                                     </div>
 

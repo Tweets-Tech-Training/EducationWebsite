@@ -234,6 +234,7 @@
 
 <!-- Custom js-->
 <script src="{{asset('FrontTheme/assets/js/custom.js')}}"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 {{--<script>--}}
 {{--    $(document).ready(function (){--}}
 {{--        $("#testimonial").click(function (){--}}

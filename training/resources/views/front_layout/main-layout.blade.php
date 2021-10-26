@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 @include('front_layout.header')
+@livewireStyles
 <body>
 <!--Loader-->
 <div id="global-loader">
@@ -16,17 +17,68 @@
     <!--  End Slider Image Section-->
     <!--Topbar-->
     <div class="header-main">
-{{--        ********** IMPORTANT  *****  --}}
-{{--        @include('front_layout.top-bar')--}}
-        <!--/Topbar-->
+        <div class="top-bar top-bar-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-8 col-lg-8 col-sm-4 col-12">
+                        <div class="top-bar-start d-flex">
+                            <div class="clearfix">
+
+                                <ul class="socials">
+                                    <li>
+                                        <a class="social-icon text-dark" href="javascript:void(0)"><i class="fe fe-facebook"></i></a>
+                                    </li>
+                                    <li>
+                                        <a class="social-icon text-dark" href="javascript:void(0)"><i class="fe fe-twitter"></i></a>
+                                    </li>
+                                    <li>
+                                        <a class="social-icon text-dark" href="javascript:void(0)"><i class="fe fe-linkedin"></i></a>
+                                    </li>
+                                    <li>
+                                        <a class="social-icon text-dark" href="javascript:void(0)"><i class="fe fe-instagram"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-sm-8 col-12">
+                        <div class="top-bar-end">
+                            <ul class="custom">
+                                @guest
+                                <li>
+                                    <a href="{{route('student-login')}}" class="text-dark"><i class="fe fe-log-in ms-1"></i> <span>تسجيل الدخول</span></a>
+                                </li>
+                                @endguest
+                                @if(Auth::guard('student')->check())
+                                <li class="dropdown">
+                                    <a href="javascript:void(0)" class="text-dark" data-bs-toggle="dropdown" aria-expanded="false"><i class="fe fe-home me-1"></i><span> My Dashboard<i class="fe fe-chevron-down  ms-1"></i></span></a>
+                                    <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow" style="">
+                                        <a href="{{route('student-profile')}}" class="dropdown-item">
+                                            <i class="dropdown-icon icon icon-user"></i> الصفحة الشخصية
+                                        </a>
+                                        <a class="dropdown-item" href="javascript:void(0)">
+                                            <i class="dropdown-icon icon icon-power"></i> تسجيل خروج
+                                        </a>
+                                    </div>
+                                </li>
+                                @endif
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{--        ********** IMPORTANT  *****  --}}
+    {{--        @include('front_layout.top-bar')--}}
+    <!--/Topbar-->
 
         <!-- Mobile Header -->
-        @include('front_layout.mobile-header')
-        <!-- /Mobile Header -->
+    @include('front_layout.mobile-header')
+    <!-- /Mobile Header -->
 
         <!--Horizontal-main -->
-        @include('front_layout.horizontal-menu')
-        <!--  /Horizontal-main -->
+    @include('front_layout.horizontal-menu')
+    <!--  /Horizontal-main -->
     </div>
 
 {{--    *** Section Slider Images  *** --}}
@@ -79,5 +131,28 @@
     </div>
 </div>
 @include('front_layout.footer')
+@livewireScripts
+
+
+@stack('script')
+<script>
+    window.addEventListener('swal:modal', event => {
+        swal({
+            title: event.detail.message,
+            text: event.detail.text,
+            icon: event.detail.type,
+            showConfirmButton: true,
+            confirmButtonColor: '#DD6B55',
+
+            confirmButtonText: 'موافق',
+
+        }).then(function() {
+            if(event.detail.url){
+                window.location = event.detail.url;
+            }
+
+        });
+    });
+</script>
 </body>
 </html>

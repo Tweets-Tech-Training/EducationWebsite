@@ -172,6 +172,7 @@ return [
     */
 
     'attributes' => [
+        'computerized'               => 'نوع القاعة ',
         'city_id'               => 'المدينة',
         'name'                  => 'الاسم',
         'username'              => 'اسم المُستخدم',

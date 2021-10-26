@@ -51,6 +51,17 @@
                                             @error('student.gender') <span class="text-danger">{{ $message }}</span>@enderror
 
                                         </div>
+                                        <div class="col-md-6">
+                                            <label> حالة الطالب  </label>
+                                            <select class="form-select form-control"   wire:model="student.status" aria-label="Default select example" name="gender"
+                                                    id="customerstatus">
+                                                <option  value="under-consideration">قيد الدراسة  </option>
+                                                <option  value="studying">  قيد العمل   </option>
+                                                <option  value="end-course"> انتهى الكورس    </option>
+                                            </select>
+                                            @error('student.status') <span class="text-danger">{{ $message }}</span>@enderror
+
+                                        </div>
 
                                     </div>
 

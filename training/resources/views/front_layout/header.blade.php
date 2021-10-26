@@ -14,6 +14,7 @@
 
     <!-- Title -->
     <title> Edomi - @yield('title')</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Bootstrap css -->
     <link href="{{asset('FrontTheme/assets/plugins/bootstrap/css/bootstrap.rtl.css')}}" rel="stylesheet" />

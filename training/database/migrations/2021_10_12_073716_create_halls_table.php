@@ -17,10 +17,7 @@ class CreateHallsTable extends Migration
             $table->id();
             $table->string('name');
             $table->integer('capacity');
-            $table->string('computerized',1);
-            $table->string('available_from');
-            $table->string('available_to');
-            $table->string('availability',1);
+            $table->boolean('computerized');
             $table->timestamps();
         });
     }

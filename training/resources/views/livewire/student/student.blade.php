@@ -27,19 +27,16 @@
                 <div class="table-responsive">
                     <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                         <div class="top">
-                            <div class="col-12 d-flex flex-sm-row flex-column justify-content-between mt-1">
+                            <div class="actions action-btns"><div class="dt-buttons btn-group">
 
-                                <div class="dt-buttons btn-group">
-
-                                </div>
-                                <div  class="col-md-4">
-                                    <input type="text" placeholder="ادخل الاسم هنا  ...." wire:model="search"  class="form-control form-control-sm mb-1"  style="padding: 1.45rem 2.8rem !important;    border: 1px solid #D6DCE1;
-                               float: left;" >
-                                </div>
-                            </div>
+                                </div></div>
                             <div class="action-filters">
-
-                            </div>
+                                <div class="dataTables_length" id="data_table_length"><label>
+                                        <select name="data_table_length" aria-controls="data_table" class="custom-select custom-select-sm form-control form-control-sm">
+                                            <option value="4">4</option><option value="10">10</option><option value="15">15</option><option value="20">20</option></select>
+                                    </label></div><div id="data_table_filter" class="dataTables_filter"><label>
+                                        <x-search wire:model="search"/>
+                                    </label></div></div>
                         </div>
                         <div class="clear"></div>
                         <table class="table data-thumb-view dataTable no-footer dt-checkboxes-select" id="DataTables_Table_0" role="grid">
@@ -58,7 +55,11 @@
                                 </th>
                                 <th rowspan="1" colspan="1">
 
-                                    التخصص      </th>
+                                    الايميل       </th>
+
+                                <th rowspan="1" colspan="1">
+
+                                    حالة الطالب        </th>
                                 <th rowspan="1" colspan="1">
                                     الخيارات
                                 </th>
@@ -72,12 +73,12 @@
                                     <td>{{$student->name}}</td>
                                     <td>{{$student->mobile}}</td>
                                     <td>{{ $student->email }}</td>
+                                    <td> {{ $student->status }}</td>
                                     <td>
                                         <div class="inline-block whitespace-no-wrap">
                                             <a   class="btn btn-icon btn-icon rounded-circle btn-primary mr-1 mb-1 waves-effect waves-light" href="{{ route('student.edit',$student->id) }}" ><i class="feather icon-edit"></i></a>
                                             <a   class="btn btn-icon btn-icon rounded-circle btn-success mr-1 mb-1 waves-effect waves-light" href="{{ route('student.show',$student->id) }}" ><i class="feather icon-eye"></i></a>
                                             <button type="button" wire:click="deleteId({{ $student->id }})" class="btn btn-icon btn-icon rounded-circle btn-danger mr-1 mb-1 waves-effect waves-light" data-toggle="modal" data-target="#exampleModal"><i class="feather icon-trash"></i></button>
-
                                         </div>
                                     </td>
 
@@ -112,7 +113,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Delete Confirm</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">تأكيد الحذف </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true close-btn">×</span>
                     </button>
@@ -122,7 +123,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary close-btn" data-dismiss="modal">الغاء</button>
-                    <button type="button" wire:click.prevent="delete" class="btn btn-danger close-modal" data-dismiss="modal">نعم !! احذف </button>
+                    <button type="button" wire:click.prevent="delete" class="btn btn-danger close-modal" data-dismiss="modal">نعم </button>
                 </div>
             </div>
         </div>

@@ -25,6 +25,7 @@ class Studentform extends Component
             'student.email' =>  $this->student->id?'required|string|email|max:255|unique:students,email, '. $this->student->id:"required|string|email|max:255|unique:students,email",
             'student.gender' => 'required',
             'student.address' => 'required',
+            'student.status' => 'required',
             'student.mobile' =>  $this->student->id?'required|string|max:255|unique:students,mobile, '. $this->student->id:"required|string|max:255|unique:students,mobile",
 
         ];
