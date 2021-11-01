@@ -3,9 +3,12 @@
     <div class="horizontal-mainwrapper container clearfix">
         <div class="desktoplogo">
             <a href="{{route('front.index')}}">
-                <img src="{{asset('FrontTheme/assets/images/brand/logo1.png')}}" alt="img">
-                <img src="{{asset('FrontTheme/assets/images/brand/logo.png')}}" class="header-brand-img header-white" alt="logo">
+                <img src="{{asset('storage/images/'.$setting->logo)}}" alt="img">
+                <img src="{{asset('storage/images/'.$setting->logo)}}" class="header-brand-img header-white" alt="logo">
             </a>
+        </div>
+        <div class="desktoplogo-1">
+            <a href="index.html"><img src="{{asset('/FrontTheme/assets/images/brand/logo.png')}}" alt="img"></a>
         </div>
 
         <nav class="horizontalMenu" >

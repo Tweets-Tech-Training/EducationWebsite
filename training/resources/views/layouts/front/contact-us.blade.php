@@ -54,8 +54,8 @@
                             <div class="card border-0 mb-lg-0">
                                 <div class="support-service mb-0  text-center bg-primary">
                                     <i class="fa fa-phone"></i>
-{{--                                    <h5>+{{$setting->}}</h5>--}}
-                                    <p>Free Support!</p>
+                                    <h5>+{{$setting->mobile}}</h5>
+                                    <p>رقم المركز </p>
                                 </div>
                             </div>
                         </div>
@@ -63,8 +63,8 @@
                             <div class="card border-0 mb-lg-0">
                                 <div class="support-service mb-0 text-center bg-secondary">
                                     <i class="fa fa-clock-o"></i>
-                                    <h5>Mon-Sat(10:00-19:00)</h5>
-                                    <p>Working Hours!</p>
+                                    <h5>السبت-الخميس{{$setting->opiningHours}}</h5>
+                                    <p>ساعات العمل!</p>
                                 </div>
                             </div>
                         </div>
@@ -72,8 +72,8 @@
                             <div class="card border-0 mb-lg-0">
                                 <div class="support-service mb-0 text-center bg-success">
                                     <i class="fa fa-map-marker"></i>
-                                    <h5>Mon-Sat(10:00-19:00)</h5>
-                                    <p>Working Hours!</p>
+                                    <h5>{{$setting->place}}</h5>
+                                    <p>مكان العمل!</p>
                                 </div>
                             </div>
                         </div>
@@ -81,8 +81,7 @@
                             <div class="card border-0 mb-0">
                                 <div class="support-service mb-0 text-center bg-orange">
                                     <i class="fa fa-envelope-o"></i>
-                                    <h5>yourdomain@gmail.com</h5>
-                                    <p>Support us!</p>
+                                    <h5>{{$setting->email}}</h5>
                                 </div>
                             </div>
                         </div>

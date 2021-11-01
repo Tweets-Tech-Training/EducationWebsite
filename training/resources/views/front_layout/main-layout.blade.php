@@ -51,7 +51,7 @@
                                 @endguest
                                 @if(Auth::guard('student')->check())
                                 <li class="dropdown">
-                                    <a href="javascript:void(0)" class="text-dark" data-bs-toggle="dropdown" aria-expanded="false"><i class="fe fe-home me-1"></i><span> My Dashboard<i class="fe fe-chevron-down  ms-1"></i></span></a>
+                                    <a href="javascript:void(0)" class="text-dark" data-bs-toggle="dropdown" aria-expanded="false"><i class="fe fe-home me-1"></i><span> لوحة التحكم <i class="fe fe-chevron-down  ms-1"></i></span></a>
                                     <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow" style="">
                                         <a href="{{route('student-profile')}}" class="dropdown-item">
                                             <i class="dropdown-icon icon icon-user"></i> الصفحة الشخصية

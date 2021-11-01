@@ -206,11 +206,11 @@
                     <h2>  ماذا قال طلابنا عنا  </h2>
                     <p class="fs-20 fw-bold lead" > آراء بعض الطلاب الذين شاركوا معنا في الدورات </p>
                 </div>
-                <div class="ms-auto">
-                    <div class="">
-                        <a class="btn btn-primary mt-3" href="javascript:void(0)"><i class="fe fe-arrow-right"></i>   عرض كل الآراء </a>
-                    </div>
-                </div>
+{{--                <div class="ms-auto">--}}
+{{--                    <div class="">--}}
+{{--                        <a class="btn btn-primary mt-3" href="javascript:void(0)"><i class="fe fe-arrow-right"></i>   عرض كل الآراء </a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
             </div>
             <div class="row">
                 <div class="col-md-12">

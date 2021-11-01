@@ -7,49 +7,46 @@
                     <div class="row">
                         <div class="col-lg-7 col-md-12">
                             @if($setting)
-                                @foreach($setting as $data)
+{{--                                @foreach($setting as $data)--}}
                                     <img src="{{asset('FrontTheme/assets/images/brand/logo-white.png')}}" class="w-auto border-0" alt="img">
                                     <ul class="list-unstyled mb-0 mt-4">
                                         <li>
-                                            <a href="javascript:void(0)">Second stret, New York, NY 10012, US</a>
+                                            <a href="javascript:void(0)">{{$setting->place}}</a>
                                         </li>
                                         <li>
-                                            <a href="javascript:void(0)">info@example.com, {{$data->email}}</a></li>
+                                            <a href="javascript:void(0)"> {{$setting->email}}</a></li>
                                         <li>
-                                            <a href="javascript:void(0)">{{$data->mobile}}</a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)">+ 01 234 567 89</a>
+                                            <a href="javascript:void(0)">{{$setting->mobile}}</a>
                                         </li>
                                     </ul>
                                     <ul class="list-unstyled list-inline mt-5 mb-lg-0 mb-5">
                                     <li class="list-inline-item">
-                                        <a class="social-icons btn-sm rgba-white-slight waves-effect waves-light" href="{{$data->facebook}}">
+                                        <a class="social-icons btn-sm rgba-white-slight waves-effect waves-light" href="{{$setting->facebook}}">
                                             <i class="fa fa-facebook"></i>
                                         </a>
                                     </li>
                                     <li class="list-inline-item">
-                                        <a class="social-icons btn-sm rgba-white-slight waves-effect waves-light" href="{{ $data->twitter }}">
+                                        <a class="social-icons btn-sm rgba-white-slight waves-effect waves-light" href="{{ $setting->twitter }}">
                                             <i class="fa fa-twitter"></i>
                                         </a>
                                     </li>
                                     <li class="list-inline-item">
-                                        <a class="social-icons btn-sm rgba-white-slight waves-effect waves-light" href="{{ $data->gmail }}">
+                                        <a class="social-icons btn-sm rgba-white-slight waves-effect waves-light" href="{{ $setting->gmail }}">
                                             <i class="fa fa-google-plus"></i>
                                         </a>
                                     </li>
                                     <li class="list-inline-item">
-                                        <a class="social-icons btn-sm rgba-white-slight waves-effect waves-light" href="{{ $data->instagram }}">
+                                        <a class="social-icons btn-sm rgba-white-slight waves-effect waves-light" href="{{ $setting->instagram }}">
                                             <i class="fa fa-instagram"></i>
                                         </a>
                                     </li>
                                     <li class="list-inline-item">
-                                        <a class="social-icons btn-sm rgba-white-slight waves-effect waves-light" href="{{ $data->youtube }}">
+                                        <a class="social-icons btn-sm rgba-white-slight waves-effect waves-light" href="{{ $setting->youtube }}">
                                             <i class="fa fa-youtube-square"></i>
                                         </a>
                                     </li>
                                 </ul>
-                                @endforeach
+{{--                                @endforeach--}}
                             @endif
 
                         </div>

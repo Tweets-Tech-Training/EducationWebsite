@@ -92,8 +92,6 @@ class HomeController extends Controller
         return Setting::all();
     }
 
-
-
     public function courseRegistrationShow()
     {
         return view('layouts.front.course-registration');

@@ -29,7 +29,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Paginator::useBootstrap();
-        $setting = Setting::all();
+        $setting = Setting::first();
         $categories = Category::orderBy('id','desc')->take(6)->get();
         $courses = Course::orderBy('id','desc')->take(6)->get();
         View::share([

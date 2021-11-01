@@ -63,6 +63,19 @@
                                             @error('setting.email') <span class="text-danger">{{ $message }}</span> @enderror
                                         </div>
                                         <div class="col-md-6">
+                                            <span> المكان </span>
+                                            <div class="input-group mb-75">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text feather icon-map" id="basic-addon4"></span>
+                                                </div>
+                                                <input type="text" class="form-control" wire:model="setting.place"  name="facebook"   >
+                                            </div>
+                                            @error('setting.place') <span class="text-danger">{{ $message }}</span> @enderror
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-6">
                                             <span> حساب الفيس بوك </span>
                                             <div class="input-group mb-75">
                                                 <div class="input-group-prepend">
@@ -72,9 +85,6 @@
                                             </div>
                                             @error('setting.facebook') <span class="text-danger">{{ $message }}</span> @enderror
                                         </div>
-
-                                    </div>
-                                    <div class="form-group row">
                                         <div class="col-md-6">
                                             <span> حساب انستغرام </span>
                                             <div class="input-group mb-75">
@@ -87,6 +97,10 @@
                                             @error('setting.instagram') <span class="text-danger">{{ $message }}</span> @enderror
                                         </div>
 
+
+
+                                    </div>
+                                    <div class="form-group row">
                                         <div class="col-md-6">
                                             <span> حساب تويتر </span>
                                             <div class="input-group mb-75">
@@ -97,9 +111,17 @@
                                             </div>
                                             @error('setting.twitter') <span class="text-danger">{{ $message }}</span> @enderror
                                         </div>
+                                        <div class="col-md-6">
+                                            <span>  رابط اليوتيوب </span>
+                                            <div class="input-group mb-75">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text feather icon-youtube" id="basic-addon4"></span>
+                                                </div>
+                                                <input type="text" class="form-control" wire:model="setting.youtube"  name="mobile"   placeholder="رابط اليوتيوب">
+                                            </div>
 
-                                    </div>
-                                    <div class="form-group row">
+                                            @error('setting.youtube') <span class="text-danger">{{ $message }}</span> @enderror
+                                        </div>
                                         <div class="col-md-6">
                                             <span> حساب واتس آب </span>
                                             <input type="text" class="form-control" wire:model="setting.whatsapp"  name="name"   placeholder=" حساب واتس آب ">
@@ -112,17 +134,7 @@
                                             @error('setting.whatsapp') <span class="text-danger">{{ $message }}</span> @enderror
                                         </div>
 
-                                        <div class="col-md-6">
-                                            <span>  رابط اليوتيوب </span>
-                                            <div class="input-group mb-75">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text feather icon-youtube" id="basic-addon4"></span>
-                                                </div>
-                                                <input type="text" class="form-control" wire:model="setting.youtube"  name="mobile"   placeholder="رابط اليوتيوب">
-                                            </div>
 
-                                            @error('setting.youtube') <span class="text-danger">{{ $message }}</span> @enderror
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-4">

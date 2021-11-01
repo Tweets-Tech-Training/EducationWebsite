@@ -14,8 +14,8 @@ class ContactUsController extends Controller
 
     public function index()
     {
-        $setting=Setting::get();
-        return view('layouts.front.contact-us')->with('setting' , $setting);
+//        $setting=Setting::first();
+        return view('layouts.front.contact-us');
     }
 
 

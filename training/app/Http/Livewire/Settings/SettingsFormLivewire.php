@@ -13,6 +13,7 @@ class SettingsFormLivewire extends Component
     protected $rules = [
         'setting.site_name'=>'required',
         'setting.logo'=>'required',
+        'setting.place'=>'required',
         'setting.mobile'=>'required|digits:10',
         'setting.email'=>'required|email',
         'setting.facebook'=>'nullable|url',
