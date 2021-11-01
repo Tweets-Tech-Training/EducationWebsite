@@ -22,9 +22,6 @@
             <div class="content-body">
                 <section id="data-thumb-view" class="data-thumb-view-header">
 
-
-
-
                     <div class="table-responsive">
 
      <table class="table data-thumb-view dataTable no-footer dt-checkboxes-select" id="DataTables_Table_0" role="grid">
@@ -32,7 +29,7 @@
         <tr role="row">
 
         <th rowspan="1" colspan="1">
-            الرقم
+           اسم الشعبة
         </th>
 
         <th rowspan="1" colspan="1">
@@ -47,19 +44,19 @@
     </tr>
     </thead>
     <tbody>
-{{--    @forelse ($halls as $hall)--}}
+    @forelse ($appointments as $appointment)
         <tr>
-            <td> riham </td>
-{{--            <td>{{$hall->name}}</td>--}}
-{{--            <td>{{$hall->capacity}}</td>--}}
-{{--            <td> {{$hall->computerized?'محوسبة':' ليست محوسبة '}}</td>--}}
+            <td>{{$appointment->name}}</td>
+            <td>{{$appointment->course?$appointment->course->name:''}}</td>
+            <td>{{$appointment->start_time}}</td>
+            <td> {{$appointment->end_time}}</td>
 {{--           --}}
 
         </tr>
 
-{{--    @empty--}}
-{{--        <x-nodata></x-nodata>--}}
-{{--    @endforelse--}}
+    @empty
+        <x-nodata></x-nodata>
+    @endforelse
     </tbody>
 </table>
 

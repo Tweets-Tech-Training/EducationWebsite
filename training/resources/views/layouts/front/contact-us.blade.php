@@ -45,10 +45,6 @@
 @section('content')
 <br>
 <div class="container">
-
-
-
-
     <div class="sptb bg-white contacts">
         <div class="container">
             <div class="row">
@@ -58,7 +54,7 @@
                             <div class="card border-0 mb-lg-0">
                                 <div class="support-service mb-0  text-center bg-primary">
                                     <i class="fa fa-phone"></i>
-                                    <h5>+68 872-627-9735</h5>
+{{--                                    <h5>+{{$setting->}}</h5>--}}
                                     <p>Free Support!</p>
                                 </div>
                             </div>

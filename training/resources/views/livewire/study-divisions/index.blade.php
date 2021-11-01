@@ -107,6 +107,12 @@
                                     اسم الدورة التابعة لها
                                 </th>
                                 <th rowspan="1" colspan="1">
+                                    وقت البداية
+                                </th>
+                                <th rowspan="1" colspan="1">
+                                    وقت النهاية
+                                </th>
+                                <th rowspan="1" colspan="1">
                                     اسم القاعة المخصصة لها
                                 </th>
 
@@ -126,11 +132,13 @@
                                     <td >{{ $division->id }}</td>
                                     <td >{{ $division->name }}</td>
                                     <td >{{ $division->course->name }}</td>
+                                    <td >{{ $division->start_time }}</td>
+                                    <td >{{ $division->end_time }}</td>
                                     <td >{{ $division->hall->name }}</td>
                                     <td >{{ $division->students_number }}</td>
                                     <td >
                                         <a type="button" class="btn btn-icon btn-icon rounded-circle btn-primary mr-1 mb-1 waves-effect waves-light" href="{{route('studyDivision.edit',$division->id)}}"><i class="feather icon-edit"></i></a>
-                                        <button type="button" class="btn btn-icon btn-icon rounded-circle btn-danger mr-1 mb-1 waves-effect waves-light" wire:click="delete({{ $division->id }})"><i class="feather icon-trash"></i></button>
+                                        <button type="button" wire:click="deleteId({{ $division->id }})" class="btn btn-icon btn-icon rounded-circle btn-danger mr-1 mb-1 waves-effect waves-light" data-toggle="modal" data-target="#exampleModal"><i class="feather icon-trash"></i></button>
                                     </td>
                                 </tr>
                             @empty
@@ -160,6 +168,26 @@
 
 
     </div>
+    <div wire:ignore.self class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">حذف الشعبة </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true close-btn">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>هل انت متأكد؟؟</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary close-btn" data-dismiss="modal">الغاء</button>
+                    <button type="button" wire:click.prevent="delete" class="btn btn-danger close-modal" data-dismiss="modal">نعم </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 

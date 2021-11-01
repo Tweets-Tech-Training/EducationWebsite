@@ -60,22 +60,18 @@
                                             @csrf
                                             <a class="side-menu__item" href="{{ route('logout') }}"
                                                onclick="event.preventDefault();
-               this.closest('form').submit();">
+                                             this.closest('form').submit();">
                                                 <i class="side-menu__icon fe fe-power"></i><span class="side-menu__label">تسجيل خروج </span></a>
                                         </form>
                                     </div>
                                 </li>
                                 @endif
-
-
-
-
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
+                     </ul>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
 {{--        ********** IMPORTANT  *****  --}}
 {{--        @include('front_layout.top-bar')--}}
 <!--/Topbar-->
@@ -157,7 +153,7 @@
 {{--                                    </ul>--}}
 {{--                                </li>--}}
 <li>
-   <a class="side-menu__item" href="payments.html"><i class="side-menu__icon fe fe-credit-card"></i><span class="side-menu__label">عرض القيد المالي </span></a>
+   <a class="side-menu__item" href="{{route('student-payments')}}"><i class="side-menu__icon fe fe-credit-card"></i><span class="side-menu__label">عرض القيد المالي </span></a>
 </li>
 <li>
    <form method="POST" action="{{ route('logout') }}">

@@ -14,7 +14,7 @@ class AddSalaryToTrainers extends Migration
     public function up()
     {
         Schema::table('trainers', function (Blueprint $table) {
-            $table->decimal('salary',10,2)->after('mobile');;
+            $table->decimal('salary',10,2)->after('mobile');
         });
     }
 

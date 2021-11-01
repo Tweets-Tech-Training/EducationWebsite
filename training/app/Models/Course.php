@@ -23,4 +23,9 @@ class Course extends Model
         return $this->hasMany(StudyDivision::class);
 
     }
+
+    public function payments()
+    {
+        return $this->hasMany(PaymentSystem::class);
+    }
 }

@@ -75,7 +75,7 @@
                                             <div  class="col-md-6">
                                                 <label> المدرب </label>
                                                 <div wire:ignore >
-                                                    <select wire:model="course.trainer_id" name="trainer_id" id="select2-dropdown" class="form-control"  >
+                                                    <select wire:model="course.trainer_id" name="trainer_id" id="trainer_id" class="form-control"  >
                                                         <option value=" " >اختر المدرب </option>
                                                         @if($trainers->count())
                                                             @foreach($trainers as $trainer)
@@ -214,6 +214,15 @@
                        var data = $('#select2-dropdown').select2("val");
                        console.log(data)
                         @this.set('course.category_id', data);
+                   });
+               });
+
+               $(document).ready(function () {
+                   $('#trainer_id').select2();
+                   $('#trainer_id').on('change', function (e) {
+                       var data = $('#trainer_id').select2("val");
+                       console.log(data)
+                   @this.set('course.trainer_id', data);
                    });
                });
            </script>

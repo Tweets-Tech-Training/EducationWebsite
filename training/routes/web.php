@@ -121,6 +121,7 @@ Route::group(['middleware'=>'auth','prefix'=>'training/admin'],function(){
     Route::get('paymentSystem',PaymentSystem::class)->name('paymentSystem.index');
     Route::get('paymentSystem/create',PaymentSystemForm::class)->name('paymentSystem.create');
     Route::get('paymentSystem/{id}/edit',PaymentSystemForm::class)->name('paymentSystem.edit');
+    Route::get('paymentSystem/{id}/show',\App\Http\Livewire\PaymentSystem\PaymentSystemShow::class)->name('paymentSystem.show');
 
 
 });
@@ -149,6 +150,7 @@ Route::group(['middleware'=>['auth:student'],'prefix'=>'training/admin'],functio
     Route::get('/student-profile', \App\Http\Livewire\StudentDashboard\StudentAdmin\StudentProfile::class)->name('student-profile');
     Route::get('/student-courses', \App\Http\Livewire\StudentDashboard\StudentAdmin\Studentcourses::class)->name('student-courses');
     Route::get('/student-course/{id}/show', \App\Http\Livewire\StudentDashboard\StudentAdmin\StudentShow::class)->name('student-course.show');
+    Route::get('/student-payments', \App\Http\Livewire\StudentDashboard\StudentAdmin\StudentPayments::class)->name('student-payments');
 
 });
 

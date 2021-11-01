@@ -2,27 +2,10 @@
     @push('style')
 
         <style>
-            .upload-btn-wrapper{
-                width: 250px !important;
-                height: 250px !important;
-            }
 
-            .ck-editor__editable_inline {
-                min-height: 200px;
-            }
-            .ck-editor__editable{
-                text-align: right !important;
-            }
-
-            .select2-container--default .select2-selection--single {
-                border: 1px solid #d9d9d9;
-            }
-            #course_image{
-                border: 3px solid #D3D3D3;
-                border-radius: 15px;
-                width: 100%;
-                height: 100%;
-            }
+            /*.select2-container--default .select2-selection--single {*/
+            /*    border: 1px solid #d9d9d9;*/
+            /*}*/
         </style>
     @endpush
     <section class="users-edit">
@@ -60,7 +43,7 @@
                                         <div  class="col-md-6">
                                             <span>  اختر الدورة التابعة لها </span>
                                             <div wire:ignore>
-                                                <select  name="course_id" id="select2-dropdown" class="form-control" >
+                                                <select  name="course_id" id="select2-dropdown" wire:model="studyDivision.course_id" class="form-control" >
                                                     <option value=" ">اختر الدورة   </option>
                                                     @if($courses->count())
                                                         @foreach($courses as $course)
@@ -73,39 +56,34 @@
                                         </div>
 
                                         <div wire:ignore class="col-md-6">
-                                            <x-form.pickerLimitTime title="وقت البداية"  type="text"  wire:model="studyDivision.start_time" name="studyDivision.start_time" id="start_time" class="form-control " placeholder="9:00 AM"
+
+                                            <x-form.pickerLimitTime title="وقت البداية"  type="text"  value="{{$start_time}}" name="start_time" id="start_time" class="form-control " placeholder="9:00 AM"
                                                                     aria-haspopup="true" aria-readonly="false" aria-owns="pt-min-max_root" />
                                         </div>
-
                                     </div>
-
                                     <div class="form-group row">
 
                                         <div wire:ignore class="col-md-6">
-                                            <x-form.pickerLimitTime title="وقت النهاية"  type="text"  wire:model="studyDivision.end_time"  name="studyDivision.end_time" id="end_time" class="form-control" placeholder="11:00 AM"
+                                            <x-form.pickerLimitTime title="وقت النهاية"  type="text"  name="end_time" id="end_time" class="form-control"  value="{{$end_time}}" placeholder="11:00 AM"
                                                                     aria-haspopup="true" aria-readonly="false" aria-owns="pt-min-max_root"/>
                                         </div>
 
                                         <div  class="col-md-6">
                                             <span>  اختر القاعة المخصصة لها </span>
-                                            <div wire:ignore>
+                                            <div>
                                                 <select wire:model="studyDivision.hall_id" name="hall_id" id="select2-dropdown" class="form-control"  data-placeholder="Select Category">
                                                     <option value=" ">اختر القاعة   </option>
-                                                    @if($halls->count())
+
                                                         @foreach($halls as $hall)
                                                             <option class="p-5" name="hall_id" value="{{$hall->id}}">  {{$hall->name}}  </option>
                                                         @endforeach
-                                                    @endif
+
                                                 </select>
                                             </div>
                                             @error('studyDivision.hall_id') <span class="text-danger">{{ $message }}</span> @enderror
                                         </div>
-
                                     </div>
-
                                 </div>
-
-
                             </div>
 
                             <div class="col-12 d-flex flex-sm-row flex-column justify-content-end mt-1" >
@@ -130,8 +108,7 @@
 
                                 <a href="{{route('studyDivision.index')}}"  class="btn btn-outline-danger">الغاء</a>
                             </div>
-                        {{--                            </form>--}}
-                        <!-- users edit account form ends -->
+
                         </div>
 
                     </div>
@@ -140,32 +117,15 @@
         </div>
     </section>
     @push('script')
-        <script src="https://cdn.ckeditor.com/ckeditor5/28.0.0/classic/ckeditor.js"></script>
-        {{--    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>--}}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer" ></script>
         {{--               <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>--}}
-        <script>
-            ClassicEditor
-                .create( document.querySelector( '#detailsEditor' ) )
-                .then( newEditor => {
-                    var details= newEditor.getData();
-                    newEditor.model.document.on('change:data', () => {
-                        // $dispatch('detailsEditor', newEditor.getData())
-                    @this.set('studyDivision.start_time', newEditor.getData());
-                    })
-
-                } )
-                .catch( error => {
-                    console.error( error );
-                } );
-        </script>
         <script>
             $(document).ready(function () {
                 $('#select2-dropdown').select2();
                 $('#select2-dropdown').on('change', function (e) {
                     var data = $('#select2-dropdown').select2("val");
                     console.log(data)
-                @this.set('course.category_id', data);
+                          @this.set('studyDivision.course_id', data);
                 });
             });
         </script>

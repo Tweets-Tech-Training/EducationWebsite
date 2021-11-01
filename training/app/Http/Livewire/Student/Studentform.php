@@ -45,7 +45,5 @@ class Studentform extends Component
             'message' =>'تم حفظ البيانات  بنجاح',
             'url'=>route('student')
         ]);
-
-
     }
 }

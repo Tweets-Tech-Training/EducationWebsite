@@ -10,6 +10,8 @@ class StudyDivision extends Component
     protected $paginationTheme = 'bootstrap';
     public  $studyDivisions ;
     public $searchByName  ;
+    public $search;
+    public $deleteId = '';
     public function updatingSearchByName()
     {
         $this->resetPage();
@@ -17,13 +19,16 @@ class StudyDivision extends Component
     public function render()
     {
         return view('livewire.study-divisions.index',
-        ['divisions' => StudyDivisionModel::orderBy('id','desc')->where('name', 'like', '%' . $this->searchByName . '%')->paginate(3)])
+        ['divisions' => StudyDivisionModel::orderBy('id','desc')->where('name', 'like', '%' . $this->searchByName . '%')->paginate(10)])
             ->extends('dashboard_layout.main');
     }
-
-    public function delete($id)
+    public function deleteId($id)
     {
-        StudyDivisionModel::find($id)->delete();
+        $this->deleteId = $id;
+    }
+    public function delete()
+    {
+        StudyDivisionModel::find($this->deleteId )->delete();
         $this->dispatchBrowserEvent('swal:modal', [
             'type' => 'success',
             'message' => 'تم حذف الشعبة بنجاح',

@@ -42,4 +42,9 @@ class Student extends Authenticatable
     function courses(){
         return $this->belongsToMany(Course::class,'course_registrations');
     }
+
+    public function payments()
+    {
+        return $this->hasMany(PaymentSystem::class);
+    }
 }

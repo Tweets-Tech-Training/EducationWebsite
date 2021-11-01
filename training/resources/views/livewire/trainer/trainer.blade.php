@@ -28,8 +28,8 @@
                     <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                         <div class="top">
                             <div class="actions action-btns"><div class="dt-buttons btn-group">
-                                    <a href="{{route('partners.create')}}"   tabindex="0" aria-controls="data_table"  class="btn btn-outline-primary mr-1 mb-1 waves-effect waves-light"><i class="feather icon-plus-circle"></i>
-                                        اضافة شريك جديد                                 </a>
+                                    <a href="{{route('trainer.create')}}"   tabindex="0" aria-controls="data_table"  class="btn btn-outline-primary mr-1 mb-1 waves-effect waves-light"><i class="feather icon-plus-circle"></i>
+                                        اضافة مدرب جديد                                 </a>
                                 </div></div>
                             <div class="action-filters">
                                 <div class="dataTables_length" id="data_table_length"><label>

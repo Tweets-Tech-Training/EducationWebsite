@@ -16,7 +16,9 @@ class Hall extends Model
         'computerized'
     ];
 
-    public function studyDivision(){
+
+
+    public function studyDivisions(){
         return $this->hasMany(StudyDivision::class);
     }
     public function reservedHallsList(){

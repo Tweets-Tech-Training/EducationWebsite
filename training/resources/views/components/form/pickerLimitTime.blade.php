@@ -19,12 +19,12 @@
    let data=$('#{{$id}}').val();
 
     console.log(data);
-    @this.set('{{$attributes['name']}}', data);
+      @this.set('{{$attributes['name']}}', data);
      };
 "
 >
     <label >{{$attributes['title']}}</label>
-    <input {{$attributes}} placeholder="{{$attributes['title']}}">
+    <input {{$attributes}} ">
     @error($attributes['name']) <span class="text-danger">{{ $message }}</span> @enderror
 </div>
 

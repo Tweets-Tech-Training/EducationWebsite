@@ -73,7 +73,7 @@
                             <div class="actions action-btns">
 
                                 <div class="dt-buttons btn-group">
-                                    <a href="{{route('course.create')}}"  class="btn btn-outline-primary mr-1 mb-1 waves-effect waves-light"><i class="feather icon-plus-circle"></i>
+                                    <a href="{{route('paymentSystem.create')}}"  class="btn btn-outline-primary mr-1 mb-1 waves-effect waves-light"><i class="feather icon-plus-circle"></i>
                                         تسجيل طالب جديد                                 </a>
 
                                 </div>
@@ -124,23 +124,17 @@
                             <tbody>
 
                             @forelse($payments as $payment)
-                                <?php
-                                $price =$payment->course->price ;
-                                $paymentAmount =$payment->payment_amount;
-                                $remainingAmount = $price - $paymentAmount ;
-                                ?>
+
                                 <tr>
                                     <td >{{ $payment->id }}</td>
-                                    <td >{{ $payment->student->name }}</td>
-                                    <td >{{ $payment->course->name }}</td>
-                                    <td >{{ $payment->course->price }}</td>
-
-                                    <td >{{$remainingAmount}}
-                                    </td>
+                                    <td>{{$payment->student?$payment->student->name:''}}</td>
+                                    <td>{{$payment->courses?$payment->courses->name:''}}</td>
+                                    <td>{{$payment->courses?$payment->courses->price:''}}</td>
+                                    <td>{{$payment->remaining_amount?$payment->remaining_amount:'0'}}</td>
                                     <td >
                                         <a type="button" class="btn btn-icon btn-icon rounded-circle btn-primary mr-1 mb-1 waves-effect waves-light" href="{{route('paymentSystem.edit',$payment->id)}}"><i class="feather icon-edit"></i></a>
-                                        <a type="button" title="إضافة دفعة جديدة" class="btn btn-icon btn-icon rounded-circle btn-success mr-1 mb-1 waves-effect waves-light" href="{{route('paymentSystem.index')}}"><i class="feather icon-plus-circle"></i></a>
-                                        <button type="button" class="btn btn-icon btn-icon rounded-circle btn-danger mr-1 mb-1 waves-effect waves-light" wire:click="delete({{ $payment->id }})"><i class="feather icon-trash"></i></button>
+{{--                                        <a type="button" title="إضافة دفعة جديدة" class="btn btn-icon btn-icon rounded-circle btn-success mr-1 mb-1 waves-effect waves-light"  href="{{route('paymentSystem.show',$payment->id)}}"><i class="feather icon-eye"></i></a>--}}
+                                        <button type="button" wire:click="deleteId({{ $payment->id }})" class="btn btn-icon btn-icon rounded-circle btn-danger mr-1 mb-1 waves-effect waves-light" data-toggle="modal" data-target="#exampleModal"><i class="feather icon-trash"></i></button>
                                     </td>
                                 </tr>
                             @empty
@@ -170,6 +164,26 @@
 
 
     </div>
+    <div wire:ignore.self class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">حذف الكشف المالي </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true close-btn">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>هل انت متأكد؟؟</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary close-btn" data-dismiss="modal">الغاء</button>
+                    <button type="button" wire:click.prevent="delete" class="btn btn-danger close-modal" data-dismiss="modal">نعم </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 
