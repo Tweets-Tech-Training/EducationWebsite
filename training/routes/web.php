@@ -136,6 +136,8 @@ Route::get('/courses/',[CourseController::class,'index'])->name('front.courses.i
 Route::get('/contact-us',[ContactUsController::class,'index'])->name('front.contact-us.index');
 Route::post('/send',[ContactUsController::class,'send'])->name('contact.send');
 Route::get('/trainer/index',[\App\Http\Controllers\Front\TrainerController::class,'index'])->name('front.trainer.index');
+Route::get('/testimonial/index',[\App\Http\Controllers\Front\TestimonialController::class,'index'])->name('front.testimonial.index');
+
 Route::post('/courses/search',[CourseController::class,'courseSearch'])->name('front.courses.search');
 //  *** End Front index Route *** //
 

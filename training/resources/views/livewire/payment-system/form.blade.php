@@ -80,7 +80,7 @@
                                     </div>
                                     <div class="form-group row">
                                         <div  class="col-md-6">
-                                            <x-form.input title=" قيمة الدفعة الحالية"  type="number" class="form-control" wire:model="payment.payment_amount"  name="payment.payment_amount" />
+                                            <x-form.input title=" قيمة الدفعة الحالية"  type="text" class="form-control" wire:model="payment.payment_amount"  name="payment.payment_amount" />
                                             @error('payment.payment_amount') <span class="text-danger">{{ $message }}</span> @enderror
                                         </div>
 
@@ -89,7 +89,7 @@
                                                 if($payment->course_id ){
                                                     $course= \App\Models\Course::find($payment->course_id);
                                                     $price = $course->price;
-                                                    $remaining_amount=$price - $payment->payment_amount ;
+                                                    $remaining_amount=$price - (float)$payment->payment_amount ;
                                                   }
                                                 ?>
                                             <label> المبلغ المتبقي </label>
