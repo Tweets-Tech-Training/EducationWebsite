@@ -1,5 +1,5 @@
 <!--Horizontal-main -->
-<div class="horizontal-main header-style1  bg-dark-transparent clearfix p-0 pt-4">
+<div class="horizontal-main header-style1  bg-dark-transparent clearfix p-0 pt-4" >
     <div class="horizontal-mainwrapper container clearfix">
         <div class="desktoplogo">
             <a href="{{route('front.index')}}">

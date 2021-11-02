@@ -112,7 +112,7 @@
             {{--                                    <span><img class="round" src="{{asset('admin-layout/app-assets/images/portrait/small/avatar-s-11.jpg')}}" alt="avatar" height="40" width="40"></span>--}}
 
             {{--                                @endif--}}
-            <img src="{{asset('storage/images/'.Auth::user()->image)}}" class="brround" alt="user">
+            <img src="{{asset('storage/images/'.Auth::user()->image)}}"  style="height: 80px ; width: 80px;" class="brround" alt="user">
             </div>
             <a href="{{route('student-profile')}}" class="text-dark">
             <h4 class="mt-3 mb-0 font-weight-semibold">{{Auth::guard('student')->user()->name}}</h4>
