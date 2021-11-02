@@ -52,10 +52,10 @@
                 <div class="header-text mb-0">
                     <div class="container">
                         <div class="text-center text-white py-7">
-                            <h1 class="fs-22"> البرامج  و الدورات  </h1>
+                            <h1 class="fs-22"> ماذا قالوا عنا  </h1>
                             <ol class="breadcrumb text-center">
                                 <li class="breadcrumb-item"><a href="{{route('front.index')}}"> الصفحة الرئيسية </a></li>
-                                <li class="breadcrumb-item active text-white" aria-current="page"> الدورات التدريبية </li>
+                                <li class="breadcrumb-item active text-white" aria-current="page"> ماذا قالوا عنا </li>
                             </ol>
                         </div>
                     </div>
@@ -78,13 +78,9 @@
         <div class="container">
             <div class="section-title d-md-flex pb-3">
                 <div>
-                    <h2>
-                        المدربون
-                        <hr class="mt-2 mb-2">
-                    </h2>
-                    {{--                    <p class="fs-18 lead">--}}
-                    {{--                        اختر الدورة المطلوبة--}}
-                    {{--                    </p>--}}
+                    <h2>  ماذا قال طلابنا عنا  </h2>
+                    <p class="fs-20 fw-bold lead" > آراء بعض الطلاب الذين شاركوا معنا في الدورات </p>
+
                 </div>
                 <div class="ms-auto d-inline-flex">
                 </div>
