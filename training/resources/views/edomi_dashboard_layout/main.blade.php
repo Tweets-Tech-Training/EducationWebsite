@@ -109,7 +109,27 @@
 
 <!-- Custom Js-->
 <script src="{{asset('FrontTheme/assets/js/admin-custom.js')}}"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 @livewireScripts
 @stack('script')
+<script>
+    window.addEventListener('swal:modal', event => {
+        swal({
+            title: event.detail.message,
+            text: event.detail.text,
+            icon: event.detail.type,
+            showConfirmButton: true,
+            confirmButtonColor: '#DD6B55',
+
+            confirmButtonText: 'موافق',
+
+        }).then(function() {
+            if(event.detail.url){
+                window.location = event.detail.url;
+            }
+
+        });
+    });
+</script>
 </body>
 </html>

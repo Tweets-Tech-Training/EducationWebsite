@@ -1,4 +1,3 @@
-
 @extends('front_layout.main-layout')
 @section('title',' اتصل بنا  ')
 @section('css')
@@ -222,11 +221,11 @@
 </div>
 
 @endsection
- @section('script')
+@section('script')
             <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
             <script>
                 $(document).ready(function (){
-                    // *** create post ajax  ***
+                    // *** create post ajax  jjjjjjjjjjjj***
                     $('#submit').click(function(e){
                         e.preventDefault();
 

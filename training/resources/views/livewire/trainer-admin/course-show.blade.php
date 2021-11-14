@@ -12,12 +12,12 @@
                     <tbody>
 
                     <tr>
-                        <td><span class="fs-14 font-weight-bold text-default-dark">التصنيف </span></td>
+                        <td><span class="fs-14 font-weight-bold text-default-dark" style="width: 20px">التصنيف </span></td>
                         <td class="w-30 text-center"><span class="">:</span></td>
                         <td><span class="fs-14 font-weight-normal">{{$course->category?$course->category->name:''}}</span></td>
                     </tr>
                     <tr>
-                        <td><span class="fs-14 font-weight-bold text-default-dark"> تاريخ بدأ الدورة </span></td>
+                        <td><span class="fs-14 font-weight-bold text-default-dark" style="width: 20px"> تاريخ بدأ الدورة </span></td>
                         <td class="w-30 text-center"><span class="">:</span></td>
                         <td><span class="fs-14 font-weight-normal">{{$course->start_date}}</span></td>
                     </tr>

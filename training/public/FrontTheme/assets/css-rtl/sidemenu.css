@@ -433,7 +433,7 @@
   -webkit-transition: border-right-color 0.3s ease, background-color 0.3s ease;
   transition: border-right-color 0.3s ease, background-color 0.3s ease;
   color: #6c81a6;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Arial', sans-serif;
 }
 
 .app-sidebar .mCSB_draggerContainer {

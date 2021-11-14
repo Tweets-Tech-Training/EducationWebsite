@@ -13,4 +13,21 @@ class CourseRegistration extends Model
       'student_id',
       'course_id',
     ];
+    function courses(){
+        return $this->belongsTo(Course::class,'course_id');
+    }
+    function students(){
+        return $this->belongsTo(Student::class,'student_id');
+    }
+
+    public function scopeSearch($query,$data)
+    {
+        if(isset($data['name'])){
+            $query->whereHas('students',function ($q) use ($data) {
+                $q->where('name',"LIKE","%".$data['name']."%");
+            });
+        }
+        return $query;
+    }
+
 }

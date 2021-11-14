@@ -1,5 +1,4 @@
 
-
 @extends('front_layout.main-layout')
 @section('title','Home Page')
 @section('sliderImage')

@@ -38,6 +38,8 @@
         </li>
         <li class=" nav-item"><a href="{{route('contact-us')}}"><i class="feather icon-phone-call"></i><span class="menu-title" data-i18n="Dashboard"> اتصل بنا  </span></a>
         </li>
+        <li class=" nav-item"><a href="{{route('mail')}}"><i class="feather icon-send"></i><span class="menu-title" data-i18n="Dashboard"> القائمة البريدية  </span></a>
+        </li>
         <li class=" nav-item"><a href="{{route('settings.index')}}"><i class="feather icon-settings"></i><span class="menu-title" data-i18n="Dashboard"> الإعدادات </span></a>
         </li>
     </ul>

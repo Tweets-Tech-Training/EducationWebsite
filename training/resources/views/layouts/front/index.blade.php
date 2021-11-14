@@ -2,10 +2,10 @@
 @section('title','Home Page')
 @section('css')
     <style>
-        .form-control{
+        /*.form-control{
             border: 1px solid #9797b6;
             font-size: 13px;
-        }
+        }*/
         .select2-container{
             border-color:#9797b6 ;
             border: 1px solid #9797b6;
@@ -94,7 +94,7 @@
                                     <div class="card-footer">
                                         <div class="d-flex">
                                             <div class="d-md-flex d-block mb-0">
-                                                <button id="SubmitRegisterCourseForm" class="form-control btn btn-secondary fs-16 fw-600" style="color: whitesmoke"> سجل الآن </button>
+                                                <a href="{{route('course.register.form')}}" class="form-control btn btn-secondary fs-16 fw-600" style="color: whitesmoke"> سجل الآن </a>
                                             </div>
                                         </div>
                                     </div>

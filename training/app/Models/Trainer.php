@@ -38,4 +38,6 @@ class Trainer extends Authenticatable
         return $this->hasMany(Course::class);
     }
 
+
+
 }

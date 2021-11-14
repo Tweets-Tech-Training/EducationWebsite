@@ -133,10 +133,10 @@
             <div class="app-sidebar__user clearfix is-expanded">
             <ul class="side-menu open">
             <li class="is-expanded">
-               <a class="side-menu__item  " href="{{route('student-profile')}}"><i class="side-menu__icon fe fe-edit"></i><span class="side-menu__label">الصفحة الشخصية </span></a>
+               <a class="side-menu__item {{\Route::current()->getName()=='student-profile' ? 'active': ''}} " href="{{route('student-profile')}}"><i class="side-menu__icon fe fe-edit"></i><span class="side-menu__label">الصفحة الشخصية </span></a>
             </li>
             <li>
-               <a class="side-menu__item" href="{{route('student-courses')}}"><i class="side-menu__icon fe fe-layers"></i><span class="side-menu__label">الدورات </span></a>
+               <a class="side-menu__item {{\Route::current()->getName()=='student-courses'? 'active': ''}}" href="{{route('student-courses')}}"><i class="side-menu__icon fe fe-layers"></i><span class="side-menu__label">الدورات </span></a>
             </li>
 
 {{--                                <li class="slide">--}}
@@ -153,12 +153,13 @@
 {{--                                    </ul>--}}
 {{--                                </li>--}}
 <li>
-   <a class="side-menu__item" href="{{route('student-payments')}}"><i class="side-menu__icon fe fe-credit-card"></i><span class="side-menu__label">عرض القيد المالي </span></a>
+
+   <a class="side-menu__item {{\Route::current()->getName()==   'student-payments'? 'active': ''}}" href="{{route('student-payments')}}"><i class="side-menu__icon fe fe-credit-card"></i><span class="side-menu__label">عرض القيد المالي </span></a>
 </li>
 <li>
    <form method="POST" action="{{ route('logout') }}">
        @csrf
-       <a class="side-menu__item" href="{{ route('logout') }}"
+       <a class="side-menu__item {{\Route::current()->getName()== 'logout'? 'active': ''}}" href="{{ route('logout') }}"
           onclick="event.preventDefault();
                this.closest('form').submit();">
            <i class="side-menu__icon fe fe-power"></i><span class="side-menu__label">تسجيل خروج </span></a>
@@ -199,37 +200,38 @@
 
 
 <!--Section-->
+@include('front_layout.mailSystem')
 {{--<section class="cover-image sptb bg-background-1" data-bs-image-src="{{asset('FrontTheme/assets/images/banners/slider.jpg')}}">--}}
-<section class="cover-image sptb bg-background-1" data-bs-image-src="{{asset('FrontTheme/assets/images/banners/banner5.jpg')}}">
-<div class="content-text mb-0">
-<div class="content-text mb-0">
-<div class="container">
-<div class="text-white">
-<div class="row">
-<div class="col-lg-6">
-<div class="mt-0">
-<h1 class="mb-2 font-weight-semibold"> اشترك بالقائمة البريدية </h1>
-<p class="fs-18 mb-0"> اشترك معنا ليصلك كل ما هو جديد ... </p>
-</div>
-</div>
-<div class="col-lg-6">
-<div class="mt-4">
-<div class="input-group sub-input mt-1">
-  <input type="text" class="form-control input-lg  br-ts-7  br-bs-7" placeholder="أدخل إيميلك">
-  <div class="input-group-text ">
-      <button type="button" class="btn btn-secondary btn-lg br-te-7  br-be-7">
-          اشترك
-      </button>
-  </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
+{{--<section class="cover-image sptb bg-background-1" data-bs-image-src="{{asset('FrontTheme/assets/images/banners/banner5.jpg')}}">--}}
+{{--<div class="content-text mb-0">--}}
+{{--<div class="content-text mb-0">--}}
+{{--<div class="container">--}}
+{{--<div class="text-white">--}}
+{{--<div class="row">--}}
+{{--<div class="col-lg-6">--}}
+{{--<div class="mt-0">--}}
+{{--<h1 class="mb-2 font-weight-semibold"> اشترك بالقائمة البريدية </h1>--}}
+{{--<p class="fs-18 mb-0"> اشترك معنا ليصلك كل ما هو جديد ... </p>--}}
+{{--</div>--}}
+{{--</div>--}}
+{{--<div class="col-lg-6">--}}
+{{--<div class="mt-4">--}}
+{{--<div class="input-group sub-input mt-1">--}}
+{{--  <input type="text" class="form-control input-lg  br-ts-7  br-bs-7" placeholder="أدخل إيميلك">--}}
+{{--  <div class="input-group-text ">--}}
+{{--      <button type="button" class="btn btn-secondary btn-lg br-te-7  br-be-7">--}}
+{{--          اشترك--}}
+{{--      </button>--}}
+{{--  </div>--}}
+{{--</div>--}}
+{{--</div>--}}
+{{--</div>--}}
+{{--</div>--}}
+{{--</div>--}}
+{{--</div>--}}
+{{--</div>--}}
+{{--</div>--}}
+{{--</section>--}}
 <!--/Section-->
 
 <div class="position-relative">
@@ -244,35 +246,24 @@
 @livewireScripts
 @stack('script')
 <script>
-window.addEventListener('swal:modal', event => {
-swal({
-title: event.detail.message,
-text: event.detail.text,
-icon: event.detail.type,
-showConfirmButton: true,
-confirmButtonColor: '#DD6B55',
+        window.addEventListener('swal:modal', event => {
+        swal({
+        title: event.detail.message,
+        text: event.detail.text,
+        icon: event.detail.type,
+        showConfirmButton: true,
+        confirmButtonColor: '#DD6B55',
 
-confirmButtonText: 'موافق',
+        confirmButtonText: 'موافق',
 
-}).then(function() {
-if(event.detail.url){
-window.location = event.detail.url;
-}
+        }).then(function() {
+        if(event.detail.url){
+        window.location = event.detail.url;
+        }
 
-});
-});
+        });
+        });
 
-//
-// $('document').ready(function(){
-//     $('.side-menu__item').click(function(){
-//         $('.side-menu__item').addClass('active');
-//     });
-// });
-$('document').ready(function(){
-    $('.side-menu__item').click(function(){
-        $('.side-menu__item').toggleClass('active');
-    });
-});
 </script>
 </body>
 </html>

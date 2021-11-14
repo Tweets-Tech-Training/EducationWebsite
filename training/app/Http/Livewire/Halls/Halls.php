@@ -102,8 +102,6 @@ class Halls extends Component
         $this->reset();
         $this->emit('modalHide','#EditHallModal');
 
-
-
     }
 
     public function update()

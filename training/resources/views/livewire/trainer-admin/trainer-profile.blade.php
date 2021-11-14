@@ -27,6 +27,27 @@
                                                 </div>
                                                 <div class="card-body mb-0">
                                                     <form class="form-horizontal">
+                                                        <div class="media" style="margin-bottom: 13px;">
+                                                            <a class="mr-2 my-25" href="#">
+                                                                @if($image)
+                                                                    <img src="{{$image->temporaryUrl()}}" class="users-avatar-shadow rounded" style="height:100px ; width:110px;">
+                                                                @else
+                                                                    @if($user)
+                                                                        <img src="{{$user->image?asset('storage/images/'.$user->image):asset('storage/images/no-image.png')}}" alt="users avatar" id="output" class="users-avatar-shadow rounded"  style="height:100px ; width:110px;" >
+                                                                    @endif
+                                                                @endif
+                                                            </a>
+                                                            <div class="media-body mt-50" style="margin-right: 20px;">
+                                                                <h4 class="media-heading">الصورة الشخصية</h4>
+                                                                <div class="col-12 px-0 d-flex flex-sm-row flex-column justify-content-start">
+                                                                    <label class="btn btn-sm btn-primary ml-50 mb-50 mb-sm-0 cursor-pointer waves-effect waves-light" for="image" >رفع صورة جديدة</label>
+                                                                    <input type="file" id="image"  wire:model="image" name="image" hidden  wire:loading.attr="disabled">
+                                                                    <span wire:loading="" wire:target="image">
+                                                                            <i class="fa fa-spinner fa-spin " aria-hidden="true"></i>
+                                                                        </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                         <div cLass="row">
                                                             <div class="col-sm-6 col-md-6">
                                                                 <div class="form-group" >
@@ -75,8 +96,8 @@
                                                 </div>
                                                 <div class="card-footer text-end">
                                                     <div class="d-flex">
-                                                        <a href="javascript:void(0)" class="btn btn-secondary btn-link">Cancel</a>
-                                                        <button type="submit" class="btn btn-primary ms-auto">Send data</button>
+                                                        <a href="javascript:void(0)" class="btn btn-secondary btn-link">الغاء</a>
+                                                        <button wire:click.prevent="save" class="btn btn-primary ms-auto"> تعديل البيانات </button>
                                                     </div>
                                                 </div>
                                             </div>

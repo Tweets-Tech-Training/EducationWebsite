@@ -44,11 +44,11 @@
                     <div class="col-xl-4 col-lg-4 col-sm-8 col-12">
                         <div class="top-bar-end">
                             <ul class="custom">
-                                @guest
+                                @if(!Auth::guard('student')->check())
                                 <li>
                                     <a href="{{route('student-login')}}" class="text-dark"><i class="fe fe-log-in ms-1"></i> <span>تسجيل الدخول</span></a>
                                 </li>
-                                @endguest
+                                @endif
                                 @if(Auth::guard('student')->check())
                                 <li class="dropdown">
                                     <a href="javascript:void(0)" class="text-dark" data-bs-toggle="dropdown" aria-expanded="false"><i class="fe fe-home me-1"></i><span> لوحة التحكم <i class="fe fe-chevron-down  ms-1"></i></span></a>
@@ -56,9 +56,13 @@
                                         <a href="{{route('student-profile')}}" class="dropdown-item">
                                             <i class="dropdown-icon icon icon-user"></i> الصفحة الشخصية
                                         </a>
-                                        <a class="dropdown-item" href="javascript:void(0)">
-                                            <i class="dropdown-icon icon icon-power"></i> تسجيل خروج
-                                        </a>
+                                        <form method="POST" action="{{ route('logout') }}">
+                                            @csrf
+                                            <a class="side-menu__item" href="{{ route('logout') }}"
+                                               onclick="event.preventDefault();
+                                             this.closest('form').submit();">
+                                                <i class="side-menu__icon fe fe-power"></i><span class="side-menu__label">تسجيل خروج </span></a>
+                                        </form>
                                     </div>
                                 </li>
                                 @endif
@@ -91,36 +95,7 @@
 @yield('content')
 <!--Section-->
 {{--<section class="cover-image sptb bg-background-1" data-bs-image-src="{{asset('FrontTheme/assets/images/banners/slider.jpg')}}">--}}
-<section class="cover-image sptb bg-background-1" data-bs-image-src="{{asset('FrontTheme/assets/images/banners/banner5.jpg')}}">
-    <div class="content-text mb-0">
-        <div class="content-text mb-0">
-            <div class="container">
-                <div class="text-white">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="mt-0">
-                                <h1 class="mb-2 font-weight-semibold"> اشترك بالقائمة البريدية </h1>
-                                <p class="fs-18 mb-0"> اشترك معنا ليصلك كل ما هو جديد ... </p>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="mt-4">
-                                <div class="input-group sub-input mt-1">
-                                    <input type="text" class="form-control input-lg  br-ts-7  br-bs-7" placeholder="أدخل إيميلك">
-                                    <div class="input-group-text ">
-                                        <button type="button" class="btn btn-secondary btn-lg br-te-7  br-be-7">
-                                            اشترك
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+@include('front_layout.mailSystem')
 <!--/Section-->
 
 <div class="position-relative">

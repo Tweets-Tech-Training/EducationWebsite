@@ -62,17 +62,10 @@
                         </div>
                         <div class="card-body  item-user">
                             <div class="profile-pic mb-0">
-                                <img src="{{asset('storage/images/'.$trainer->image)}}" class="brround avatar-xxl" alt="user">
+                                <img src="{{asset('storage/images/'.$trainer->image)}}" class=" avatar-xxl" style="width: 243px ; height: 126px ;" alt="user">
                                 <div>
-                                    <a href="userprofile.html" class="text-dark"><h4 class="mt-3 mb-1 font-weight-bold">
-                                        {{$trainer->name}}</h4></a>
-                                    <span class="lead fs-16">{{$trainer->specialization}}</span>
-                                    <div class=" item-user-icons mt-3">
-{{--                                        <a href="javascript:void(0)" class="facebook-bg mt-0"><i class="fa fa-facebook"></i></a>--}}
-{{--                                        <a href="javascript:void(0)" class="twitter-bg"><i class="fa fa-twitter"></i></a>--}}
-{{--                                        <a href="javascript:void(0)" class="google-bg"><i class="fa fa-google"></i></a>--}}
-{{--                                        <a href="javascript:void(0)" class="dribbble-bg"><i class="fa fa-dribbble"></i></a>--}}
-                                    </div>
+                                    <a href="userprofile.html" class="text-dark text-center"><h4 class="mt-3  font-weight-bold">
+                                            {{$trainer->name}}</h4></a>
                                 </div>
                             </div>
                         </div>

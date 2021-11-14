@@ -60,10 +60,11 @@
                         <td>
                             {{$payment->created_at}}
                         </td>
+                        </tbody>
                         @empty
                             <x-nodata></x-nodata>
                         @endforelse
-                        </tbody>
+
                     </table>
                 </div>
             </div>

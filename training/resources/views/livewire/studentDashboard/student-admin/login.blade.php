@@ -40,7 +40,12 @@
                                                         @error('password') <span class="text-danger error">{{ $message }}</span>@enderror
                                                     </div>
                                                     <div class="submit" style="margin: 25px">
-                                                        <button class="btn btn-primary mr-1 mb-1 btn-block fs-16"   wire:click.prevent="login" >تسجيل الدخول </button>
+                                                        <button  wire:loading.attr="disabled" class="btn btn-primary mr-1 mb-1 btn-block fs-16"   wire:click.prevent="login" >تسجيل الدخول
+
+                                                            <span wire:loading="" wire:target="login">
+                                                                 <i class="fa fa-spinner fa-spin " aria-hidden="true"></i>
+                                                            </span>
+                                                        </button>
                                                     </div>
 {{--                                                    <div class="d-flex mb-0">--}}
 {{--                                                        <p class="mb-0"><a href="forgot.html">Forgot Password</a></p>--}}

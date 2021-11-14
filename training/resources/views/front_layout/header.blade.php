@@ -51,8 +51,23 @@
        .horizontalMenu{
            float: right !important;
            margin-right: 195px !important;
-           font-size: 17px;
-           font-weight: 600;
+           font-size: 16px;
+           font-weight: 100 !important;
+       }
+
+       @font-face {
+       /*font-family: 'DroidKufi-Regular';*/
+           font-family: 'Tajawal-Regular ';
+           src: url("{{asset('fonts/Tajawal-Regular.TTF')}}");
+       }
+       body{
+           direction: rtl;
+           text-align: right;
+           padding: 0px;
+           margin: 0px;
+           font-family: 'Tajawal-Regular' !important;
+           font-size: 16px;
+           position: relative;
        }
    </style>
     @yield('css')

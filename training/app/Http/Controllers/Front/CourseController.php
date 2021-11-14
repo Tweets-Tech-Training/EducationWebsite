@@ -22,7 +22,7 @@ class CourseController extends Controller
             $courses = Course::where('name','like',"%$courseName%");
         }
         $categories = Category::all();
-        $courses = $courses->orderBy('id','desc')->get();
+        $courses = $courses->orderBy('id','desc')->paginate(4);
         return view('layouts.front.course')->with([
             'courses'=>$courses,
             'categories'=>$categories,

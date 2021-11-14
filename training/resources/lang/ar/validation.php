@@ -172,6 +172,7 @@ return [
     */
 
     'attributes' => [
+        'gmail'                  => 'البريد الالكتروني ',
         'computerized'               => 'نوع القاعة ',
         'city_id'               => 'المدينة',
         'name'                  => 'الاسم',

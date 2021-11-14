@@ -33,5 +33,14 @@
             </ul>
         </li>
 
+
+        <li class="slide" style="margin-right: 4px">
+
+            <a class="side-menu__item slide-show" href="{{ route('trainer-students') }}">
+                <i class="feather fa fa-users" style="margin-left: 8px"></i>عرض الطلاب
+            </a>
+
+        </li>
+
     </ul>
 </aside>

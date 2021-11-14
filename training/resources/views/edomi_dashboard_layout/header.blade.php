@@ -41,3 +41,20 @@
 
 <!-- Color Skin css -->
 <link id="theme" rel="stylesheet" type="text/css" media="all" href="{{asset('FrontTheme/assets/color-skins-rtl/color.css')}}" />
+
+<style>
+    @font-face {
+        /*font-family: 'DroidKufi-Regular';*/
+        font-family: 'Tajawal-Regular ';
+        src: url("{{asset('fonts/Tajawal-Regular.TTF')}}");
+    }
+            body{
+                direction: rtl;
+                text-align: right;
+                padding: 0px;
+                margin: 0px;
+                font-family: 'Tajawal-Regular' !important;
+                font-size: 16px;
+                position: relative;
+            }
+</style>

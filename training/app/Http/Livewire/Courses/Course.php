@@ -11,7 +11,7 @@ class Course extends Component
     use WithPagination ;
     protected $paginationTheme = 'bootstrap';
 
-    public $search;
+    public $search,$paginateNum=4;
     public $deleteId = '';
 
     public $searchByCourseName  ;
@@ -19,18 +19,15 @@ class Course extends Component
     {
         $this->resetPage();
     }
-
     public function render()
     {
-
         if($this->search) {
-
-            $courses=CourseModel::orderBy('id', 'desc')->where('name', 'like', '%' . $this->search . '%')->paginate(5);
+            $courses=CourseModel::orderBy('id', 'desc')->where('name', 'like', '%' . $this->search . '%')->paginate($this->paginateNum );
             return view('livewire.courses.index',['courses'=>$courses,'id'=>''])->extends('dashboard_layout.main');
         }
         return view('livewire.courses.index',
 
-            ['courses' => CourseModel::orderBy('id','desc')->paginate(5)]
+            ['courses' => CourseModel::orderBy('id','desc')->paginate($this->paginateNum )]
 
         )->extends('dashboard_layout.main');
     }

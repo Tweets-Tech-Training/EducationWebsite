@@ -7,12 +7,7 @@
                 height: 250px !important;
             }
 
-            .ck-editor__editable_inline {
-                min-height: 200px;
-            }
-            .ck-editor__editable{
-                text-align: right !important;
-            }
+
 
             .select2-container--default .select2-selection--single {
                 border: 1px solid #d9d9d9;

@@ -22,8 +22,8 @@
                         <label class="btn btn-sm btn-primary ml-50 mb-50 mb-sm-0 cursor-pointer waves-effect waves-light" for="image" >رفع صورة جديدة</label>
                         <input type="file" id="image"  wire:model="image" name="image" hidden  wire:loading.attr="disabled">
                         <span wire:loading="" wire:target="image">
-                                                                            <i class="fa fa-spinner fa-spin " aria-hidden="true"></i>
-                                                                        </span>
+                            <i class="spinner-border text-primary" aria-hidden="true"></i>
+                            </span>
                     </div>
                 </div>
             </div>

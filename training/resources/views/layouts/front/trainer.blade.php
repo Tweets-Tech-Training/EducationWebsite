@@ -107,50 +107,119 @@
 {{--                    <a href="javascript:void(0)" id="submitCourseSearch" class="btn  btn-block btn-primary search"> بحث </a>--}}
 {{--                </div>--}}
 {{--            </div>--}}
+            <section class="sptb">
+                <div class="container">
+                    <div class="row">
+                        <!--Left Side Content-->
 
-            <div id="resultAfterSearch" class="row">
-                {{--  *** Start Courses Section  ***  --}}
-                @forelse($trainers as $trainer)
-                    <div class="col-xl-4 col-md-6">
-                        <div class="card overflow-hidden">
-                            <div class="item-card7-img pt-5 px-5">
-                                <div class="item-card7-imgs">
-                                    <a href="javascript:void(0)"></a>
-                                    <img src="{{asset('storage/images/'.$trainer->image)}}" alt="img" class="cover-image br-7 border">
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="item-card7-desc">
-                                    <div class="item-card7-text">
-                                        <a href="javascript:void(0)" class="text-dark"><h4 class="font-weight-semibold mb-1">{{$trainer->name}}</h4></a>
-                                    </div>
-                                    <div class="d-flex mb-0">
-                                        <h4 class="text-muted"> {{ $trainer->specialization	 }} </h4>
-                                    </div>
-                                    <div class="pt-2 mb-3">
-                                        <a class="me-4"><span class="font-weight-bold">عدد المحاضرات  :</span> <span class="text-muted"> {{$trainer->email}}</span></a>
-                                    </div>
+                        <!--/Left Side Content-->
+                        <div class="col-xl-12 col-lg-12 col-md-12">
+                            <div class="row blog-grid">
+                                @forelse($trainers as $trainer)
+                                <div class="col-xl-4 col-lg-12 col-md-12">
+                                    <div class="card p-5">
+                                        <div class="item7-card-img br-7 border">
+                                            <a href="javascript:void(0)"></a>
+                                            <img src="{{asset('storage/images/'.$trainer->image)}}" alt="img" class="cover-image">
+                                        </div>
+                                        <div class="card-body pt-4 pb-0 ps-0 pe-0">
+                                            <div class="mb-3">
+{{--                                                <div class="d-flex align-items-center pt-2 mt-auto">--}}
+                                                <div class="row">
+                                                    <div class="col-xl-6 col-md-12">
+                                                        <ul class="list-unstyled widget-spec-1">
+                                                            <li class="text-default-dark"><i class="text-default float-start  mt-1   fa fa-user"></i><span>اسم المدرب  :  </span></li>
+                                                            <li class="text-default-dark"><i class="text-default float-start  mt-1   fa fa-circle-o"></i><span> التخصص :  </span></li>
+                                                            <li class="text-default-dark"><i class="text-default float-start  mt-1  fa fa-envelope-o"></i><span>الايميل : </span></li>
 
-                                </div>
-                            </div>
-                            <div class="card-footer">
-                                <div class="d-flex">
-                                    <div class="d-md-flex d-block mb-0">
-                                        <a href="" class="form-control btn btn-primary fs-16 fw-600" style="color: whitesmoke"> عرض تفاصيل الدورة  </a>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-xl-6 col-md-12">
+                                                        <ul class="list-unstyled widget-spec-1">
+                                                            <li class="text-default-dark"><span> {{$trainer->name}}</span></li>
+                                                            <li class="text-default-dark"><span> {{$trainer->specialization}}</span></li>
+                                                            <li class="text-default-dark"><span>{{$trainer->email}}</span></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+{{--                                                </div>--}}
+                                            </div>
+                                            <div class="card-footer">
+                                                <div class=" align-items-center pt-2 mt-auto">
+                                                    <div>
+                                                        <a href="{{route('front.trainer.courses',$trainer->id )}}" class="form-control btn btn-primary fs-16 fw-500" style="color: whitesmoke ; width: 207px;"> عرض الدورات التابعة للمدرب </a>
+                                                    </div>
+
+                                                </div></div>
+
+                                        </div>
                                     </div>
                                 </div>
+                                @empty
+                                    <div  id="error-message" class="alert alert-primary alert-dismissible fade show" role="alert" style="margin-right: 23px ; width: 850px; padding-right: 12px;" >
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+                                            <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                                        </svg>
+                                        <h4 style="text-align: right;margin-bottom: 0px ; display: inline-block; margin-left: 1px; color: white">لا يوجد مدربون  ...</h4>
+                                    </div>
+                                @endforelse
+                            </div>
+                            <div class="center-block text-center">
+
+
+{{--                                {{$trainers->links()}}--}}
                             </div>
                         </div>
+                        <!--/Coursed Lists-->
                     </div>
-                @empty
-                    <div  id="error-message" class="alert alert-primary alert-dismissible fade show" role="alert" style="margin-right: 23px ; width: 850px; padding-right: 12px;" >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
-                            <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                        </svg>
-                        <h4 style="text-align: right;margin-bottom: 0px ; display: inline-block; margin-left: 1px; color: white">لا يوجد مدربون  ...</h4>
-                    </div>
-                @endforelse
-            </div>
+                </div>
+            </section>
+{{--            <div id="resultAfterSearch" class="row">--}}
+{{--                --}}{{--  *** Start Courses Section  ***  --}}
+{{--                @forelse($trainers as $trainer)--}}
+{{--                    <div class="col-xl-4 col-md-6">--}}
+{{--                        <div class="card overflow-hidden">--}}
+{{--                            <div class="item-card7-img pt-5 px-5">--}}
+{{--                                <div class="item-card7-imgs">--}}
+{{--                                    <a href="javascript:void(0)"></a>--}}
+{{--                                    <img src="{{asset('storage/images/'.$trainer->image)}}" alt="img" class="cover-image br-7 border">--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="card-body">--}}
+{{--                                <div class="item-card7-desc">--}}
+{{--                                    <div class="col-12 d-flex flex-sm-row flex-column justify-content-between mt-1">--}}
+{{--                                    <div class="col-md-6">--}}
+{{--                                        <a href="javascript:void(0)" class="text-dark"><h4 class="font-weight-semibold mb-1">{{$trainer->name}}</h4></a>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="col-md-6">--}}
+{{--                                        <h4 class="text-muted"> {{ $trainer->specialization	 }} </h4>--}}
+{{--                                    </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="pt-2 mb-3">--}}
+{{--                                        <a class="me-4"><span class="font-weight-bold">عدد المحاضرات  :</span> <span class="text-muted"> {{$trainer->email}}</span></a>--}}
+{{--                                    </div>--}}
+
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="card-footer">--}}
+{{--                                <div class="d-flex">--}}
+{{--                                    <div class="d-md-flex d-block mb-0">--}}
+{{--                                        <a href="" class="form-control btn btn-primary fs-16 fw-600" style="color: whitesmoke"> عرض الدورات التابعة للمدرب   </a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                @empty--}}
+{{--                    <div  id="error-message" class="alert alert-primary alert-dismissible fade show" role="alert" style="margin-right: 23px ; width: 850px; padding-right: 12px;" >--}}
+{{--                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">--}}
+{{--                            <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>--}}
+{{--                        </svg>--}}
+{{--                        <h4 style="text-align: right;margin-bottom: 0px ; display: inline-block; margin-left: 1px; color: white">لا يوجد مدربون  ...</h4>--}}
+{{--                    </div>--}}
+{{--                @endforelse--}}
+{{--            </div>--}}
 
         </div>
     </section>

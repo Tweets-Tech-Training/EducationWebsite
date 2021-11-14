@@ -4,6 +4,8 @@
 use App\Http\Controllers\Front\ContactUsController;
 use App\Http\Controllers\Front\CourseController;
 use App\Http\Controllers\Front\HomeController;
+use App\Http\Controllers\Front\MailController;
+use App\Http\Controllers\Front\TrainerController;
 use App\Http\Livewire\AboutUs\AboutUs;
 use App\Http\Livewire\AboutUs\AboutUsFormLivewire;
 use App\Http\Livewire\Categories\Categories;
@@ -18,6 +20,7 @@ use App\Http\Livewire\Images\ImagesGalleryFormLivewire;
 use App\Http\Livewire\Images\ShowImages;
 use App\Http\Livewire\Lists\ListFormLivewire;
 use App\Http\Livewire\Lists\ListLivewire;
+use App\Http\Livewire\Mail\MailSystemLivewire;
 use App\Http\Livewire\Partners\Partners;
 use App\Http\Livewire\Partners\PartnersFormLivewire;
 use App\Http\Livewire\PaymentSystem\PaymentSystem;
@@ -56,6 +59,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //    return view('dashboard');
     return view('dashboard_layout.main');
 });
+
+
 //  *** Start Front Admin Panel Routes  ***
 Route::group(['middleware'=>'auth','prefix'=>'training/admin'],function(){
     Route::get('/',function(){
@@ -114,8 +119,8 @@ Route::group(['middleware'=>'auth','prefix'=>'training/admin'],function(){
     Route::get('studyDivision/{id}/edit',StudyDivisionForm::class)->name('studyDivision.edit');
 
 
-
-
+    Route::get('mail',MailSystemLivewire::class)->name('mail');
+    Route::get('mail/create',\App\Http\Livewire\Mail\MailFormLivewire::class)->name('mail.create');
 
 
     Route::get('paymentSystem',PaymentSystem::class)->name('paymentSystem.index');
@@ -127,6 +132,8 @@ Route::group(['middleware'=>'auth','prefix'=>'training/admin'],function(){
 });
 //  *** End Front Admin Panel Routes  ***
 
+
+
 //  *** Start Front index Route *** //
 Route::get('/',[HomeController::class,'index'])->name('front.index');
 Route::get('/course-registration-form',[HomeController::class,'courseRegistrationShow'])->name('course.register.form');
@@ -135,8 +142,10 @@ Route::get('/courses/{id}/details',[CourseController::class,'show'])->name('fron
 Route::get('/courses/',[CourseController::class,'index'])->name('front.courses.index');
 Route::get('/contact-us',[ContactUsController::class,'index'])->name('front.contact-us.index');
 Route::post('/send',[ContactUsController::class,'send'])->name('contact.send');
-Route::get('/trainer/index',[\App\Http\Controllers\Front\TrainerController::class,'index'])->name('front.trainer.index');
+Route::get('/trainer/{id}/courses',[TrainerController::class,'show'])->name('front.trainer.courses');
+Route::get('/trainer/index',[TrainerController::class,'index'])->name('front.trainer.index');
 Route::get('/testimonial/index',[\App\Http\Controllers\Front\TestimonialController::class,'index'])->name('front.testimonial.index');
+Route::post('/mail_send',[MailController::class,'send'])->name('mail.send');
 
 Route::post('/courses/search',[CourseController::class,'courseSearch'])->name('front.courses.search');
 //  *** End Front index Route *** //
@@ -161,6 +170,7 @@ Route::group(['middleware'=>['auth:student'],'prefix'=>'training/admin'],functio
 ///////////////////////// ////////////////////////////////
 Route::group(['middleware'=>['auth:trainer'],'prefix'=>'training/admin'],function(){
     Route::get('/profile', TrainerProfile::class)->name('profile');
+    Route::get('/trainer-students', \App\Http\Livewire\TrainerAdmin\TrainerStudents::class)->name('trainer-students');
     Route::get('/trainer-courses', \App\Http\Livewire\TrainerAdmin\TrainerCourses::class)->name('trainer-courses');
     Route::get('/trainer-course/{id}/show', \App\Http\Livewire\TrainerAdmin\CourseShow::class)->name('trainer-course.show');
 
