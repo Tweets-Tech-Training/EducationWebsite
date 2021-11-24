@@ -33,7 +33,7 @@
 
                                 <div class="dataTables_length" id="data_table_length">
                                     <label>
-                                        <select name="data_table_length" aria-controls="data_table" class="custom-select custom-select-sm form-control form-control-sm">
+                                        <select name="data_table_length" wire:model="paginateNum" aria-controls="data_table" class="custom-select custom-select-sm form-control form-control-sm">
                                             <option value="4">4</option><option value="10">10</option><option value="15">15</option><option value="20">20</option></select>
                                     </label>
                                 </div>
@@ -206,10 +206,14 @@
         var checkedIds =[];
         function toggle(source) {
         var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        arrayIds =[];
         for (var i = 0; i < checkboxes.length; i++) {
             if (checkboxes[i] != source)
                 checkboxes[i].checked = source.checked;
-        }
+                 // arrayIds.push(checked.value);
+
+            }
+            @this.set('ids', arrayIds);
         }
 
         $('#checkboxSelectAll').click(function(event) {

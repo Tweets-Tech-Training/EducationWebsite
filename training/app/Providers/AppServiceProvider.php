@@ -30,11 +30,11 @@ class AppServiceProvider extends ServiceProvider
     {
         Paginator::useBootstrap();
         $setting = Setting::first();
-        $categories = Category::orderBy('id','desc')->take(6)->get();
+        $categoriess = Category::orderBy('id','desc')->take(6)->get();
         $courses = Course::orderBy('id','desc')->take(6)->get();
         View::share([
             'setting'=>$setting ,
-            'categories'=>$categories,
+            'categoriess'=>$categoriess,
             'courses'=>$courses,
             ]);
     }

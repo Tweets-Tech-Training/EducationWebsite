@@ -18,25 +18,10 @@
                     <div class="recent-classes text-center mt-5">
                         @forelse($categories as $category)
                         <a class="recent-course" href="">
-                          <i class="fe fe-book-open"></i>
+                          <i class="fa fa-{{$category->icon}}"></i>
                                 <small>{{$category->name}}</small>
                         </a>
-{{--                        <a class="recent-course" href="">--}}
-{{--                            <i class="fe fe-airplay"></i>--}}
-{{--                            <small>IT Course</small>--}}
-{{--                        </a>--}}
-{{--                        <a class="recent-course" href="">--}}
-{{--                            <i class="fe fe-database"></i>--}}
-{{--                            <small>Data Science</small>--}}
-{{--                        </a>--}}
-{{--                        <a class="recent-course" href="">--}}
-{{--                            <i class="fe fe-heart"></i>--}}
-{{--                            <small>Health</small>--}}
-{{--                        </a>--}}
-{{--                        <a class="recent-course" href="">--}}
-{{--                            <i class="fe fe-briefcase"></i>--}}
-{{--                            <small>Business</small>--}}
-{{--                        </a>--}}
+
                         @empty
                             <a class="recent-course" href="">
                             <i class="fe fe-briefcase"></i>

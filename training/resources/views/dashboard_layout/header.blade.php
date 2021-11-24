@@ -61,6 +61,8 @@
 <link rel="stylesheet" type="text/css" href="{{asset('admin-layout/app-assets/css-rtl/plugins/forms/pickers/form-flat-pickr.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('admin-layout/app-assets/css-rtl/plugins/forms/pickers/form-pickadate.css')}}">
 <!-- END: Custom CSS-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
+
 <style>
 
     .mt-100 {

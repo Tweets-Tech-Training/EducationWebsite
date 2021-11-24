@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\Front\ContactUsController;
 use App\Http\Controllers\Front\CourseController;
 use App\Http\Controllers\Front\HomeController;
@@ -74,8 +75,10 @@ Route::group(['middleware'=>'auth','prefix'=>'training/admin'],function(){
     Route::get('courses',Course::class)->name('courses.index');
     Route::get('courses/create',CourseFormLivewire::class)->name('course.create');
     Route::get('courses/{id}/edit', CourseFormLivewire::class)->name('course.edit');
-
-
+    Route::get('/full-calender', [CalendarController::class, 'index']);
+    Route::get('calender', [CalendarController::class, 'calender']);
+    //Livewire::component('calendar', Calendar::class);
+    //Route::get('calendar',\App\Http\Livewire\Calendar::class);
     Route::get('halls',Halls::class)->name('halls.index');
 //    Route::get('halls/show',HallsLivewireForm::class)->name('halls.show');
     Route::get('halls/{id}/show', HallsLivewireForm::class)->name('halls.show');
@@ -139,7 +142,7 @@ Route::get('/',[HomeController::class,'index'])->name('front.index');
 Route::get('/course-registration-form',[HomeController::class,'courseRegistrationShow'])->name('course.register.form');
 Route::post('/course-registration',[HomeController::class,'courseRegistration'])->name('course.register');
 Route::get('/courses/{id}/details',[CourseController::class,'show'])->name('front.courses.details');
-Route::get('/courses/',[CourseController::class,'index'])->name('front.courses.index');
+Route::get('/courses/front',[CourseController::class,'index'])->name('front.courses.index');
 Route::get('/contact-us',[ContactUsController::class,'index'])->name('front.contact-us.index');
 Route::post('/send',[ContactUsController::class,'send'])->name('contact.send');
 Route::get('/trainer/{id}/courses',[TrainerController::class,'show'])->name('front.trainer.courses');
@@ -157,7 +160,7 @@ Route::get('/student-login', \App\Http\Livewire\StudentDashboard\StudentAdmin\Lo
 
 
 /////////////////// Route for student dashboard ///////////////////////
-Route::group(['middleware'=>['auth:student'],'prefix'=>'training/admin'],function(){
+Route::group(['middleware'=>['auth:student'],'prefix'=>'training/adminPanel'],function(){
     Route::get('/student-profile', \App\Http\Livewire\StudentDashboard\StudentAdmin\StudentProfile::class)->name('student-profile');
     Route::get('/student-courses', \App\Http\Livewire\StudentDashboard\StudentAdmin\Studentcourses::class)->name('student-courses');
     Route::get('/student-course/{id}/show', \App\Http\Livewire\StudentDashboard\StudentAdmin\StudentShow::class)->name('student-course.show');
@@ -168,7 +171,7 @@ Route::group(['middleware'=>['auth:student'],'prefix'=>'training/admin'],functio
 
 
 ///////////////////////// ////////////////////////////////
-Route::group(['middleware'=>['auth:trainer'],'prefix'=>'training/admin'],function(){
+Route::group(['middleware'=>['auth:trainer'],'prefix'=>'training/adminTrainer'],function(){
     Route::get('/profile', TrainerProfile::class)->name('profile');
     Route::get('/trainer-students', \App\Http\Livewire\TrainerAdmin\TrainerStudents::class)->name('trainer-students');
     Route::get('/trainer-courses', \App\Http\Livewire\TrainerAdmin\TrainerCourses::class)->name('trainer-courses');

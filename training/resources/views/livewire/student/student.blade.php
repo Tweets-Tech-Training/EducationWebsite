@@ -32,7 +32,7 @@
                                 </div></div>
                             <div class="action-filters">
                                 <div class="dataTables_length" id="data_table_length"><label>
-                                        <select name="data_table_length" aria-controls="data_table" class="custom-select custom-select-sm form-control form-control-sm">
+                                        <select name="data_table_length"  wire:model="paginateNum" aria-controls="data_table" class="custom-select custom-select-sm form-control form-control-sm">
                                             <option value="4">4</option><option value="10">10</option><option value="15">15</option><option value="20">20</option></select>
                                     </label></div><div id="data_table_filter" class="dataTables_filter"><label>
                                         <x-search wire:model="search"/>

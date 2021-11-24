@@ -136,6 +136,7 @@
 <!-- BEGIN: Page JS-->
 <!-- END: Page JS-->
 @livewireScripts
+
 <script>
     $(document).ready(function(){
         var multipleCancelButton = new Choices('#choices-multiple-remove-button', {
@@ -193,6 +194,8 @@
         })
     });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
 @stack('script')
 </body>
 <!-- END: Body-->

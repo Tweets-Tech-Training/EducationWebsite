@@ -8,7 +8,7 @@
                         <h1 class="fs-22">  @yield('sliderTitle')   </h1>
                         <ol class="breadcrumb text-center">
                             <li class="breadcrumb-item"><a href="{{route('front.index')}}"> الصفحة الرئيسية </a></li>
-                            <li class="breadcrumb-item active text-white" aria-current="page"> @yield('sliderTitle2') </li>
+{{--                            <li class="breadcrumb-item active text-white" aria-current="page"> @yield('sliderTitle2') </li>--}}
                         </ol>
                     </div>
                 </div>

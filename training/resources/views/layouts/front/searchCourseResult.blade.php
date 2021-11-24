@@ -1,46 +1,57 @@
 <div class="row">
     {{--  *** Start Courses Section  ***  --}}
     @forelse($courses as $course)
-        <div class="col-md-4">
-            <div class="item" style="height: 400px; max-height: 400px">
-                <div class="card overflow-hidden mb-0" style="height:100%;">
-                    {{--   **** appear when course has sale  *** --}}
-                    {{--                        <div class="power-ribbon power-ribbon-top-left text-warning"><span class="bg-warning"><img src="{{asset('FrontTheme/assets/images/png/power.png')}}" class=""></span></div>--}}
-                    <div class="item-card7-img pt-5 px-5">
-                        <div class="item-card7-imgs">
+        <div class="col-xl-12 col-lg-12 col-md-12">
+            <div class="card overflow-hidden">
+                <div class="ribbon ribbon-top-left"><span class="bg-danger">${{$course->price}}</span></div>
+                <div class="row g-0 blog-list">
+                    <div class="col-xl-4 col-lg-12 col-md-12">
+                        <div class="item7-card-img br-be-0 br-te-0">
                             <a href="javascript:void(0)"></a>
-                            <img src="{{asset('storage/images/'.$course->image)}}" alt="img" class="cover-image br-7 border">
-                        </div>
-                        <div class="item-card7-overlaytext">
-                            <h4 class="mb-0"> ${{$course->price}} <del class="fs-12">$1560</del></h4>
+                            <img src="{{asset('storage/images/'.$course->image)}}" alt="img" class="cover-image">
+                            <div class="item7-card-text">
+                                {{--                                                        <a class="item-card-badge bg-primary text-white" data-bs-toggle="tooltip" data-bs-original-title="Business"><i class="fa fa-briefcase"></i> </a>--}}
+                            </div>
                         </div>
                     </div>
-                    <div class="card-body">
-                        <div class="item-card7-desc">
-                            <small class="text-muted"> {{ $course->category->name }} </small>
-                            <div class="item-card7-text mt-1">
-                                <a href="javascript:void(0)" class="text-dark"><h4 class="font-weight-semibold mb-1"> {{$course->name}}  </h4></a>
-                            </div>
-                            <div class="pt-2 mb-2">
-                                <a class="me-4"><i class="fe fe-calendar float-start me-1 mt-1"></i><span class=""> {{$course->lectures_num}} محاضرات </span></a>
-                                <a class="ms-4 float-end"><i class="fe fe-clock float-start me-1 mt-1"></i><span class=""> {{$course->lecture_interval}} ساعة / كل يوم </span></a>
-                            </div>
-                            <p class="mb-0 text-dark"> {!! $course->details !!} </p>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <div class="d-flex">
-                            <div class="d-md-flex d-block mb-0">
-                                <div class="star-ratings start-ratings-main clearfix me-3">
-                                    <a class="form-control btn btn-secondary" href=""> سجل الآن </a>
+                    <div class="col-xl-8 col-lg-12 col-md-12">
+                        <div class="card-body pb-4 pt-4">
+                            <div class="mb-3">
+                                <div class="col-12 d-flex flex-sm-row flex-column justify-content-between mt-1">
+                                    <div class="item-card7-text">
+                                        <a href="blog-details.html" class=""><h3 class="font-weight-semibold fs-16 mb-3"> اسم الدورة  :{{$course->name}}</h3></a>
+                                    </div>
+                                    <div class="d-flex mb-0">
+                                        <h4 class="text-muted">  التصنيف : {{ $course->category->name }} </h4>
+                                    </div>
                                 </div>
-                                {{--                                    <span class="">875 reviews</span>--}}
+                                <div class="row">
+                                    <a class="col-md-6">
+                                        <i class="fa fa-clock-o me-1"></i><span class="font-weight-bold"> تاريخ  البداية   :</span> <span class="text-muted"> {{$course->start_date}}</span>
+                                    </a>
+                                    <a class="col-md-6"><i class="fa fa-clock-o" style="margin-left: 10px"></i><span class="font-weight-bold">تاريخ النهاية  :</span> <span class="text-muted"> {{$course->end_date}}</span></a>
+                                </div>
+                                <div class="row">
+
+                                    <a class="col-md-6"><i class="  mt-1  fa fa-hourglass" style="margin-left: 10px"></i><span class="font-weight-bold">عدد المحاضرات  :</span> <span class="text-muted"> {{$course->lectures_num}}</span></a>
+                                    <a class="col-md-6"><i class="  mt-1  fa fa-map-marker" style="margin-left: 10px"></i><span class="font-weight-bold">مكان الدورة    :</span> <span class="text-muted"> {{$course->place}}</span></a>
+
+
+                                </div>
                             </div>
-                            <div class="ms-auto d-flex">
-                                <a class="form-control btn btn-primary" href=""> تفاصيل الدورة </a>
-                                {{--                                    <a class="viewmore-btn-icon mx-1" href="javascript:void(0)"><i class="fe fe-heart"></i></a>--}}
-                                {{--                                    <a class="viewmore-btn-icon mx-1" href="javascript:void(0)"><i class="fe fe-share-2"></i></a>--}}
+                            {{--                                                    <div class="card-footer">--}}
+                            <div class="d-flex align-items-center pt-2 mt-auto">
+                                <img src="{{$course->trainer->image?asset('storage/images/'.$course->trainer->image):''}}" class="avatar brround avatar-md me-3" >
+                                <div>
+                                    <a href="" class="text-default font-weight-bold"> المدرب :{{$course->trainer?$course->trainer->name:''}}</a>
+                                </div>
+                                <div class="ms-auto text-muted">
+                                    <div class="d-md-flex d-block mb-0">
+                                        <a href="{{route('front.courses.details',$course->id)}}" class="form-control btn btn-primary fs-16 fw-600" style="color: whitesmoke"> عرض التفاصيل</a>
+                                    </div>
+                                </div>
                             </div>
+                            {{--                                                    </div>--}}
                         </div>
                     </div>
                 </div>

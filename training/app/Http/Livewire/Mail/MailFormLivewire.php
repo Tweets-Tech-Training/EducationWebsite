@@ -5,17 +5,21 @@ namespace App\Http\Livewire\Mail;
 use App\Mail\TestMail;
 use App\Models\Mail as MailModel;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 use Livewire\Component;
 
 class MailFormLivewire extends Component
 {
 
-    public  $title , $mail,  $gmail=[] , $message;
+    public  $title , $mail,$ids , $gmail=[] , $message;
 
     public function mount()
     {
-
-         json_decode([ids]);
+       // dd(request()->all());
+        $this->ids = json_decode(request()->input('ids'),true);
+//        dd( $this->ids);
+//        dd(Str::of($this->ids)->rtrim());
+//         json_decode([ids]);
     }
     protected $rules = [
         'title'=>'required',
@@ -38,15 +42,17 @@ class MailFormLivewire extends Component
             'title' => $this->title,
             'message' => $this->message
         ];
-
-//        $mail = MailModel::find($this->gmail);
+       // $ids = Str::of($this->ids)->rtrim();
+       // dd($ids);
+//        $mail = MailModel::find($this->ids);
+//       // dd( $mail);
 //        $email=$mail->gmail;
 //        Mail::to($email)->send(new TestMail($details));
-//        dd( $mail);
-        foreach ($this->gmail as $item){
+//
+        foreach ($this->ids as $item){
             $mail = MailModel::find($item);
             $email=$mail->gmail;
-//                 dd($details , $email);
+              //   dd($details , $email);
             Mail::to($email)->send(new TestMail($details));
         }
 

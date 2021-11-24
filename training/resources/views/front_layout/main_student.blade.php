@@ -26,16 +26,16 @@
 
                                 <ul class="socials">
                                     <li>
-                                        <a class="social-icon text-dark" href="javascript:void(0)"><i class="fe fe-facebook"></i></a>
+                                        <a class="social-icon text-dark" href="{{ $setting->facebook }}"><i class="fe fe-facebook"></i></a>
                                     </li>
                                     <li>
-                                        <a class="social-icon text-dark" href="javascript:void(0)"><i class="fe fe-twitter"></i></a>
+                                        <a class="social-icon text-dark" href="{{ $setting->twitter }}"><i class="fe fe-twitter"></i></a>
                                     </li>
                                     <li>
-                                        <a class="social-icon text-dark" href="javascript:void(0)"><i class="fe fe-linkedin"></i></a>
+                                        <a class="social-icon text-dark"href="{{ $setting->linkedin }}"><i class="fe fe-linkedin"></i></a>
                                     </li>
                                     <li>
-                                        <a class="social-icon text-dark" href="javascript:void(0)"><i class="fe fe-instagram"></i></a>
+                                        <a class="social-icon text-dark" href="{{ $setting->instagram }}"><i class="fe fe-instagram"></i></a>
                                     </li>
                                 </ul>
                             </div>
@@ -117,14 +117,12 @@
             <a href="{{route('student-profile')}}" class="text-dark">
             <h4 class="mt-3 mb-0 font-weight-semibold">{{Auth::guard('student')->user()->name}}</h4>
             </a>
-            <p class="mb-0 mt-1 text-muted">UI/UX Designer</p>
+{{--            <p class="mb-0 mt-1 text-muted">UI/UX Designer</p>--}}
             <div class="wideget-user-info my-dash-1">
             <div class="wideget-user-icons mt-2">
                <a href="javascript:void(0)" class="mt-0"><i class="fa fa-facebook"></i></a>
                <a href="javascript:void(0)" class=""><i class="fa fa-twitter"></i></a>
-               <a href="javascript:void(0)" class=""><i class="fa fa-google"></i></a>
-               <a href="javascript:void(0)" class=""><i class="fa fa-dribbble"></i></a>
-               <a href="javascript:void(0)" class=""><i class="fa fa-share"></i></a>
+               <a href="javascript:void(0)" class=""><i class="fa fa-instagram"></i></a>
             </div>
             </div>
             </div>

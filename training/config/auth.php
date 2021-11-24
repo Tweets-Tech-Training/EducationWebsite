@@ -48,6 +48,18 @@ return [
             'driver' => 'session',
             'provider' => 'trainers',
         ],
+        'api' => [
+            'driver' => 'sanctum',
+            'provider' => 'users',
+        ],
+        'trainer-api' => [
+            'driver' => 'sanctum',
+            'provider' => 'trainers',
+        ],
+        'student-api' => [
+            'driver' => 'sanctum',
+            'provider' => 'students',
+        ],
     ],
 
     /*
@@ -80,10 +92,7 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\Trainer::class,
         ],
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+
     ],
 
     /*

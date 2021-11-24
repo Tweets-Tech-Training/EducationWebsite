@@ -68,8 +68,7 @@
                 </div>
                 <ul class="pagination mb-0">
 
-{{--                    {{ $course_registers->links() }}--}}
-
+                    {{ $course_registers->links() }}
 
                 </ul>
             </div>

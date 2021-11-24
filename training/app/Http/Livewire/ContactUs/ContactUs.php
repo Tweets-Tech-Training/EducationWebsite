@@ -13,16 +13,17 @@ class ContactUs extends Component
 
     protected $paginationTheme = 'bootstrap';
     public $search;
+    public $paginateNum=4;
     public $deleteId = '';
 
     public function render()
     {
 
         if($this->search) {
-            $contacts=ContactUsModel::orderBy('id', 'desc')->where('name', 'like', '%' . $this->search . '%')->paginate(5);
+            $contacts=ContactUsModel::orderBy('id', 'desc')->where('name', 'like', '%' . $this->search . '%')->paginate($this->paginateNum);
             return view('livewire.contact-us.contact-us',['contacts'=>$contacts,'id'=>''])->extends('dashboard_layout.main');
         }
-        $contacts= ContactUsModel::orderby('id','asc')->paginate(10);;
+        $contacts= ContactUsModel::orderby('id','asc')->paginate($this->paginateNum);;
         return view('livewire.contact-us.contact-us',
             [
                 'contacts' => $contacts

@@ -123,61 +123,36 @@
 {{--                            </div>--}}
                             <div class="card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Blog Categories</h3>
+                                    <h3 class="card-title">التصنيفات </h3>
                                 </div>
                                 <div class="card-body">
                                     <div class="list-catergory">
                                         <div class="item-list">
                                             <ul class="list-group mb-0">
-                                                <li class="list-group-item pt-0">
-                                                    <a href="javascript:void(0)" class="text-dark fs-14 font-weight-semibold">
-                                                        <i class="fa fa-code bg-primary-light text-primary"></i> IT Services
-                                                        <span class="badgetext badge badge-pill mb-0 mt-1 text-muted font-weight-semibold">14 Posts</span>
-                                                    </a>
-                                                </li>
+{{--                                                <li class="list-group-item pt-0">--}}
+{{--                                                    <a href="javascript:void(0)" class="text-dark fs-14 font-weight-semibold">--}}
+{{--                                                        <i class="fa fa-code bg-primary-light text-primary"></i> IT Services--}}
+{{--                                                        <span class="badgetext badge badge-pill mb-0 mt-1 text-muted font-weight-semibold">14 </span>--}}
+{{--                                                    </a>--}}
+{{--                                                </li>--}}
+
+                                                @foreach($categories as $category )
                                                 <li class="list-group-item">
                                                     <a href="javascript:void(0)" class="text-dark fs-14 font-weight-semibold">
-                                                        <i class="fa fa-language bg-success-light text-success"></i>Language
-                                                        <span class="badgetext badge badge-pill mb-0 mt-1 text-muted font-weight-semibold">63 Posts</span>
+                                                        <i class="fa fa-{{$category->icon}} bg-{{$category->color}}-light text-{{$category->iconColor}}"></i>
+                                                        {{$category->name}}
+                                                        <span class="badgetext badge badge-pill mb-0 mt-1 text-muted font-weight-semibold">{{ $category->publishedCategory()->count()}} </span>
                                                     </a>
                                                 </li>
-                                                <li class="list-group-item">
-                                                    <a href="javascript:void(0)" class="text-dark fs-14 font-weight-semibold">
-                                                        <i class="fa fa-heartbeat bg-info-light text-info"></i> Health
-                                                        <span class="badgetext badge badge-pill mb-0 mt-1 text-muted font-weight-semibold">25 Posts</span>
-                                                    </a>
-                                                </li>
-                                                <li class="list-group-item">
-                                                    <a href="javascript:void(0)" class="text-dark fs-14 font-weight-semibold">
-                                                        <i class="fa fa-camera bg-warning-light text-warning"></i> Photoshop
-                                                        <span class="badgetext badge badge-pill mb-0 mt-1 text-muted font-weight-semibold">74 Posts</span>
-                                                    </a>
-                                                </li>
-                                                <li class="list-group-item">
-                                                    <a href="javascript:void(0)" class="text-dark fs-14 font-weight-semibold">
-                                                        <i class="fa fa-flask bg-danger-light text-danger"></i> Data Science
-                                                        <span class="badgetext badge badge-pill mb-0 mt-1 text-muted font-weight-semibold">18 Posts</span>
-                                                    </a>
-                                                </li>
-                                                <li class="list-group-item">
-                                                    <a href="javascript:void(0)" class="text-dark fs-14 font-weight-semibold">
-                                                        <i class="fa fa-mobile bg-purple-light text-purple"></i> Mobile computing
-                                                        <span class="badgetext badge badge-pill mb-0 mt-1 text-muted font-weight-semibold">32 Posts</span>
-                                                    </a>
-                                                </li>
-                                                <li class="list-group-item border-bottom-0 pb-0 br-bs-7 br-be-7">
-                                                    <a href="javascript:void(0)" class="text-dark fs-14 font-weight-semibold">
-                                                        <i class="fa fa-paint-brush  bg-secondary-light text-pink"></i> Beautician
-                                                        <span class="badgetext badge badge-pill mb-0 mt-1 text-muted font-weight-semibold">08 Posts</span>
-                                                    </a>
-                                                </li>
+                                                @endforeach
+
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-8 col-lg-8 col-md-12">
+                        <div id="resultAfterSearch" class="col-xl-8 col-lg-8 col-md-12">
                             <!--Coursed lists-->
                             <div class="row">
                                 @forelse($courses as $course)
@@ -209,12 +184,12 @@
                                                         <a class="col-md-6">
                                                             <i class="fa fa-clock-o me-1"></i><span class="font-weight-bold"> تاريخ  البداية   :</span> <span class="text-muted"> {{$course->start_date}}</span>
                                                         </a>
-                                                        <a class="col-md-6"><i class="fa fa-clock-o"></i><span class="font-weight-bold">تاريخ النهاية  :</span> <span class="text-muted"> {{$course->end_date}}</span></a>
+                                                        <a class="col-md-6"><i class="fa fa-clock-o" style="margin-left: 10px"></i><span class="font-weight-bold">تاريخ النهاية  :</span> <span class="text-muted"> {{$course->end_date}}</span></a>
                                                         </div>
                                                         <div class="row">
 
-                                                                <a class="col-md-6"><i class="fa fa-clock-o"></i><span class="font-weight-bold">عدد المحاضرات  :</span> <span class="text-muted"> {{$course->lectures_num}}</span></a>
-                                                                <a class="col-md-6"><i class="fa fa-clock-o"></i><span class="font-weight-bold">مكان الدورة    :</span> <span class="text-muted"> {{$course->place}}</span></a>
+                                                                <a class="col-md-6"><i class="  mt-1  fa fa-hourglass" style="margin-left: 10px"></i><span class="font-weight-bold">عدد المحاضرات  :</span> <span class="text-muted"> {{$course->lectures_num}}</span></a>
+                                                                <a class="col-md-6"><i class="  mt-1  fa fa-map-marker" style="margin-left: 10px"></i><span class="font-weight-bold">مكان الدورة    :</span> <span class="text-muted"> {{$course->place}}</span></a>
 
 
                                                         </div>
@@ -306,7 +281,57 @@
         </div>
     </section>
 @endsection
-@section('script')
+{{--@section('script')--}}
+{{--    <script>--}}
+{{--        $(document).ready(function (){--}}
+{{--            $('.select2-selection__placeholder').hide();--}}
+{{--            $('#submitCourseSearch').click(function(e){--}}
+{{--                e.preventDefault();--}}
+{{--                $("#submitCourseSearch").html('تحميل').append('&nbsp;<span id="loadingCreate" class="spinner-border spinner-border-sm"></span>');--}}
+{{--                var category_id = $('#category_id').val();--}}
+{{--                var courseName= $('#courseName').val();--}}
+{{--                var myformData  = new FormData();--}}
+{{--                myformData.append("category_id", category_id);--}}
+{{--                myformData.append("courseName", courseName);--}}
+{{--                // console.log(category_id);--}}
+{{--                $.ajaxSetup({--}}
+{{--                    headers: {--}}
+{{--                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')--}}
+{{--                    }--}}
+{{--                });--}}
+{{--                $.ajax({--}}
+{{--                    url: "{{ route('front.courses.search') }}",--}}
+{{--                    method: 'POST',--}}
+{{--                    dataType: 'json',--}}
+{{--                    processData: false,--}}
+{{--                    contentType: false,--}}
+{{--                    cache: false,--}}
+{{--                    data: myformData , // it send form data to server--}}
+{{--                    enctype: 'multipart/form-data',--}}
+{{--                    success: function(result) {--}}
+{{--                        console.log(category_id);--}}
+{{--                        clearInput();--}}
+{{--                        $("#submitCourseSearch").html('بحث');--}}
+{{--                        $('#loadingCreate').css('display','none');--}}
+{{--                        $('#resultAfterSearch').html(result.html);--}}
+
+{{--                    },--}}
+{{--                    error:function(xhr,status,error){--}}
+{{--                        clearInput();--}}
+{{--                        $("#submitCourseSearch").html('بحث');--}}
+{{--                        $('#loadingCreate').css('display','none');--}}
+{{--                    }--}}
+{{--                });--}}
+{{--            });--}}
+{{--            function clearInput(){--}}
+{{--                $('#courseName').prop('value'," ");--}}
+{{--                $('#category_id option:first').prop('selected',true);--}}
+{{--                console.log($('#category_id').val()+ " ** "+$('#courseName').val());--}}
+{{--            }--}}
+{{--        });--}}
+{{--    </script>--}}
+{{--@endsection--}}
+@push('script')
     <script>
         $(document).ready(function (){
             $('.select2-selection__placeholder').hide();
@@ -339,7 +364,6 @@
                         $("#submitCourseSearch").html('بحث');
                         $('#loadingCreate').css('display','none');
                         $('#resultAfterSearch').html(result.html);
-
                     },
                     error:function(xhr,status,error){
                         clearInput();
@@ -355,5 +379,5 @@
             }
         });
     </script>
-@endsection
+@endpush
 

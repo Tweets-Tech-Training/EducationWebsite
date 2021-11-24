@@ -11,7 +11,8 @@ use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 
 class Trainer extends Authenticatable
-{    use HasApiTokens;
+{
+    use HasApiTokens;
     use HasFactory;
     use HasProfilePhoto;
     use Notifiable;

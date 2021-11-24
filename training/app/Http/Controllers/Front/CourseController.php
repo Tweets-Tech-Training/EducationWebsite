@@ -33,10 +33,10 @@ class CourseController extends Controller
         $courseName = $request->courseName ;
         $courses = Course::query();
         if($category_id){
-                $courses = Course::where('category_id',$category_id);
+            $courses = Course::where('category_id',$category_id);
         }
         if($courseName){
-                $courses = Course::where('name','like',"%$courseName%");
+            $courses = Course::where('name','like',"%$courseName%");
         }
 
         $categories = Category::all();

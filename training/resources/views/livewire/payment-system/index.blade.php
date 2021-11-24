@@ -19,53 +19,54 @@
         </div>
         <div class="content-body">
             <section id="data-thumb-view" class="data-thumb-view-header">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="card collapse-icon accordion-icon-rotate">
-                            <div class="card-body py-1">
-                                <div class="default-collapse collapse-bordered">
-                                    <div class="card collapse-header">
-                                        <div id="headingCollapse1" class="card-header" data-toggle="collapse" role="button" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
-                                            <h4 class="card-title">بحث</h4>
-                                        </div>
-                                        <div id="collapse1" role="tabpanel" aria-labelledby="headingCollapse1" class="collapse">
-                                            <div class="card-content">
-                                                <div class="card-body">
-                                                    <form class="form" wire:submit.prevent="search">
-                                                        <div class="form-body">
-                                                            <div class="row">
-                                                                <div class="col-md-4 col-12">
-                                                                    <div class="form-group">
-                                                                        <label for="اسم الطالب"> اسم الطالب </label>
-                                                                        <input type="text" wire:model.defer="SearchByStudentName" id="name" class="form-control" placeholder="اسم الطالب" name="اسم الطالب">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-12 mt-4 text-right">
-                                                                    <button wire:loading.attr="disabled" type="submit" class="btn btn-primary mr-1 mb-1 waves-effect waves-light search_btn" wire:click="search">
-                                                                        بحث
-                                                                        <span wire:loading="" wire:target="search">
-                                                                        <i class="fa fa-spinner fa-spin " aria-hidden="true"></i>
-                                                                        </span>
-                                                                    </button>
-                                                                    <button wire:loading.attr="disabled" type="reset" class="btn btn-outline-warning mr-1 mb-1 waves-effect waves-light" wire:click="resetSearch">
-                                                                        افراغ الحقول
-                                                                        <span wire:loading="" wire:target="resetSearch">
-                                                                            <i class="fa fa-spinner fa-spin " aria-hidden="true"></i>
-                                                                        </span>
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+{{--                <div class="row">--}}
+{{--                    <div class="col-sm-12">--}}
+{{--                        <div class="card collapse-icon accordion-icon-rotate">--}}
+{{--                            <div class="card-body py-1">--}}
+{{--                                <div class="default-collapse collapse-bordered">--}}
+{{--                                    <div class="card collapse-header">--}}
+{{--                                        <div id="headingCollapse1" class="card-header" data-toggle="collapse" role="button" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">--}}
+{{--                                            <h4 class="card-title">بحث</h4>--}}
+{{--                                        </div>--}}
+{{--                                        <div id="collapse1" role="tabpanel" aria-labelledby="headingCollapse1" class="collapse">--}}
+{{--                                            <div class="card-content">--}}
+{{--                                                <div class="card-body">--}}
+{{--                                                    <form class="form" wire:submit.prevent="search">--}}
+{{--                                                        <div class="form-body">--}}
+{{--                                                            <div class="row">--}}
+{{--                                                                <div class="col-md-4 col-12">--}}
+{{--                                                                    <div class="form-group">--}}
+{{--                                                                        <label for="اسم الطالب"> اسم الطالب </label>--}}
+{{--                                                                        <input type="text" wire:model.defer="SearchByStudentName" id="name" class="form-control" placeholder="اسم الطالب" name="اسم الطالب">--}}
+{{--                                                                    </div>--}}
+{{--                                                                </div>--}}
+{{--                                                                <div class="col-12 mt-4 text-right">--}}
+{{--                                                                    <button wire:loading.attr="disabled" type="submit" class="btn btn-primary mr-1 mb-1 waves-effect waves-light search_btn" wire:click="search">--}}
+{{--                                                                        بحث--}}
+{{--                                                                        <span wire:loading="" wire:target="search">--}}
+{{--                                                                        <i class="fa fa-spinner fa-spin " aria-hidden="true"></i>--}}
+{{--                                                                        </span>--}}
+{{--                                                                    </button>--}}
+{{--                                                                    <button wire:loading.attr="disabled" type="reset" class="btn btn-outline-warning mr-1 mb-1 waves-effect waves-light" wire:click="resetSearch">--}}
+{{--                                                                        افراغ الحقول--}}
+{{--                                                                        <span wire:loading="" wire:target="resetSearch">--}}
+{{--                                                                            <i class="fa fa-spinner fa-spin " aria-hidden="true"></i>--}}
+{{--                                                                        </span>--}}
+{{--                                                                    </button>--}}
+{{--                                                                </div>--}}
+{{--                                                            </div>--}}
+{{--                                                        </div>--}}
+{{--                                                    </form>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
                 <div class="table-responsive">
                     <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                         <div class="top">

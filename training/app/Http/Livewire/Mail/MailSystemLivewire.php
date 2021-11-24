@@ -15,13 +15,17 @@ class MailSystemLivewire extends Component
 {
     use WithPagination ;
     protected $paginationTheme = 'bootstrap';
-    public $search , $title ,  $gmail=[], $mail_id , $message;
+    public $search , $title ,  $gmail=[], $ids , $message;
     public $deleteId = '';
+    public $paginateNum=4;
     public function render()
     {
-
+        if($this->search) {
+           $emails=MailModel::orderBy('id', 'desc')->where('gmail', 'like', '%' . $this->search . '%')->paginate($this->paginateNum );
+            return view('livewire.mail.mail-system-livewire',['emails'=>$emails,'id'=>''])->extends('dashboard_layout.main');
+        }
         return view('livewire.mail.mail-system-livewire',
-        ['emails'=>MailModel::orderby('id','desc')->paginate(5) ])->extends('dashboard_layout.main');
+        ['emails'=>MailModel::orderby('id','desc')->paginate($this->paginateNum ) ])->extends('dashboard_layout.main');
     }
 
 

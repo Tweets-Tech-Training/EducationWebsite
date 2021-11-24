@@ -26,16 +26,16 @@
 
                                 <ul class="socials">
                                     <li>
-                                        <a class="social-icon text-dark" href="javascript:void(0)"><i class="fe fe-facebook"></i></a>
+                                        <a class="social-icon text-dark" href="{{ $setting->facebook }}"><i class="fe fe-facebook"></i></a>
                                     </li>
                                     <li>
-                                        <a class="social-icon text-dark" href="javascript:void(0)"><i class="fe fe-twitter"></i></a>
+                                        <a class="social-icon text-dark" href="{{ $setting->twitter }}"><i class="fe fe-twitter"></i></a>
                                     </li>
                                     <li>
-                                        <a class="social-icon text-dark" href="javascript:void(0)"><i class="fe fe-linkedin"></i></a>
+                                        <a class="social-icon text-dark"href="{{ $setting->linkedin }}"><i class="fe fe-linkedin"></i></a>
                                     </li>
                                     <li>
-                                        <a class="social-icon text-dark" href="javascript:void(0)"><i class="fe fe-instagram"></i></a>
+                                        <a class="social-icon text-dark" href="{{ $setting->instagram }}"><i class="fe fe-instagram"></i></a>
                                     </li>
                                 </ul>
                             </div>

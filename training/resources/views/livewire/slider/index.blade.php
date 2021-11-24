@@ -32,7 +32,7 @@
                                         <select name="data_table_length" aria-controls="data_table" class="custom-select custom-select-sm form-control form-control-sm">
                                             <option value="4">4</option><option value="10">10</option><option value="15">15</option><option value="20">20</option></select>
                                     </label></div><div id="data_table_filter" class="dataTables_filter"><label>
-                                        <input type="search" wire:model="search"  class="form-control form-control-sm" placeholder="" aria-controls="data_table">
+                                        <input type="search" wire:model="searchByTitle"  class="form-control form-control-sm" placeholder="" aria-controls="data_table">
                                     </label></div></div>
                         </div>
                         <div class="clear"></div>

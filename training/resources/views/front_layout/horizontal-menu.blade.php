@@ -8,7 +8,7 @@
             </a>
         </div>
         <div class="desktoplogo-1">
-            <a href="index.html"><img src="{{asset('/FrontTheme/assets/images/brand/logo.png')}}" alt="img"></a>
+            <a href="index.html"><img src="{{asset('storage/images/'.$setting->image)}}" alt="img"></a>
         </div>
 
         <nav class="horizontalMenu" >

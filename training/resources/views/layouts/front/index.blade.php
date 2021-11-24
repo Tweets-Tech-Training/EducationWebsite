@@ -92,9 +92,13 @@
                                         </div>
                                     </div>
                                     <div class="card-footer">
-                                        <div class="d-flex">
+{{--                                        <div class="d-flex">--}}
+                                        <div class="col-12 d-flex flex-sm-row flex-column justify-content-between mt-1">
                                             <div class="d-md-flex d-block mb-0">
                                                 <a href="{{route('course.register.form')}}" class="form-control btn btn-secondary fs-16 fw-600" style="color: whitesmoke"> سجل الآن </a>
+                                            </div>
+                                            <div class="d-md-flex d-block mb-0">
+                                                <a href="{{route('front.courses.details',$course->id)}}" class="form-control btn btn-primary fs-16 fw-600" style="color: whitesmoke"> عرض التفاصيل</a>
                                             </div>
                                         </div>
                                     </div>

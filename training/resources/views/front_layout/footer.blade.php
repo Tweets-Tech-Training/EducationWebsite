@@ -50,9 +50,9 @@
                             @endif
 
                         </div>
-                        <div class="col-lg-5 col-md-12">
-                            <h6 class="font-weight-normal text-white"> التصنيفات </h6>
-                            <ul class="list-unstyled mb-5 mb-lg-0">
+{{--                        <div class="col-lg-5 col-md-12">--}}
+{{--                            <h6 class="font-weight-normal text-white"> التصنيفات </h6>--}}
+{{--                            <ul class="list-unstyled mb-5 mb-lg-0">--}}
 {{--                                @if($categories->count())--}}
 {{--                                    @foreach($categories as $category)--}}
 {{--                                        <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> {{$category->name}} </a></li>--}}
@@ -64,8 +64,8 @@
 {{--                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Business Classes</a></li>--}}
 {{--                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Animation Classes</a></li>--}}
 {{--                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Networking Classes</a></li>--}}
-                            </ul>
-                        </div>
+{{--                            </ul>--}}
+{{--                        </div>--}}
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -73,11 +73,11 @@
                         <div class="col-lg-4 col-md-12">
                             <h6 class="font-weight-normal text-white">الدورات </h6>
                             <ul class="list-unstyled mb-5 mb-lg-0">
-{{--                                @if($courses->count())--}}
-{{--                                    @foreach($courses as $course)--}}
-{{--                                        <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> {{$course->name}} </a></li>--}}
-{{--                                    @endforeach--}}
-{{--                                @endif--}}
+                                @if($courses->count())
+                                    @foreach($courses as $course)
+                                        <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> {{$course->name}} </a></li>
+                                    @endforeach
+                                @endif
 {{--                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Augular</a></li>--}}
 {{--                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Java</a></li>--}}
 {{--                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> HTML</a></li>--}}
@@ -87,27 +87,26 @@
                             </ul>
                         </div>
                         <div class="col-lg-4 col-md-12">
-                            <h6 class="font-weight-normal text-white">Our Company</h6>
+                            <h6 class="font-weight-normal text-white"> التصنيفات  </h6>
                             <ul class="list-unstyled mb-lg-0 mb-5">
-                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Our Team</a></li>
-                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Contact US</a></li>
-                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> About Us</a></li>
-                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Services</a></li>
-                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Blog News</a></li>
-                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Online Classes</a></li>
+                        @if($categoriess->count())
+                            @foreach($categoriess as $category)
+                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> {{$category->name}} </a></li>
+                            @endforeach
+                        @endif
                             </ul>
                         </div>
-                        <div class="col-lg-4 col-md-12">
-                            <h6 class="font-weight-normal text-white">Support</h6>
-                            <ul class="list-unstyled mb-5 mb-lg-0">
-                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Home</a></li>
-                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Sitemap</a></li>
-                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Privacy Policy</a></li>
-                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Cooky Policy</a></li>
-                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Web User Plocy</a></li>
-                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Terms and Services</a></li>
-                            </ul>
-                        </div>
+{{--                        <div class="col-lg-4 col-md-12">--}}
+{{--                            <h6 class="font-weight-normal text-white">Support</h6>--}}
+{{--                            <ul class="list-unstyled mb-5 mb-lg-0">--}}
+{{--                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Home</a></li>--}}
+{{--                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Sitemap</a></li>--}}
+{{--                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Privacy Policy</a></li>--}}
+{{--                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Cooky Policy</a></li>--}}
+{{--                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Web User Plocy</a></li>--}}
+{{--                                <li><a href="javascript:;"><i class="fe fe-chevron-left me-1 mt-2 float-start"></i> Terms and Services</a></li>--}}
+{{--                            </ul>--}}
+{{--                        </div>--}}
                     </div>
                 </div>
             </div>
@@ -168,9 +167,9 @@
     <div class="py-3 bg-dark">
         <div class="container">
             <div class="row d-flex">
-                <div class="col-lg-12 col-sm-12  mt-2 mb-2 text-center text-white">
-                    Copyright © 2021 <a href="javascript:void(0)"  class="fs-14 text-primary">Edomi</a>. Designed with <span class="fa fa-heart text-danger"></span> by <a href="javascript:void(0)" class="fs-14 text-primary"> Spruko </a> All rights reserved.
-                </div>
+{{--                <div class="col-lg-12 col-sm-12  mt-2 mb-2 text-center text-white">--}}
+{{--                    Copyright © 2021 <a href="javascript:void(0)"  class="fs-14 text-primary">Edomi</a>. Designed with <span class="fa fa-heart text-danger"></span> by <a href="javascript:void(0)" class="fs-14 text-primary"> Spruko </a> All rights reserved.--}}
+{{--                </div>--}}
             </div>
         </div>
     </div>

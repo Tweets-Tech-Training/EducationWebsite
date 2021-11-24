@@ -7,10 +7,13 @@ use App\Models\CourseRegistration;
 use App\Models\Student;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class TrainerStudents extends Component
 {
-public $user , $course , $students , $search , $course_registers , $search_array=[];
+    use WithPagination ;
+    protected $paginationTheme = 'bootstrap';
+public $user , $course , $students , $search  , $search_array=[];
     public function mount()
     {
         $this->user = Auth::guard('trainer')->user();
@@ -30,10 +33,10 @@ public $user , $course , $students , $search , $course_registers , $search_array
     {
         $this->user = Auth::guard('trainer')->user();
         $student_ids=$this->user->courses()->get()->pluck('id')->toArray();
-        $this->course_registers=CourseRegistration::search($this->search_array)->whereIn('course_id',$student_ids)->get();
+        $course_registers=CourseRegistration::search($this->search_array)->whereIn('course_id',$student_ids)->paginate(10);
         return view('livewire.trainer-admin.trainer-students'
         ,[
-            'course_registers' => $this->course_registers
+            'course_registers' => $course_registers
                // 'course' => $this->course
             ])->extends('edomi_dashboard_layout.main');
     }

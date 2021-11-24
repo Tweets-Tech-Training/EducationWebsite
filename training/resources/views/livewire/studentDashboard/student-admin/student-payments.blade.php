@@ -58,7 +58,7 @@
                          <td>   <a href="javascript:void(0)" class="btn btn-success btn-sm"> {{$payment->payment_amount}}</a></td>
                             <td>  <a href="javascript:void(0)" class="btn btn-danger btn-sm">{{$payment->remaining_amount?$payment->remaining_amount:0}} </a> </td>
                         <td>
-                            {{$payment->created_at}}
+                            {{(new \DateTime($payment->created_at))->format('Y.m.d')}}
                         </td>
                         </tbody>
                         @empty

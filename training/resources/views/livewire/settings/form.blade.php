@@ -3,7 +3,7 @@
         <style>
             .upload-btn-wrapper{
                 width: 250px !important;
-                height: 250px !important;
+                height: 150px !important;
             }
         </style>
     @endpush
@@ -147,7 +147,7 @@
 
                                             @else
 
-                                                <div style="width: 250px ; height: 250px; max-height: 250px;">
+                                                <div style="width: 250px ; height: 150px; max-height: 150px;">
                                                     <div>
                                                         <img style="border: 3px solid #D3D3D3; border-radius: 15px; width: 100%; max-height: 250px;" src="{{ $setting->logo ? asset('storage/images/'.$setting->logo):asset('storage/images/no-image.png')}}">
                                                         @error('setting.logo') <span class="text-danger" style="font-size: 1rem ;display: block;!important;">{{ $message }}</span> @enderror
@@ -165,6 +165,33 @@
 
                                         </div>
                                         @error('image') <span class="text-danger">{{ $message }}</span> @enderror
+                                    </div>
+                                    <div class="upload-btn-wrapper mx-auto">
+                                        <div class="upload-btn">
+                                            @if($images)
+
+                                                <img   style="width: 250px ; height: 150px; max-height: 150px; !important;" src="{{$images->temporaryUrl()}}">
+
+                                            @else
+
+                                                <div style="width: 250px ; height: 150px; max-height: 150px; !important;">
+                                                    <div>
+                                                        <img style="border: 3px solid #D3D3D3; border-radius: 15px; width: 100%; max-height: 150px;" src="{{ $setting->image ? asset('storage/images/'.$setting->image):asset('storage/images/no-image.png')}}">
+                                                        @error('setting.image') <span class="text-danger" style="font-size: 1rem ;display: block;!important;">{{ $message }}</span> @enderror
+                                                    </div>
+                                                </div>
+                                            @endif
+                                        </div>
+                                        <input wire:click type="file" class="profile-img-input"  id="image"   wire:model="images" name="image" >
+
+                                        <div wire:loading   wire:target="images" style="margin-top: 10px;">
+                                            <h6 style="display: inline-block">   جار الرفع...   </h6>
+                                            <div  class="  spinner-border spinner-border-sm text-gray-200" role="status">
+                                                <span class="visually-hidden "> </span>
+                                            </div>
+
+                                        </div>
+                                        @error('images') <span class="text-danger">{{ $message }}</span> @enderror
                                     </div>
 
                                 </div>

@@ -73,9 +73,6 @@
                                                 <a href="javascript:void(0)" class="btn btn-warning btn-sm">{{$course->price}}</a>
                                             </td>
                                             <td>
-{{--                                                <a class="btn btn-outline-light btn-sm waves-effect waves-light" data-bs-toggle="tooltip" data-bs-original-title="Edit"><i class="fe fe-edit-2 fs-16"></i></a>--}}
-                                                <a class="btn btn-outline-light btn-sm waves-effect waves-light" data-bs-toggle="tooltip" data-bs-original-title="Delete"><i class="fe fe-trash fs-16"></i></a>
-{{--                                                <a class="btn btn-outline-light btn-sm waves-effect waves-light" data-bs-toggle="tooltip" data-bs-original-title="Save to Wishlist"><i class="fe fe-heart fs-16"></i></a>--}}
                                                 <a class="btn btn-outline-light btn-sm waves-effect waves-light" data-bs-toggle="tooltip"  href="{{route('student-course.show',$course->id)}}" data-bs-original-title="View"><i class="fe fe-eye fs-16"></i></a>
                                             </td>
                                         </tr>
