@@ -6,6 +6,10 @@
             /*.select2-container--default .select2-selection--single {*/
             /*    border: 1px solid #d9d9d9;*/
             /*}*/
+            .buttonArray{
+                margin-top: 21px;
+                height: 37px;
+            }
         </style>
     @endpush
     <section class="users-edit">
@@ -30,17 +34,15 @@
                     <div class="tab-content">
                         <div class="tab-pane active" id="account" aria-labelledby="account-tab" role="tabpanel">
                             <div class="row">
-                                <div class="col-12 col-sm-8">
+                                <div class="col-12 col-sm-12">
                                     <div class="form-group row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-3">
                                             <x-form.input title="الاسم"  type="text" class="form-control" wire:model="studyDivision.name"  name="studyDivision.name"/>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-3">
                                             <x-form.input title="عدد الطلاب"  type="text" class="form-control" wire:model="studyDivision.students_number"  name="studyDivision.students_number"/>
                                         </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div  class="col-md-6">
+                                        <div  class="col-md-3">
                                             <span>  اختر الدورة التابعة لها </span>
                                             <div wire:ignore>
                                                 <select  name="course_id" id="select2-dropdown" wire:model="studyDivision.course_id" class="form-control" >
@@ -54,29 +56,54 @@
                                             </div>
                                             @error('studyDivision.course_id') <span class="text-danger">{{ $message }}</span> @enderror
                                         </div>
+                                    </div>
 
-                                        <div wire:ignore class="col-md-6">
+                                    <div class="form-group row">
+                                        @foreach($appointment as $index => $object)
+                                        <div class="col-md-3">
+                                            <label> اليوم  </label>
+                                            <input type="date"    wire:model="appointment.{{$index}}.day" name="day"  class="form-control" >
+                                        </div>
+                                        <div wire:ignore class="col-md-3">
 
-                                            <x-form.pickerLimitTime title="وقت البداية"  type="text"  value="{{$start_time}}" name="start_time" id="start_time" class="form-control " placeholder="9:00 AM"
+                                            <x-form.pickerLimitTime title="وقت البداية"  type="text"  value="{{$start_time}}" name="start_time" id="start_time{{$index}}" class="form-control " placeholder="9:00 AM"
                                                                     aria-haspopup="true" aria-readonly="false" aria-owns="pt-min-max_root" />
                                         </div>
-                                    </div>
-                                    <div class="form-group row">
-
-                                        <div wire:ignore class="col-md-6">
-                                            <x-form.pickerLimitTime title="وقت النهاية"  type="text"  name="end_time" id="end_time" class="form-control"  value="{{$end_time}}" placeholder="11:00 AM"
+                                        <div wire:ignore class="col-md-3">
+                                            <x-form.pickerLimitTime title="وقت النهاية"  type="text"  name="end_time"  class="form-control" id="end_time{{$index}}"  value="{{$end_time}}" placeholder="11:00 AM"
                                                                     aria-haspopup="true" aria-readonly="false" aria-owns="pt-min-max_root"/>
                                         </div>
+                                            @if($index==0)
+                                                <div class="form-group col-md-2 buttonArray">
+                                                    <button  wire:click="addRow" class="btn btn-icon btn-icon  btn-primary mr-1 mb-1 waves-effect waves-light"><i class="feather icon-plus-circle"></i>
+                                                        {{--                                        <button   wire:click="addRow" class="btn btn-outline-primary mr-1  mb-1 waves-effect waves-light"><i class="feather icon-plus-circle"></i>--}}
 
-                                        <div  class="col-md-6">
+                                                    </button>
+
+                                                </div>
+                                            @endif
+                                            @if($index > 0)
+                                                <div class="form-group col-md-2 buttonArray">
+                                                    <div wire:ignore.self >
+                                                        <button  wire:click="deleteRaw" class="btn btn-icon btn-icon  btn-danger mr-1 mb-1 waves-effect waves-light">  <i class="feather icon-trash"></i>
+
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            @endif
+                                        @endforeach
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div  class="col-md-3">
                                             <span>  اختر القاعة المخصصة لها </span>
                                             <div>
                                                 <select wire:model="studyDivision.hall_id" name="hall_id" id="select2-dropdown" class="form-control"  data-placeholder="Select Category">
                                                     <option value=" ">اختر القاعة   </option>
 
-                                                        @foreach($halls as $hall)
-                                                            <option class="p-5" name="hall_id" value="{{$hall->id}}">  {{$hall->name}}  </option>
-                                                        @endforeach
+                                                    @foreach($halls as $hall)
+                                                        <option class="p-5" name="hall_id" value="{{$hall->id}}">  {{$hall->name}}  </option>
+                                                    @endforeach
 
                                                 </select>
                                             </div>
@@ -99,7 +126,7 @@
                                 @else
                                     <button wire:click="save" wire:loading.attr="disabled" type="submit" class="btn btn-primary glow mb-1 mb-sm-0 mr-0 mr-sm-1">حفظ
                                         <div wire:loading  wire:target="save"  style="margin-top: 10px;">
-                                            <div  class="  spinner-border spinner-border-sm text-gray-200" role="status">
+                                            <div  class="spinner-border spinner-border-sm text-gray-200" role="status">
                                                 <span class="visually-hidden "> </span>
                                             </div>
                                         </div>
@@ -126,6 +153,15 @@
                     var data = $('#select2-dropdown').select2("val");
                     console.log(data)
                           @this.set('studyDivision.course_id', data);
+                });
+            });
+            $(document).ready(function () {
+                $('.day').select2();
+                $('.day').on('change', function (e) {
+                    var data = $('.day').select2("val");
+                    console.log(data);
+                @this.set('appointment.{{$index}}.day', e.target.value);
+
                 });
             });
         </script>

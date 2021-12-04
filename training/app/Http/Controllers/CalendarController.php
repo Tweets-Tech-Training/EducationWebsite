@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Appointment;
 use App\Models\Hall;
 use App\Models\StudyDivision;
 use Illuminate\Http\Request;
@@ -26,22 +27,28 @@ class CalendarController extends Controller
 //        return view('Admin.calender')->with('data',$data);
 //    }
 
+//    public function index()
+//    {           $data = StudyDivision::get(['id','name','start_time', 'end_time']);
+//        if(request()->ajax())
+//        {
+//
+//
+//
+//            return \Response::json($data);
+//        }
+//        return view('Admin.calender')->with('data',$data);
+//    }
     public function index()
-    {           $data = StudyDivision::get(['id','name','start_time', 'end_time']);
-        if(request()->ajax())
-        {
-
-
-
-            return \Response::json($data);
-        }
-        return view('Admin.calender')->with('data',$data);
-    }
-    public function calendar()
     {
+//        $tasks = StudyDivision::has('hall')->get(['id','name','start_time', 'end_time','created_at'])
+//            ->all();
 
-        $calendar= StudyDivision::latest()->get();
 
-        return response()->json($calendar);
+        //$tasks =Appointment::get()->all();
+        $tasks=StudyDivision::get();
+
+ //  dd($tasks->appointments);
+
+        return view('Admin.calender', compact('tasks'));
     }
 }

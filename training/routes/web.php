@@ -14,6 +14,7 @@ use App\Http\Livewire\Categories\CategoriesFormLivewire;
 use App\Http\Livewire\ContactUs\ContactUs;
 use App\Http\Livewire\Courses\Course;
 use App\Http\Livewire\Courses\CourseFormLivewire;
+use App\Http\Livewire\Dashboard\Dashboard;
 use App\Http\Livewire\Halls\Halls;
 use App\Http\Livewire\Halls\HallsLivewireForm;
 use App\Http\Livewire\Images\ImagesGallery;
@@ -57,16 +58,18 @@ Route::get('/main', function () {
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-//    return view('dashboard');
-    return view('dashboard_layout.main');
+    //return view('livewire.dashboard');
+
+   // return view('dashboard_layout.main');
 });
 
 
 //  *** Start Front Admin Panel Routes  ***
 Route::group(['middleware'=>'auth','prefix'=>'training/admin'],function(){
     Route::get('/',function(){
-        return view('dashboard_layout.main');
+      //  return view('dashboard_layout.main');
     })->name('dashboard');
+    Route::get('dashboard', Dashboard::class)->name('dashboard');
     Route::get('slider', Slider::class)->name('slider.index');
     Route::get('slider/create', SliderFormLivewire::class)->name('slider.create');
     Route::get('slider/{id}/edit', SliderFormLivewire::class)->name('slider.edit');

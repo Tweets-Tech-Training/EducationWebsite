@@ -11,8 +11,6 @@ class StudyDivision extends Model
     use HasFactory;
     protected $fillable = [
         'name',
-        'start_time',
-        'end_time',
         'course_id',
         'students_number',
         'hall_id',
@@ -33,5 +31,9 @@ class StudyDivision extends Model
     }
     public function hall(){
         return $this->belongsTo(Hall::class);
+    }
+    public function appointments()
+    {
+        return $this->hasMany(Appointment::class);
     }
 }
