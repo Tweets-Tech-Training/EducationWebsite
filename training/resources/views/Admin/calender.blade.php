@@ -17,6 +17,7 @@
 </div>
 
     </div>
+
 @endsection
 @push('script')
 {{--    <script src="{{asset('FrontTheme/assets/plugins/fullcalendar/moment.min.js')  }}"></script>--}}
@@ -55,7 +56,8 @@ $(document).ready(function() {
                    // allDay: false,
                 },
                 @endforeach
-            ]
+            ],
+            eventColor: '#378006'
         })
     });
 </script>

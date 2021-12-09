@@ -1,3 +1,7 @@
+
+@extends('dashboard_layout.main')
+
+@section('content')
 <div>
     {{-- Because she competes with no one, no one can compete with her. --}}
     <div class="col-xl-12 col-md-6 col-12">
@@ -62,7 +66,7 @@
                             </div>
                             <div class="media-body my-auto">
                                 <h4 class="font-weight-bolder mb-0"> {{ App\Models\Student::count() }}  </h4>
-                                <p class="card-text font-small-3 mb-0"></p>
+                                <p class="card-text font-small-3 mb-0"> الطلاب </p>
                             </div>
                         </div>
                     </div>
@@ -73,3 +77,22 @@
 
 
 </div>
+<div class="col-md-12 col-lg-12 col-xl-12">
+    <div class="card">
+        <div class="card-header bg-transparent pd-b-0 pd-t-20 bd-b-0">
+            <div class="d-flex justify-content-between">
+                <h4 class="card-title mb-0">عدد الطلاب خلال السنة الحالية </h4>
+                <i class="mdi mdi-dots-horizontal text-gray"></i>
+            </div>
+
+        </div>
+        <div class="card-body" style="width: 90%">
+            {!! $chartjs->render() !!}
+
+        </div>
+    </div>
+</div>
+@endsection
+@push('script')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
+    @endpush

@@ -11,7 +11,7 @@
 <div class="main-menu-content">
     <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
 
-        <li class=" nav-item"><a href="{{url('/dashboard')}}"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">الرئيسية</span></a>
+        <li class=" nav-item"><a href="{{route('main/dashboard')}}"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">الرئيسية</span></a>
 
         </li>
         <li class=" nav-item"><a href="{{route('slider.index')}}"><i class="feather icon-camera"></i><span class="menu-title" data-i18n="Dashboard"> السلايدر </span></a>

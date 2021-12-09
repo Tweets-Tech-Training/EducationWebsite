@@ -69,7 +69,7 @@ Route::group(['middleware'=>'auth','prefix'=>'training/admin'],function(){
     Route::get('/',function(){
       //  return view('dashboard_layout.main');
     })->name('dashboard');
-    Route::get('dashboard', Dashboard::class)->name('dashboard');
+    Route::get('dashboard',[App\Http\Controllers\Dashboard\HomeController::class,'index'])->name('main/dashboard');
     Route::get('slider', Slider::class)->name('slider.index');
     Route::get('slider/create', SliderFormLivewire::class)->name('slider.create');
     Route::get('slider/{id}/edit', SliderFormLivewire::class)->name('slider.edit');

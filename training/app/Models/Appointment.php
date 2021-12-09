@@ -27,17 +27,19 @@ class Appointment extends Model
        // return Carbon::parse($this->day).$this->start ;
      //   dd(Carbon::parse($this->start)->format('H:i:s'));
        // dd(Carbon::parse($this->day)->format('d/m/Y'). ' '. Carbon::parse($this->start)->format('H:i:s'));
-        $data =  Carbon::parse($this->day)->format('d/m/Y') . ' ' . Carbon::parse($this->start)->format('H:i:s');
+        $data =  Carbon::parse($this->day)->format('d-m-Y') . ' ' . Carbon::parse($this->start)->format('H:i:s');
       // dd(   date('Y/m/d H:i:s', strtotime($data)));
-        return date('Y/m/d H:i:s', strtotime($data));
+        $date=date('Y-m-d H:i:s', strtotime($data));
+        return $date;
 
        // dd($date);
 
     }
     public function getDayAndEndAttribute()
     {
-        return Carbon::parse($this->day).$this->end ;
-        // dd($date);
+        $data =  Carbon::parse($this->day)->format('d-m-Y') . ' ' . Carbon::parse($this->end)->format('H:i:s');
+        $date=date('Y-m-d H:i:s', strtotime($data));
+        return $date;
 
     }
 
