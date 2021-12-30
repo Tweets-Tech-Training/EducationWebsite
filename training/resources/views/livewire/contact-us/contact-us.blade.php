@@ -27,19 +27,15 @@
                 <div class="table-responsive">
                     <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                         <div class="top">
-                            <div class="col-12 d-flex flex-sm-row flex-column justify-content-between mt-1">
-
-                                <div class="dt-buttons btn-group">
-
-                                </div>
-                                <div  class="col-md-4">
-                                    <input type="text" placeholder="ادخل الاسم هنا  ...." wire:model="search"  class="form-control form-control-sm mb-1"  style="padding: 1.45rem 2.8rem !important;    border: 1px solid #D6DCE1;
-                               float: left;" >
-                                </div>
-                            </div>
+                            <div class="actions action-btns"><div class="dt-buttons btn-group">
+                                </div></div>
                             <div class="action-filters">
-
-                            </div>
+                                <div class="dataTables_length" id="data_table_length"><label>
+                                        <select name="data_table_length"  wire:model="paginateNum" aria-controls="data_table" class="custom-select custom-select-sm form-control form-control-sm">
+                                            <option value="4">4</option><option value="10">10</option><option value="15">15</option><option value="20">20</option></select>
+                                    </label></div><div id="data_table_filter" class="dataTables_filter"><label>
+                                        <x-search wire:model="search"/>
+                                    </label></div></div>
                         </div>
                         <div class="clear"></div>
                         <table class="table data-thumb-view dataTable no-footer dt-checkboxes-select" id="DataTables_Table_0" role="grid">

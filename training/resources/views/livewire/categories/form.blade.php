@@ -17,7 +17,6 @@
 
                             </a>
                         </li>
-
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane active" id="account" aria-labelledby="account-tab" role="tabpanel">
@@ -32,7 +31,36 @@
                                             @error('category.name') <span class="text-danger">{{ $message }}</span> @enderror
                                         </div>
                                     </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-2">
+                                            <span>  الايقونة</span>
 
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control" wire:model="category.icon"  name="icon"   placeholder="رمز الصنف">
+                                            <a href=" https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/html/ltr/horizontal-menu-template/ui-feather.html" style="font-size:12px ">لعرض الايقونات اضغط هنا </a>
+                                            @error('category.icon') <span class="text-danger">{{ $message }}</span> @enderror
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-2">
+                                            <span> اللون   </span>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control" wire:model="category.color"  name="color" placeholder="اكتب اللون باللغة الانجليزية مثال : success  ">
+                                            @error('category.color') <span class="text-danger">{{ $message }}</span> @enderror
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-2">
+                                            <span> لون الايقونة </span> <br>
+{{--                                            <span style="font-size: 12px; ">اختر اللون باللغة الانجليزية  </span>--}}
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control" wire:model="category.iconColor"  name="iconColor"   placeholder="  اكتب لون الايقونة باللغة الانجليزية مثال: pink">
+                                            @error('category.iconColor') <span class="text-danger">{{ $message }}</span> @enderror
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="col-12 col-sm-4">

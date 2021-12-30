@@ -8,7 +8,7 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-left mb-0">الزبائن</h2>
+                        <h2 class="content-header-title float-left mb-0">المدربون</h2>
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="">الرئيسية</a>
@@ -27,21 +27,17 @@
                 <div class="table-responsive">
                     <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                         <div class="top">
-                            <div class="col-12 d-flex flex-sm-row flex-column justify-content-between mt-1">
-
-                                <div class="dt-buttons btn-group">
-                                    <a href="{{route('trainer.create')}}" class="btn btn-outline-primary mr-1 mb-1 waves-effect waves-light"><i class="feather icon-plus-circle"></i>
+                            <div class="actions action-btns"><div class="dt-buttons btn-group">
+                                    <a href="{{route('trainer.create')}}"   tabindex="0" aria-controls="data_table"  class="btn btn-outline-primary mr-1 mb-1 waves-effect waves-light"><i class="feather icon-plus-circle"></i>
                                         اضافة مدرب جديد                                 </a>
-
-                                </div>
-                                <div  class="col-md-4">
-                                    <input type="text" placeholder="ادخل الاسم هنا  ...." wire:model="search"  class="form-control form-control-sm mb-1"  style="padding: 1.45rem 2.8rem !important;    border: 1px solid #D6DCE1;
-                               float: left;" >
-                                </div>
-                            </div>
+                                </div></div>
                             <div class="action-filters">
-
-                            </div>
+                                <div class="dataTables_length" id="data_table_length"><label>
+                                        <select name="data_table_length" wire:model="paginateNum" aria-controls="data_table" class="custom-select custom-select-sm form-control form-control-sm">
+                                            <option value="4">4</option><option value="10">10</option><option value="15">15</option><option value="20">20</option></select>
+                                    </label></div><div id="data_table_filter" class="dataTables_filter"><label>
+                                        <x-search wire:model="search"/>
+                                    </label></div></div>
                         </div>
                         <div class="clear"></div>
                         <table class="table data-thumb-view dataTable no-footer dt-checkboxes-select" id="DataTables_Table_0" role="grid">
@@ -60,7 +56,10 @@
                                 </th>
                                 <th rowspan="1" colspan="1">
 
-                                    التاريخ     </th>
+                                    التخصص      </th>
+                                <th rowspan="1" colspan="1">
+
+                                    الراتب      </th>
                                 <th rowspan="1" colspan="1">
                                     الخيارات
                                 </th>
@@ -73,7 +72,8 @@
                                     <td>{{$trainer->id}}</td>
                                     <td>{{$trainer->name}}</td>
                                     <td>{{$trainer->mobile}}</td>
-                                    <td>{{(new \DateTime($trainer->created_at))->format('Y/m/d ')}}</td>
+                                    <td>{{ $trainer->specialization }}</td>
+                                    <td>{{ $trainer->salary }}</td>
                                     <td>
                                         <div class="inline-block whitespace-no-wrap">
                                             <a   class="btn btn-icon btn-icon rounded-circle btn-primary mr-1 mb-1 waves-effect waves-light" href="{{ route('trainer.edit',$trainer->id) }}" ><i class="feather icon-edit"></i></a>
@@ -85,7 +85,7 @@
                                 </tr>
 
                             @empty
-                                <div class='alert alert-info mt-4'>لا يوجد عناصر لعرضها </div>
+                                <x-nodata></x-nodata>
                             @endforelse
                             </tbody>
                         </table>
@@ -93,7 +93,7 @@
                         <div class="bottom">
                             <div class="actions"></div>
                             <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
-                                {{--                                {{$trainers->links()}}--}}
+                                                                {{$trainers->links()}}
                                 <div>
                                 </div>
 

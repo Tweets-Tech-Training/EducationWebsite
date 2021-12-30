@@ -16,8 +16,6 @@ class CreateStudyDivisionsTable extends Migration
         Schema::create('study_divisions', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('start_time');
-            $table->string('end_time');
             $table->integer('course_id');
             $table->integer('students_number');
             $table->integer('hall_id');

@@ -22,7 +22,7 @@ class CourseController extends Controller
             $courses = Course::where('name','like',"%$courseName%");
         }
         $categories = Category::all();
-        $courses = $courses->orderBy('id','desc')->get();
+        $courses = $courses->orderBy('id','desc')->paginate(4);
         return view('layouts.front.course')->with([
             'courses'=>$courses,
             'categories'=>$categories,
@@ -33,10 +33,10 @@ class CourseController extends Controller
         $courseName = $request->courseName ;
         $courses = Course::query();
         if($category_id){
-                $courses = Course::where('category_id',$category_id);
+            $courses = Course::where('category_id',$category_id);
         }
         if($courseName){
-                $courses = Course::where('name','like',"%$courseName%");
+            $courses = Course::where('name','like',"%$courseName%");
         }
 
         $categories = Category::all();
@@ -47,6 +47,19 @@ class CourseController extends Controller
         ])->render();
         return response()->json(['html'=>$html]);
 //        return response()->json(['courses'=>$courses,]);
+
+    }
+
+
+    public function show($id){
+        $course=Course::find($id);
+
+        $trainer=$course->trainer()->first();
+        //dd($trainer);
+        return view('layouts.front.course-details')->with([
+            'course'=>$course,
+            'trainer'=>$trainer,
+        ]);
 
     }
 }

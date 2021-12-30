@@ -25,12 +25,14 @@ class HomeController extends Controller
         $courses = $this->getCourses();
         $reviews = $this->getTestimonial();
         $partners = $this->getPartners();
+        $logo = Setting::get();
         return view('layouts.front.index')->with([
             'sliders'=>$sliders,
             'categories'=>$categories,
             'courses'=>$courses,
             'reviews'=>$reviews,
             'partners'=>$partners,
+            'logo' => $logo,
         ]);
     }
 
@@ -89,5 +91,11 @@ class HomeController extends Controller
     public function getSetting(){
         return Setting::all();
     }
+
+    public function courseRegistrationShow()
+    {
+        return view('layouts.front.course-registration');
+    }
+
 
 }

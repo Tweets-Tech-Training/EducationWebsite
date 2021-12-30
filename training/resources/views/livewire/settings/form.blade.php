@@ -3,7 +3,7 @@
         <style>
             .upload-btn-wrapper{
                 width: 250px !important;
-                height: 250px !important;
+                height: 150px !important;
             }
         </style>
     @endpush
@@ -63,6 +63,19 @@
                                             @error('setting.email') <span class="text-danger">{{ $message }}</span> @enderror
                                         </div>
                                         <div class="col-md-6">
+                                            <span> المكان </span>
+                                            <div class="input-group mb-75">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text feather icon-map" id="basic-addon4"></span>
+                                                </div>
+                                                <input type="text" class="form-control" wire:model="setting.place"  name="facebook"   >
+                                            </div>
+                                            @error('setting.place') <span class="text-danger">{{ $message }}</span> @enderror
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-6">
                                             <span> حساب الفيس بوك </span>
                                             <div class="input-group mb-75">
                                                 <div class="input-group-prepend">
@@ -72,9 +85,6 @@
                                             </div>
                                             @error('setting.facebook') <span class="text-danger">{{ $message }}</span> @enderror
                                         </div>
-
-                                    </div>
-                                    <div class="form-group row">
                                         <div class="col-md-6">
                                             <span> حساب انستغرام </span>
                                             <div class="input-group mb-75">
@@ -87,6 +97,10 @@
                                             @error('setting.instagram') <span class="text-danger">{{ $message }}</span> @enderror
                                         </div>
 
+
+
+                                    </div>
+                                    <div class="form-group row">
                                         <div class="col-md-6">
                                             <span> حساب تويتر </span>
                                             <div class="input-group mb-75">
@@ -97,9 +111,17 @@
                                             </div>
                                             @error('setting.twitter') <span class="text-danger">{{ $message }}</span> @enderror
                                         </div>
+                                        <div class="col-md-6">
+                                            <span>  رابط اليوتيوب </span>
+                                            <div class="input-group mb-75">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text feather icon-youtube" id="basic-addon4"></span>
+                                                </div>
+                                                <input type="text" class="form-control" wire:model="setting.youtube"  name="mobile"   placeholder="رابط اليوتيوب">
+                                            </div>
 
-                                    </div>
-                                    <div class="form-group row">
+                                            @error('setting.youtube') <span class="text-danger">{{ $message }}</span> @enderror
+                                        </div>
                                         <div class="col-md-6">
                                             <span> حساب واتس آب </span>
                                             <input type="text" class="form-control" wire:model="setting.whatsapp"  name="name"   placeholder=" حساب واتس آب ">
@@ -112,17 +134,7 @@
                                             @error('setting.whatsapp') <span class="text-danger">{{ $message }}</span> @enderror
                                         </div>
 
-                                        <div class="col-md-6">
-                                            <span>  رابط اليوتيوب </span>
-                                            <div class="input-group mb-75">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text feather icon-youtube" id="basic-addon4"></span>
-                                                </div>
-                                                <input type="text" class="form-control" wire:model="setting.youtube"  name="mobile"   placeholder="رابط اليوتيوب">
-                                            </div>
 
-                                            @error('setting.youtube') <span class="text-danger">{{ $message }}</span> @enderror
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-4">
@@ -135,7 +147,7 @@
 
                                             @else
 
-                                                <div style="width: 250px ; height: 250px; max-height: 250px;">
+                                                <div style="width: 250px ; height: 150px; max-height: 150px;">
                                                     <div>
                                                         <img style="border: 3px solid #D3D3D3; border-radius: 15px; width: 100%; max-height: 250px;" src="{{ $setting->logo ? asset('storage/images/'.$setting->logo):asset('storage/images/no-image.png')}}">
                                                         @error('setting.logo') <span class="text-danger" style="font-size: 1rem ;display: block;!important;">{{ $message }}</span> @enderror
@@ -153,6 +165,33 @@
 
                                         </div>
                                         @error('image') <span class="text-danger">{{ $message }}</span> @enderror
+                                    </div>
+                                    <div class="upload-btn-wrapper mx-auto">
+                                        <div class="upload-btn">
+                                            @if($images)
+
+                                                <img   style="width: 250px ; height: 150px; max-height: 150px; !important;" src="{{$images->temporaryUrl()}}">
+
+                                            @else
+
+                                                <div style="width: 250px ; height: 150px; max-height: 150px; !important;">
+                                                    <div>
+                                                        <img style="border: 3px solid #D3D3D3; border-radius: 15px; width: 100%; max-height: 150px;" src="{{ $setting->image ? asset('storage/images/'.$setting->image):asset('storage/images/no-image.png')}}">
+                                                        @error('setting.image') <span class="text-danger" style="font-size: 1rem ;display: block;!important;">{{ $message }}</span> @enderror
+                                                    </div>
+                                                </div>
+                                            @endif
+                                        </div>
+                                        <input wire:click type="file" class="profile-img-input"  id="image"   wire:model="images" name="image" >
+
+                                        <div wire:loading   wire:target="images" style="margin-top: 10px;">
+                                            <h6 style="display: inline-block">   جار الرفع...   </h6>
+                                            <div  class="  spinner-border spinner-border-sm text-gray-200" role="status">
+                                                <span class="visually-hidden "> </span>
+                                            </div>
+
+                                        </div>
+                                        @error('images') <span class="text-danger">{{ $message }}</span> @enderror
                                     </div>
 
                                 </div>

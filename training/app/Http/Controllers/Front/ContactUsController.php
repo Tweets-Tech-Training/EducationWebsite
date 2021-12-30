@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Models\ContactUs;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -13,6 +14,7 @@ class ContactUsController extends Controller
 
     public function index()
     {
+//        $setting=Setting::first();
         return view('layouts.front.contact-us');
     }
 

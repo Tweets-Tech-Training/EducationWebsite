@@ -42,7 +42,6 @@ class CourseFormLivewire extends Component
 
     public function save()
     {
-
         if ($this->image ) {
             $filename = $this->image->store('public/images');
             $imageName = $this->image->hashName();

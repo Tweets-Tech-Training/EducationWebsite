@@ -10,7 +10,8 @@ class Category extends Model
     use HasFactory;
     protected $fillable = [
         'name',
-        'image'
+        'image',
+        'icon'
     ];
 
     public function courses(){
@@ -20,4 +21,7 @@ class Category extends Model
 //        // return $this->hasMany(Post::class)->where('published',1)->where('category_id',$category_id);
 //        return  $this->courses()->where(['category_id'=>$this->id]);
 //    }
+    public function scopePublishedCategory(){
+        return  $this->courses()->where(['category_id'=>$this->id]);
+    }
 }

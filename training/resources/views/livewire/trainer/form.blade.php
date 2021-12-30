@@ -25,44 +25,51 @@
                                 <div class="col-12 col-sm-8">
 
                                     <div class="form-group row">
-                                        <div class="col-md-2">
-                                            <span>الاسم</span>
+                                        <div class="col-md-6">
+                                            <x-form.input title="الاسم"  type="text" class="form-control" wire:model="trainer.name"  name="trainer.name"/>
+
                                         </div>
-                                        <div class="col-md-8">
-                                            <input type="text" class="form-control" wire:model="trainer.name"  name="name"  placeholder="الاسم">
-                                            @error('trainer.name') <span class="text-danger">{{ $message }}</span> @enderror
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-md-2">
-                                            <span>رقم الجوال </span>
-                                        </div>
-                                        <div class="col-md-8">
-                                            <input type="text" class="form-control" wire:model="trainer.mobile"  name="name"  placeholder="الاسم">
-                                            @error('trainer.mobile') <span class="text-danger">{{ $message }}</span> @enderror
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-md-2">
-                                            <span>البريد الالكتروني</span>
-                                        </div>
-                                        <div class="col-md-8">
-                                            <input type="text"  class="form-control"  name="email" wire:model="trainer.email">
-                                            @error('trainer.email') <span class="text-danger">{{ $message }}</span>@enderror
+                                        <div class="col-md-6">
+
+                                            <x-form.input title="الايميل"  type="text" class="form-control" wire:model="trainer.email"  name="trainer.email"/>
 
                                         </div>
                                     </div>
-
                                     <div class="form-group row">
-                                        <div class="col-md-2">
-                                            <span>كلمة المرور </span>
-                                        </div>
-                                        <div class="col-md-8">
-                                            <input wire:model.defer="password" type="text" name="password" class="form-control" placeholder="كلمة المرور  " >
-                                            @error('password') <span class="text-danger">{{ $message }}</span>@enderror
-                                        </div>
+                                        <div class="col-md-6">
+                                        <x-form.input title="رقم الجوال "  type="text" class="form-control" wire:model="trainer.mobile"  name="trainer.mobile"/>
                                     </div>
+                                        <div class="col-md-6">
+                                            <x-form.input title="الراتب"  type="text" class="form-control" wire:model="trainer.salary"  name="password"/>
 
+                                </div>
+
+                                </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-6">
+                                            <x-form.input title="التخصص "  type="text" class="form-control" wire:model="trainer.specialization"  name="trainer.specialization"/>
+                                        </div>
+                                        <div class="col-md-6">
+                                        <label> الجنس </label>
+                                            <select class="form-select form-control"   wire:model="trainer.gender" aria-label="Default select example" name="gender"
+                                                    id="customerstatus">
+                                                <option value="">اخترالجنس  </option>
+                                                <option  value="M">ذكر </option>
+                                                <option  value="F">  انثى  </option>
+                                            </select>
+                                            @error('trainer.gender') <span class="text-danger">{{ $message }}</span>@enderror
+
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-6">
+                                            <x-form.input title="عنوان السكن "  type="text" class="form-control" wire:model="trainer.address"  name="address"/>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <x-form.input title="حساب الفيسبوك"  type="text" class="form-control" wire:model="trainer.facebook"  name="trainer.facebook"/>                                        </div>
+
+                                    </div>
                                 </div>
                                 <div class="col-12 col-sm-4">
                                     <h4 style="text-align: center">  الصورة</h4>
@@ -76,9 +83,6 @@
                                                     <img style="border: 3px solid #D3D3D3; border-radius: 15px; width: 100%; height: 100%" src="{{$trainer->image?asset('storage/images/'.$trainer->image):asset('storage/images/no-image.png')}}">                                                    {{--                            <img  src="{{$bill->image?asset('storage/images/'.$bill->image):'#'}}"  style="border: 3px solid #D3D3D3; border-radius: 15px; width:100% ; height: 100%  ">--}}
                                                 @endif
                                             @endif
-
-
-
 
                                         </div>
                                         <input type="file" class="profile-img-input"  id="image"   wire:model="image" name="image" >

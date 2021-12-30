@@ -14,6 +14,9 @@ class CategoriesFormLivewire extends Component
     protected $rules = [
         'category.name'=>'required',
         'category.image'=>'required',
+        'category.icon'=>'required',
+        'category.iconColor'=>'required',
+        'category.color'=>'required',
     ];
 
     public function mount($id=null)

@@ -66,7 +66,7 @@
     @stack('style')
     @livewireStyles
 </head>
-<!-- END: Head-->
+<!-- END: Head--><meta name="csrf-token" content="{{ csrf_token() }}">
 <!-- BEGIN: Body-->
 <body class="vertical-layout vertical-menu-modern 2-columns  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
 <!-- BEGIN: Header - horizontal-header -->
@@ -124,10 +124,19 @@
 <script src="{{asset('admin-layout/app-assets/vendors/js/tables/datatable/dataTables.select.min.js')}}"></script>
 <script src="{{asset('admin-layout/app-assets/vendors/js/tables/datatable/datatables.checkboxes.min.js')}}"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="{{asset('admin-layout/app-assets/vendors/js/pickers/pickadate/picker.js')}}"></script>
+<script src="{{asset('admin-layout/app-assets/vendors/js/pickers/pickadate/picker.date.js')}}"></script>
 
+<script src="{{asset('admin-layout/app-assets/vendors/js/pickers/pickadate/picker.time.js')}}"></script>
+
+<script src="{{asset('admin-layout/app-assets/vendors/js/pickers/pickadate/legacy.js')}}"></script>
+<script src="{{asset('admin-layout/app-assets/vendors/js/pickers/flatpickr/flatpickr.min.js')}}"></script>
+<script src="{{asset('admin-layout/app-assets/js/scripts/forms/pickers/form-pickers.js')}}"></script>
+{{--<script src="{{asset('admin-layout/app-assets/vendors/js/pickers/pickadate/picker.time.js')}}"></script>--}}
 <!-- BEGIN: Page JS-->
 <!-- END: Page JS-->
 @livewireScripts
+
 <script>
     $(document).ready(function(){
         var multipleCancelButton = new Choices('#choices-multiple-remove-button', {
@@ -141,6 +150,12 @@
     });
 </script>
 <script>
+    window.livewire.on('modalHide', (data) => {
+        $(data).modal('hide');
+    });
+    window.livewire.on('modalShow', (data) => {
+        $(data).modal('show');
+    });
 
     window.addEventListener('swal:modal', event => {
         swal({
@@ -170,7 +185,23 @@
                 }
             });
     });
+    window.addEventListener('swal2:modal', event => {
+        Swal.fire({
+            icon: 'error',
+            text: event.detail.message,
+            confirmButtonText: 'موافق',
+            // footer: '<a href="">Why do I have this issue?</a>'
+        })
+    });
 </script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/core/main.min.js"></script>
+
+{{--<script src="{{asset('admin-layout/app-assets/js/scripts/pages/app-calendar-events.js')}}"></script>--}}
+{{--<script src="{{asset('admin-layout/app-assets/js/scripts/pages/app-calendar.js')}}"></script>--}}
 @stack('script')
 </body>
 <!-- END: Body-->
