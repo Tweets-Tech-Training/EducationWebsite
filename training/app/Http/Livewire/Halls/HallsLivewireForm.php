@@ -15,7 +15,7 @@ class HallsLivewireForm extends Component
     {
         $this->hall = Hall::find($id);
         $this->appointments= StudyDivision::has('hall')->where('hall_id' , $id)->get();
-       // dd($this->appointments);
+       
     }
     public function render()
     {
